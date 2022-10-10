@@ -1,13 +1,57 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@import url("https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Istok+Web&display=swap");
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --red-color: #df2020;
+  --black-color: #212245;
+  --pink-color: #fde4e4;
+  --white-color: #fcfcfc;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 100%;
+}
+body {
+  font-family: "Istok Web", sans-serif;
+  width: 100%;
+}
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: var(--black-color);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "RocknRoll One", sans-serif !important;
+}
+li {
+  list-style: none;
+}
+ul {
+  padding: 0;
+}
+section,
+header,
+footer {
+  width: 100vw;
+  padding: 0 10%;
+}
+svg {
+  font-size: 25px;
+  font-weight: bold;
+}
+svg:hover {
+  color: var(--red-color);
+  cursor: pointer;
+}
+.router__container {
+  min-height: calc(100vh - 100px);
 }
