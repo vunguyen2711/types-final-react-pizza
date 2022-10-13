@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Avatar, Input, Divider } from "antd";
 import {
   DeleteOutlined,
@@ -38,6 +38,9 @@ const DrawerList = ({ item }: DrawerListProps) => {
       changeAmountByInput({ id: item.id, amount: Number(e.target.value) })
     );
   };
+  useEffect(() => {
+    setAmountDrawer(item.amount.toString());
+  }, [item.amount]);
   return (
     <>
       <div className="drawer__list">

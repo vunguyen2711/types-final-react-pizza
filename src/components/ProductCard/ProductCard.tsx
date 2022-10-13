@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./style";
 import { useAppDispatch, useAppSelector } from "../../redux/hook";
-import { addItems } from "../../redux/features/Cart/cartSlice";
+import { addItems, getCartItems } from "../../redux/features/Cart/cartSlice";
 import type { CartPayload } from "../../redux/features/Cart/cartSlice";
 import { PlusCircleOutlined, MinusCircleOutlined } from "@ant-design/icons";
 import { Button, Modal, Space, Row, Col, Input } from "antd";
@@ -10,9 +10,11 @@ interface ProductCardProps {
   item: ProductCartItems;
 }
 const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
-  const dispatch = useAppDispatch();
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const { id, title, category, price, img } = item;
+
+  const dispatch = useAppDispatch();
+  const { cartItems } = useAppSelector(getCartItems);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [modalPrice, setModalPrice] = useState<number>(price);
   const [modalAmount, setModalAmount] = useState<number>(1);
   // function
@@ -52,6 +54,14 @@ const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
   useEffect(() => {
     setModalPrice(modalAmount * price);
   }, [modalAmount]);
+  useEffect(() => {
+    const index = cartItems.findIndex((cartItem) => cartItem.id === id);
+    if (index !== -1) {
+      setModalAmount(cartItems[index].amount);
+    } else if (index === -1) {
+      setModalAmount(1);
+    }
+  }, [cartItems]);
   return (
     <>
       <S.ModalContainer
@@ -84,7 +94,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
                 style={{ width: "100px" }}
                 value={modalAmount}
                 onChange={(e) => setModalAmount(Number(e.target.value))}
-                type="number"
                 defaultValue={1}
               />
               <MinusCircleOutlined onClick={descreaseProduct} />

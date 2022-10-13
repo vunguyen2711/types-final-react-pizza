@@ -49,6 +49,7 @@ const Header: React.FC = () => {
   const { pathname } = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const { cartItems, totalAmount } = useAppSelector(getCartItems);
+
   const [open, setOpen] = useState(false);
   const dispatch = useAppDispatch();
   const showDrawer = () => {
