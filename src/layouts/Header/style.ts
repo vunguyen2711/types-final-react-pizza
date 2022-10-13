@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { Row, Col, Space } from "antd";
+import { Drawer } from "antd";
 import { IsOpenProps } from "../../interfaces/interface";
 export const HeaderContainer = styled.header`
   position: sticky;
@@ -72,5 +72,41 @@ export const HeaderContainer = styled.header`
       left: 20px;
       display: block;
     }
+  }
+`;
+export const DrawerContainer = styled(Drawer)`
+  .drawer__txt {
+    font-size: 16px;
+    color: var(--red-color);
+  }
+  .drawer__list {
+    height: fit-content;
+    padding: 10px;
+    width: 100%;
+  }
+  .drawer__list-delete {
+    text-align: right;
+  }
+
+  .drawer__title {
+    font-size: 18px;
+  }
+  .drawer__price {
+    font-size: 16px;
+    & span {
+      font-size: 20px;
+      color: var(--red-color);
+    }
+  }
+  .drawer__list-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .drawer-list-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: flex-start;
   }
 `;

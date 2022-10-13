@@ -10,10 +10,41 @@ export const AllFoodContainer = styled.section`
       font-family: bold;
     }
   }
-  .allfood__filter {
-    border: 1px solid var(--black-color);
+
+  .allfood__title {
+    font-size: 32px;
+    font-family: bold;
   }
-  .allfood__products {
-    border: 1px solid var(--black-color);
+  .pizza__filter {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    align-items: center;
+    &--button {
+      padding: 5px 10px;
+      background-color: #fff;
+      border: 1px solid var(--red-color);
+      border-radius: 30px;
+      &:hover {
+        background-color: var(--red-color);
+        cursor: pointer;
+        color: #fff;
+      }
+      &.is-actived {
+        background-color: var(--red-color);
+        cursor: pointer;
+        color: #fff;
+      }
+    }
+  }
+  .loadmore__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .allfood__category {
+    font-size: 20px;
+    font-weight: bold;
   }
 `;

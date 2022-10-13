@@ -1,12 +1,19 @@
+import { Modal } from "antd";
 import styled from "styled-components";
 
 export const ProductCard = styled.div`
   width: 100%;
+  min-height: 400px;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   .product__img {
+    height: 250px;
     & img {
       width: 100%;
-      object-fit: cover;
+      height: 100%;
+      object-fit: contain;
       object-position: center;
       transition: all 0.5s;
       &:hover {
@@ -36,5 +43,29 @@ export const ProductCard = styled.div`
       color: #fff;
       background-color: var(--red-color);
     }
+  }
+`;
+export const ModalContainer = styled(Modal)`
+  .modal__content {
+  }
+  .modal__content-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--black-color);
+  }
+  .modal__content-price {
+    font-size: 24px;
+    & span {
+      font-size: 30px;
+      color: var(--red-color);
+    }
+  }
+  .modal__content-desc {
+  }
+  .modal__content-change {
+  }
+  .modal__image {
+    display: flex;
+    justify-content: center;
   }
 `;
