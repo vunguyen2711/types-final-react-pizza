@@ -1,0 +1,500 @@
+{
+  "combos": [
+    {
+      "id": 1,
+      "title": "Chicken Pizza Combo",
+      "price": 24.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0003230_ga-gion-tuoi_300.png",
+      "category": "Combo"
+    },
+    {
+      "id": 2,
+      "title": "50% off Combo",
+      "price": 56.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002963_hde-discount-50-pizza-2_300.png",
+      "category": "Combo"
+    },
+    {
+      "id": 3,
+      "title": "Buy 1 get 3 Combo",
+      "price": 43.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002305_bogo-t3_l-product-for-cc_300.png",
+      "category": "Combo"
+    },
+    {
+      "id": 4,
+      "title": "4 People Combo",
+      "price": 100.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0003223_combo-chat-qua-chat-359k_300.png",
+      "category": "Combo"
+    },
+    {
+      "id": 5,
+      "title": "3 People Combo",
+      "price": 87.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0003222_combo-chat-qua-219k_300.png",
+      "category": "Combo"
+    },
+    {
+      "id": 6,
+      "title": "2 People Combo",
+      "price": 56.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0003222_combo-chat-qua-219k_300.png",
+      "category": "Combo"
+    },
+    {
+      "id": 7,
+      "title": "1 People Combo",
+      "price": 23.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0003221_combo-chat-129k_300.png",
+      "category": "Combo"
+    },
+    {
+      "id": 7,
+      "title": "Superset 1 Combo",
+      "price": 300.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0003228_an-ngon-suong-suong-cg_300.png",
+      "category": "Combo"
+    },
+    {
+      "id": 8,
+      "title": "Superset 2 Combo",
+      "price": 200.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0003229_cuoi-gion-tan_300.png",
+      "category": "Combo"
+    }
+  ],
+  "pizza": [
+    {
+      "id": 1,
+      "title": "SeaFood Peach Pizza",
+      "price": 23.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0003102_seafood-peach_300.png",
+      "category": "Pizza",
+      "type": "Special"
+    },
+    {
+      "id": 2,
+      "title": "Vegetable Pizza",
+      "price": 26.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002624_seafood-pesto_300.png",
+      "category": "Pizza",
+      "type": "Special"
+    },
+    {
+      "id": 3,
+      "title": "Pesto Pizza",
+      "price": 29.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002624_seafood-pesto_300.png",
+      "category": "Pizza",
+      "type": "SeaFood"
+    },
+    {
+      "id": 4,
+      "title": "Advanced Pizza",
+      "price": 56.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002214_sf-deluxe_300.png",
+      "category": "Pizza",
+      "type": "SeaFood"
+    },
+    {
+      "id": 5,
+      "title": "Typical Pizza",
+      "price": 82.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002211_tropical-sf_300.png",
+      "category": "Pizza",
+      "type": "SeaFood"
+    },
+    {
+      "id": 6,
+      "title": "Mix Special Pizza",
+      "price": 42.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002217_aloha_300.png",
+      "category": "Pizza",
+      "type": "Mixed"
+    },
+    {
+      "id": 7,
+      "title": "Bacon Pizza",
+      "price": 45.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002221_bacon-sup_300.png",
+      "category": "Pizza",
+      "type": "Mixed"
+    },
+    {
+      "id": 8,
+      "title": "Bacon Canadian Pizza",
+      "price": 52.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002222_ca-bacon_300.png",
+      "category": "Pizza",
+      "type": "Mixed"
+    },
+    {
+      "id": 9,
+      "title": "Chicken Mix Pizza",
+      "price": 55.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002223_ck-trio_300.png",
+      "category": "Pizza",
+      "type": "Mixed"
+    },
+    {
+      "id": 10,
+      "title": "Pineapple Pizza",
+      "price": 62.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002228_ck-caldo_300.png",
+      "category": "Pizza",
+      "type": "Traditional"
+    },
+    {
+      "id": 11,
+      "title": "Cheese Pizza",
+      "price": 66.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002226_double-cheese_300.png",
+      "category": "Pizza",
+      "type": "Traditional"
+    },
+    {
+      "id": 12,
+      "title": "Italian Pizza",
+      "price": 69.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002225_double-pepperoni_300.png",
+      "category": "Pizza",
+      "type": "Traditional"
+    },
+    {
+      "id": 13,
+      "title": "Mushroom Pizza",
+      "price": 56.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002227_h-m_300.png",
+      "category": "Pizza",
+      "type": "Traditional"
+    },
+    {
+      "id": 14,
+      "title": "Hawai Pizza",
+      "price": 88.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002224_hawaii_300.png",
+      "category": "Pizza",
+      "type": "Traditional"
+    },
+    {
+      "id": 15,
+      "title": "Green mixed Pizza",
+      "price": 78.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002229_veg_300.png",
+      "category": "Pizza",
+      "type": "Traditional"
+    }
+  ],
+  "noodles": [
+    {
+      "id": 1,
+      "title": "Italian Noodle",
+      "price": 23.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002253_spaghetti-spicy-seafood_300.png",
+      "category": "Noodle"
+    },
+    {
+      "id": 2,
+      "title": "Marin Noodle",
+      "price": 25.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0003135_spaghetti-vegetarian-w-marinara-sauce_300.png",
+      "category": "Noodle"
+    },
+    {
+      "id": 3,
+      "title": "Cream Noodle",
+      "price": 32.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002257_spaghetti-shrimp-rose_300.png",
+      "category": "Noodle"
+    },
+    {
+      "id": 4,
+      "title": "Spicy Noodle",
+      "price": 22.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002254_spicy-sausage-spaghetti_300.png",
+      "category": "Noodle"
+    },
+    {
+      "id": 5,
+      "title": "Mushroom Noodle",
+      "price": 29.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002255_spaghetti-ham-mushroom_300.png",
+      "category": "Noodle"
+    },
+    {
+      "id": 6,
+      "title": "Beef Noodle",
+      "price": 26.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002258_spaghetti-bolognese_300.png",
+      "category": "Noodle"
+    },
+    {
+      "id": 7,
+      "title": "Veterian Noodle",
+      "price": 32.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002260_spaghetti-veggi-mushroom-cream-sauce_300.png",
+      "category": "Noodle"
+    }
+  ],
+  "salads": [
+    {
+      "id": 1,
+      "title": "Kiwi Salad",
+      "price": 12.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002252_garden-salad_300.png",
+      "category": "Salad"
+    },
+    {
+      "id": 2,
+      "title": "Orange Salad",
+      "price": 13.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002250_signature-salad_300.png",
+      "category": "Salad"
+    },
+    {
+      "id": 3,
+      "title": "Tinnet Salad",
+      "price": 11.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002600_chicken-strip-salad_300.png",
+      "category": "Salad"
+    },
+    {
+      "id": 4,
+      "title": "Chinken Salad",
+      "price": 25.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002601_crispy-salmon-skin-salad_300.png",
+      "category": "Salad"
+    },
+    {
+      "id": 5,
+      "title": "Chichiqua Salad",
+      "price": 18.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002251_caesars-salad_300.png",
+      "category": "Salad"
+    },
+    {
+      "id": 6,
+      "title": "WaterMelon Salad",
+      "price": 28.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0003275_cabbage-salad_300.png",
+      "category": "Salad"
+    }
+  ],
+  "drinks": [
+    {
+      "id": 1,
+      "title": "Pepsi",
+      "price": 5.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002365_pepsi-can_300.jpeg",
+      "category": "Drink"
+    },
+    {
+      "id": 2,
+      "title": "Pepsi Bottle",
+      "price": 5.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002364_pepsi-15l-pet_300.jpeg",
+      "category": "Drink"
+    },
+    {
+      "id": 3,
+      "title": "7up",
+      "price": 5.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002363_7-up-can_300.jpeg",
+      "category": "Drink"
+    },
+    {
+      "id": 4,
+      "title": "Quafina Water",
+      "price": 5.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002439_aquafina_300.png",
+      "category": "Drink"
+    },
+    {
+      "id": 5,
+      "title": "Heniken Beer",
+      "price": 10.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002436_heineken_300.png",
+      "category": "Drink"
+    },
+    {
+      "id": 6,
+      "title": "333 Beer",
+      "price": 10.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002434_333-beer_300.png",
+      "category": "Drink"
+    },
+    {
+      "id": 7,
+      "title": "Pepsi Black",
+      "price": 5.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002420_pepsi-black-can_300.jpeg",
+      "category": "Drink"
+    },
+    {
+      "id": 8,
+      "title": "7up 1,5l Bottle",
+      "price": 10.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002421_7-up-15l-pet_300.jpeg",
+      "category": "Drink"
+    },
+    {
+      "id": 9,
+      "title": "Pepsi Black Lime",
+      "price": 5.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002573_pepsi-lime-can_300.png",
+      "category": "Drink"
+    },
+    {
+      "id": 10,
+      "title": "Mirinda",
+      "price": 5.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002702_mirinda-soda-kem-can_300.png",
+      "category": "Drink"
+    }
+  ],
+  "creams": [
+    {
+      "id": 1,
+      "title": "Mocha Almond Fudge Ice-cream",
+      "price": 12.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0003006_mocha-almond-fudge-quart_300.png",
+      "category": "Cream"
+    },
+    {
+      "id": 2,
+      "title": "Matcha Green Tea Ice-cream",
+      "price": 12.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0003008_matcha-green-tea-quart_300.png",
+      "category": "Cream"
+    },
+    {
+      "id": 3,
+      "title": "Very Strawberry Ice-cream",
+      "price": 12.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0003011_very-strawberry-quart-_300.png",
+      "category": "Cream"
+    },
+    {
+      "id": 4,
+      "title": "Rum Raisin Ice-cream",
+      "price": 12.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0003009_rum-raisin-quart-_300.png",
+      "category": "Cream"
+    },
+    {
+      "id": 5,
+      "title": "Chocolate Ice-cream",
+      "price": 12.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0003007_chocolate-quart-_300.png",
+      "category": "Cream"
+    },
+    {
+      "id": 6,
+      "title": "Vanilla Ice-cream",
+      "price": 12.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0003010_vanilla-quart-_300.png",
+      "category": "Cream"
+    }
+  ],
+  "appetizers": [
+    {
+      "id": 50,
+      "title": "BBQ Chicken Wings (10 pcs)",
+      "price": 10.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002416_bbq-chicken-wings-10-pcs_300.png",
+      "category": "Appetizer"
+    },
+    {
+      "id": 51,
+      "title": "BBQ Chicken Wings (6 pcs)",
+      "price": 9.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002233_bbq-chicken-wings-6-pcs_300.jpeg",
+      "category": "Appetizer"
+    },
+    {
+      "id": 52,
+      "title": "Bread stick with dipping sauce",
+      "price": 10.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002247_bread-sticks-w-dipping-sauce_300.jpeg",
+      "category": "Appetizer"
+    },
+    {
+      "id": 53,
+      "title": "Chicken Popcorn",
+      "price": 10.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0003292_chicken-popcorn_300.png",
+      "category": "Appetizer"
+    },
+    {
+      "id": 54,
+      "title": "Garlic bread",
+      "price": 10.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002245_garlic-bread_300.jpeg",
+      "category": "Appetizer"
+    },
+    {
+      "id": 55,
+      "title": "Cheese garlic bread",
+      "price": 10.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002244_cheese-garlic-breads_300.jpeg",
+      "category": "Appetizer"
+    },
+    {
+      "id": 56,
+      "title": "French fries",
+      "price": 10.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002246_french-fries_300.png",
+      "category": "Appetizer"
+    },
+    {
+      "id": 57,
+      "title": "Calamari",
+      "price": 10.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002242_squid-rings_300.jpeg",
+      "category": "Appetizer"
+    },
+    {
+      "id": 58,
+      "title": "Potato basket",
+      "price": 10.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002243_potato-basket_300.jpeg",
+      "category": "Appetizer"
+    },
+    {
+      "id": 59,
+      "title": "Quesadillas",
+      "price": 10.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002241_quesadilla_300.jpeg",
+      "category": "Appetizer"
+    },
+    {
+      "id": 60,
+      "title": "Spicy garlic shrimp with bread",
+      "price": 10.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002248_spicy-garlic-shrimp-with-bread_300.jpeg",
+      "category": "Appetizer"
+    },
+    {
+      "id": 61,
+      "title": "Cheese bread twists",
+      "price": 10.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002249_cheese-bread-twists_300.jpeg",
+      "category": "Appetizer"
+    },
+    {
+      "id": 62,
+      "title": "Platter - Crispy chicken wings",
+      "price": 10.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002240_platter-ccw_300.jpeg",
+      "category": "Appetizer"
+    },
+    {
+      "id": 63,
+      "title": "Junior Star (5pcs)",
+      "price": 10.0,
+      "img": "https://thepizzacompany.vn/images/thumbs/000/0002463_junior-star-5-pcs_300.png",
+      "category": "Appetizer"
+    }
+  ]
+}
