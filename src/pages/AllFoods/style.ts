@@ -1,6 +1,34 @@
 import styled from "styled-components";
 export const AllFoodContainer = styled.section`
   padding-top: 20px;
+  .allfoods__search {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    cursor: pointer;
+    &:hover .allfoods__search-icon {
+      color: var(--red-color);
+    }
+    &:hover .allfoods__search-text {
+      color: var(--red-color);
+    }
+    .allfoods__search-icon {
+      font-size: 24px;
+      &:active {
+        color: var(--black-color);
+      }
+    }
+    .allfoods__search-text {
+      font-size: 24px;
+      margin: 0;
+
+      /* &:hover {
+        color: var(--red-color);
+      } */
+    }
+  }
   .allfood__combo {
     .allfood__slider {
       height: 100px;

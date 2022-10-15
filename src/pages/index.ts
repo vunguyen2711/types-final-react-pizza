@@ -6,5 +6,16 @@ import Contact from "./Contact/Contact";
 import FoodDetail from "./FoodDetail/FoodDetail";
 import Login from "./Login/Login";
 import Register from "./Register/Register";
+import SearchFoods from "./SearchFoods/SearchFoods";
 
-export { Home, AllFoods, Cart, Checkout, Contact, FoodDetail, Login, Register };
+export {
+  Home,
+  AllFoods,
+  Cart,
+  Checkout,
+  Contact,
+  FoodDetail,
+  Login,
+  Register,
+  SearchFoods,
+};

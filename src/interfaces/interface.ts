@@ -43,3 +43,10 @@ export interface LoadMore {
   drinks: boolean | null;
   creams: boolean | null;
 }
+
+export interface IconSliderProps {
+  max: number;
+  min: number;
+}
+export type SliderValue = number | [number, number];
+export type ValueSelect = string;

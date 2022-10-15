@@ -10,6 +10,7 @@ import {
   Contact,
   Login,
   Register,
+  SearchFoods,
 } from "../pages";
 import { RoutesPath } from "../constants/routes.path";
 const Routers = () => {
@@ -18,6 +19,7 @@ const Routers = () => {
       <Routes>
         <Route path={RoutesPath.HOME} element={<Home />} />
         <Route path={RoutesPath.AllFOODS} element={<AllFoods />} />
+        <Route path={RoutesPath.SEARCHFOODS} element={<SearchFoods />} />
         <Route path={RoutesPath.FOODDETAIL} element={<FoodDetail />} />
         <Route path={RoutesPath.CART} element={<Cart />} />
         <Route path={RoutesPath.CHECKOUT} element={<Checkout />} />

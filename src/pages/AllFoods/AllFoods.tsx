@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from "react";
 import CommonSection from "../../components/CommonSection/CommonSection";
 import Helmet from "../../layouts/Helmet/Helmet";
-import { Row, Col, Space, Spin, Button } from "antd";
-import { LoadingOutlined } from "@ant-design/icons";
+import { Input, Row, Col, Space, Spin, Button } from "antd";
+import { Link } from "react-router-dom";
+import {
+  LoadingOutlined,
+  ArrowRightOutlined,
+  SearchOutlined,
+} from "@ant-design/icons";
 import * as S from "./style";
 import Slider from "react-slick";
 import ProductCard from "../../components/ProductCard/ProductCard";
@@ -14,6 +19,7 @@ import type {
   OptionState,
 } from "../../interfaces/interface";
 import axios from "axios";
+import { RoutesPath } from "../../constants/routes.path";
 
 var settings = {
   dots: false,
@@ -408,6 +414,14 @@ const AllFoods: React.FC = () => {
       <CommonSection title="All Foods" />
       <S.AllFoodContainer>
         <Row gutter={20}>
+          <Col span={24}>
+            <Link to={RoutesPath.SEARCHFOODS}>
+              <div className="allfoods__search">
+                <SearchOutlined className="allfoods__search-icon" />
+                <h2 className="allfoods__search-text">Search</h2>
+              </div>
+            </Link>
+          </Col>
           <Col span={24} className="allfood__combo">
             <h2 className="allfood__combo--title">Promotion, Combo</h2>
             {loading.comboLoading ? (
