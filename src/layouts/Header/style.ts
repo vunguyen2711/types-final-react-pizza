@@ -78,6 +78,18 @@ export const DrawerContainer = styled(Drawer)`
   .drawer__txt {
     font-size: 16px;
     color: var(--red-color);
+    text-align: center;
+  }
+  .drawer__btn-shopping {
+    position: absolute;
+    color: var(--black-color);
+    font-size: 16px;
+    border-radius: 10px;
+    padding: 5px 10px;
+    background-color: var(--pink-color);
+    cursor: pointer;
+    left: 50%;
+    transform: translateX(-50%);
   }
   .drawer__list {
     height: fit-content;
@@ -108,5 +120,29 @@ export const DrawerContainer = styled(Drawer)`
     align-items: center;
     gap: 10px;
     justify-content: flex-start;
+  }
+  .drawer__totalprice {
+    width: 90%;
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--red-color);
+    border-radius: 10px;
+    padding: 10px 20px;
+  }
+  .drawer__totalprice-txt {
+    color: #fff;
+    font-size: 24px;
+    margin: 0;
+  }
+  .drawer__totalprice-btn {
+    color: var(--black-color);
+    font-size: 16px;
+    border-radius: 10px;
+    padding: 5px 10px;
+    background-color: var(--pink-color);
+    cursor: pointer;
   }
 `;

@@ -408,6 +408,9 @@ const AllFoods: React.FC = () => {
     };
     fetchCreams();
   }, [optionFetchCreams]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Helmet title="All Foods" />

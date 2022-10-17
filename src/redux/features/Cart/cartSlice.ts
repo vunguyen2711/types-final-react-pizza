@@ -16,10 +16,12 @@ export interface ChangeAmountCartPayLoad {
 interface CartState {
   cartItems: CartPayload[];
   totalAmount: number;
+  totalPriceItems: number;
 }
 interface DeleteItem {
   id: number;
 }
+type DeleteItemsById = [];
 interface ChangeAmountByInput {
   id: number;
   amount: number;
@@ -35,16 +37,40 @@ const openNotificationWithIcon = (type: NotificationType) => {
 const initialState = {
   cartItems: [],
   totalAmount: 0,
+  totalPriceItems: 0,
 } as CartState;
 
 const cartSlice = createSlice({
   name: "cartSlice",
   initialState,
   reducers: {
+    deleteItemsById: (state, action: PayloadAction<DeleteItemsById>) => {
+      console.log(action.payload);
+      action.payload.forEach((key) => {
+        const indexExistedItem = state.cartItems.findIndex(
+          (item) => item.id === key
+        );
+        if (indexExistedItem !== -1) {
+          state.cartItems.splice(indexExistedItem, 1);
+        }
+      });
+      state.totalAmount = state.cartItems.reduce((arr, cur) => {
+        return (arr += cur.amount);
+      }, 0);
+      state.totalPriceItems = state.cartItems.reduce((arr, cur) => {
+        return (arr += cur.totalPrice);
+      }, 0);
+    },
     deleteItem: (state, action: PayloadAction<DeleteItem>) => {
       state.cartItems = state.cartItems.filter(
         (item) => item.id !== action.payload.id
       );
+      state.totalAmount = state.cartItems.reduce((arr, cur) => {
+        return (arr += cur.amount);
+      }, 0);
+      state.totalPriceItems = state.cartItems.reduce((arr, cur) => {
+        return (arr += cur.totalPrice);
+      }, 0);
     },
     changeAmountByInput: (
       state,
@@ -63,6 +89,9 @@ const cartSlice = createSlice({
       state.totalAmount = state.cartItems.reduce((arr, cur) => {
         return (arr += cur.amount);
       }, 0);
+      state.totalPriceItems = state.cartItems.reduce((arr, cur) => {
+        return (arr += cur.totalPrice);
+      }, 0);
     },
     increaseAmount: (state, action: PayloadAction<ChangeAmountCartPayLoad>) => {
       const indexChangedItem = state.cartItems.findIndex(
@@ -74,6 +103,9 @@ const cartSlice = createSlice({
         state.cartItems[indexChangedItem].price;
       state.totalAmount = state.cartItems.reduce((arr, cur) => {
         return (arr += cur.amount);
+      }, 0);
+      state.totalPriceItems = state.cartItems.reduce((arr, cur) => {
+        return (arr += cur.totalPrice);
       }, 0);
     },
     descreaseAmount: (
@@ -97,6 +129,9 @@ const cartSlice = createSlice({
       state.totalAmount = state.cartItems.reduce((arr, cur) => {
         return (arr += cur.amount);
       }, 0);
+      state.totalPriceItems = state.cartItems.reduce((arr, cur) => {
+        return (arr += cur.totalPrice);
+      }, 0);
     },
     addItems: (state, action: PayloadAction<CartPayload>) => {
       const existedItems = state.cartItems.find(
@@ -115,6 +150,9 @@ const cartSlice = createSlice({
       state.totalAmount = state.cartItems.reduce((arr, cur) => {
         return (arr += cur.amount);
       }, 0);
+      state.totalPriceItems = state.cartItems.reduce((arr, cur) => {
+        return (arr += cur.totalPrice);
+      }, 0);
     },
   },
 });
@@ -127,4 +165,5 @@ export const {
   descreaseAmount,
   changeAmountByInput,
   deleteItem,
+  deleteItemsById,
 } = cartSlice.actions;

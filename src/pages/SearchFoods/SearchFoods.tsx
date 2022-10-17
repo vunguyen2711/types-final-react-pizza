@@ -1,65 +1,64 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, ChangeEvent } from "react";
+import { minPriceValue, maxPriceValue } from "../../constants/constants";
+import _ from "lodash";
 import CommonSection from "../../components/CommonSection/CommonSection";
 import Helmet from "../../layouts/Helmet/Helmet";
+
 import ProductCard from "../../components/ProductCard/ProductCard";
+
 import {
   fetchSearchFoods,
   getFetchedFoods,
   ParamsFetchFoods,
 } from "../../redux/features/LoadFood/loadFoodSlice";
+
 import { LoadingOutlined } from "@ant-design/icons";
 import { useAppDispatch, useAppSelector } from "../../redux/hook";
-import { Input, Row, Col, Checkbox, Slider, Select, Button, Spin } from "antd";
+import {
+  Input,
+  Row,
+  Col,
+  Checkbox,
+  Slider,
+  Select,
+  Button,
+  Spin,
+  Tag,
+} from "antd";
 import * as S from "./style";
-import type { CheckboxValueType } from "antd/es/checkbox/Group";
-import type { SliderValue, ValueSelect } from "../../interfaces/interface";
+
 const { Option } = Select;
 const SearchFoods: React.FC = () => {
   const dispatch = useAppDispatch();
   const { foods, status, total } = useAppSelector(getFetchedFoods);
-  console.log(total);
+  const [tags, setTags] = useState([]);
   const [filterParams, setFilterParams] = useState<ParamsFetchFoods>({
-    category: null,
+    category: [],
     limit: 8,
-    keysearch: null,
-    rangePrice: null,
-    sortBy: "asc",
+    keySearch: "",
+    rangePrice: [],
+    sortBy: "auto",
   });
-  const [loadmore, setLoadmore] = useState<boolean>(true);
 
-  const onAfterSliderChange = (value: SliderValue) => {
+  const updateFilter = (field: string, value: any) => {
     setFilterParams((prev) => {
       return {
         ...prev,
-        rangePrice: value,
+        limit: ["category", "keySearch", "rangePrice", "sortBy"].includes(field)
+          ? 8
+          : prev.limit,
+        [field]: value,
       };
     });
   };
-  const onCheckboxChange = (checkedValues: CheckboxValueType[]) => {
-    setFilterParams((prev) => {
-      return {
-        ...prev,
-        category: checkedValues,
-      };
-    });
+  const handleKeySearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const debounceKeySearch = _.debounce(
+      () => updateFilter("keySearch", e.target.value),
+      1000
+    );
+    debounceKeySearch();
   };
-  const handleKeySearch = (value: React.ChangeEvent<HTMLInputElement>) => {
-    setFilterParams((prev) => {
-      return {
-        ...prev,
-        keysearch: value.target.value,
-      };
-    });
-  };
-  const handleSelectChange = (value: ValueSelect) => {
-    console.log(value);
-    setFilterParams((prev) => {
-      return {
-        ...prev,
-        sortBy: value,
-      };
-    });
-  };
+
   const handleLoadmore = () => {
     setFilterParams((prev) => {
       return {
@@ -76,27 +75,12 @@ const SearchFoods: React.FC = () => {
     { label: "Drink", value: "Drink" },
     { label: "Cream", value: "Cream" },
   ];
-  useEffect(() => {
-    setFilterParams((prev) => {
-      return {
-        ...prev,
-        limit: 8,
-      };
-    });
-    if (filterParams.limit >= total) {
-      setLoadmore(false);
-    } else {
-      setLoadmore(true);
-    }
-  }, [
-    filterParams.category,
-    filterParams.keysearch,
-    filterParams.rangePrice,
-    filterParams.sortBy,
-  ]);
+
   useEffect(() => {
     dispatch(fetchSearchFoods(filterParams));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filterParams]);
+
   return (
     <>
       <Helmet title="Search Foods"></Helmet>
@@ -110,13 +94,15 @@ const SearchFoods: React.FC = () => {
                 <Input
                   onChange={(e) => handleKeySearch(e)}
                   placeholder="enter your food name..."
+                  name="keySearch"
                 ></Input>
               </div>
               <div className="search__filter-checkbox">
                 <h2>Category: </h2>
                 <Checkbox.Group
                   options={optionsCheckbox}
-                  onChange={onCheckboxChange}
+                  onChange={(e) => updateFilter("category", e)}
+                  name="category"
                 />
               </div>
               <div className="search__filter-range">
@@ -126,17 +112,18 @@ const SearchFoods: React.FC = () => {
                   max={300}
                   range
                   step={10}
-                  defaultValue={[20, 50]}
-                  onAfterChange={onAfterSliderChange}
+                  defaultValue={[minPriceValue, maxPriceValue]}
+                  onAfterChange={(e) => updateFilter("rangePrice", e)}
                 />
               </div>
               <div className="search__filter-select">
                 <h2>Sort by :</h2>
                 <Select
-                  defaultValue="asc"
+                  defaultValue="auto"
                   style={{ width: 120 }}
-                  onChange={handleSelectChange}
+                  onChange={(e) => updateFilter("sortBy", e)}
                 >
+                  <Option value="auto">Auto</Option>
                   <Option value="asc">Low Price</Option>
                   <Option value="desc">Hight Price</Option>
                 </Select>
@@ -147,7 +134,8 @@ const SearchFoods: React.FC = () => {
             <div className="search__filter-tags"></div>
             <div className="search__filter-total">
               <h1>
-                Total: <span></span>
+                Total: {status === "loading" ? <Spin /> : <span>{total} </span>}
+                Products
               </h1>
             </div>
             <div className="search__showcase">
@@ -159,7 +147,7 @@ const SearchFoods: React.FC = () => {
                 ))}
                 <Col span={24}>
                   <div className="loadmore__button">
-                    {loadmore && (
+                    {filterParams.limit < total && (
                       <Button onClick={() => handleLoadmore()} block>
                         {status === "loading" ? <LoadingOutlined /> : "+ "}
                         Load More

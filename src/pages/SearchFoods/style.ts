@@ -21,10 +21,17 @@ export const SearchFoodsContainer = styled.section`
   .search__filter-tags {
     padding: 20px;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
   }
   .search__filter-total {
     h1 {
       font-size: 24px;
+      & span {
+        color: var(--red-color);
+      }
     }
   }
   //ShowCase

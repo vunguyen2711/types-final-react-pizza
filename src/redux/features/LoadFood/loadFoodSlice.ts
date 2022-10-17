@@ -21,9 +21,9 @@ export interface FetchFoodsState {
 export interface ParamsFetchFoods {
   category?: CheckboxValueType[] | null;
   limit: number;
-  keysearch?: string | null;
-  rangePrice?: SliderValue | null;
-  sortBy?: "asc" | "desc" | string;
+  keySearch?: string | null;
+  rangePrice?: number | [] | null;
+  sortBy?: string | null;
 }
 let total = 0;
 const FOODS_URL = "http://localhost:8800/products";
@@ -32,7 +32,7 @@ export const fetchSearchFoods = createAsyncThunk(
   async ({
     category,
     limit,
-    keysearch,
+    keySearch,
     rangePrice,
     sortBy,
   }: ParamsFetchFoods) => {
@@ -43,14 +43,14 @@ export const fetchSearchFoods = createAsyncThunk(
             category: category,
           }),
           ...(limit && { _limit: limit }),
-          ...(keysearch && {
-            q: keysearch,
+          ...(keySearch && {
+            q: keySearch,
           }),
           ...(rangePrice && {
             price_gte: rangePrice,
             price_lte: rangePrice,
           }),
-          ...(sortBy && {
+          ...(sortBy !== "auto" && {
             _sort: "price",
             _order: sortBy,
           }),
@@ -76,17 +76,16 @@ const fetchFoodsSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchSearchFoods.pending, (state, action) => {
       state.status = "loading";
-      console.log(action);
     });
     builder.addCase(fetchSearchFoods.fulfilled, (state, action) => {
       state.status = "success";
+      console.log(action.payload);
+
       state.foods = action.payload;
       state.total = total;
-      console.log(action);
     });
     builder.addCase(fetchSearchFoods.rejected, (state, action) => {
       state.status = "failed";
-      console.log(action);
     });
   },
 });
