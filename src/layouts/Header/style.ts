@@ -27,6 +27,24 @@ export const HeaderContainer = styled.header`
     margin: 0;
     cursor: pointer;
   }
+  .header__user-avatar {
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      width: 200%;
+      height: 50px;
+    }
+    &:hover > .header__user-actions {
+      display: flex;
+    }
+  }
+  .header__user-actions {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 100%;
+  }
   .menu__link {
     font-size: 20px;
     font-weight: bold;
@@ -37,6 +55,7 @@ export const HeaderContainer = styled.header`
       color: var(--red-color);
     }
   }
+
   .menu__icon {
     display: none;
   }

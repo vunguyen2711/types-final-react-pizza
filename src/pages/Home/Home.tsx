@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import FeatureSections from "../../components/FeaturesSection/FeatureSections";
 import HeroSection from "../../components/HeroSection/HeroSection";
 import Testimonial from "../../components/Testimonial/Testimonial";
 import WhySection from "../../components/WhySection/WhySection";
 import Helmet from "../../layouts/Helmet/Helmet";
 import * as S from "./style";
+
 const Home = () => {
   return (
     <>

@@ -68,4 +68,12 @@ export const ModalContainer = styled(Modal)`
     display: flex;
     justify-content: center;
   }
+  .modal__showdetail {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &-button {
+    }
+  }
 `;

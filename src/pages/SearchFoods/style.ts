@@ -8,6 +8,11 @@ export const SearchFoodsContainer = styled.section`
   }
   .search__filter-input {
     margin-bottom: 20px;
+    & input {
+      width: 300px;
+      padding: 5px 10px;
+      border: 1px solid #eee;
+    }
   }
   .search__filter-checkbox {
     margin-bottom: 20px;
@@ -27,10 +32,25 @@ export const SearchFoodsContainer = styled.section`
     gap: 10px;
   }
   .search__filter-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     h1 {
       font-size: 24px;
       & span {
         color: var(--red-color);
+      }
+    }
+    & button {
+      background-color: var(--red-color);
+      color: #fff;
+      border: none;
+      outline: none;
+      padding: 5px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      &:hover {
+        transform: translate(-3px, -3px);
       }
     }
   }

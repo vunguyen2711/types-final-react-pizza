@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./style";
 import { useAppDispatch, useAppSelector } from "../../redux/hook";
+import { RoutesPath } from "../../constants/routes.path";
 import {
   getCartItems,
   increaseAmount,
+  toggleDrawer,
 } from "../../redux/features/Cart/cartSlice";
-import { RoutesPath } from "../../constants/routes.path";
+
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Logo from "../../assets/images/res-logo.png";
 import {
@@ -27,6 +29,10 @@ import {
   MinusCircleOutlined,
 } from "@ant-design/icons";
 import DrawerList from "../../components/DrawerList/DrawerList";
+import {
+  getUserInfo,
+  logout,
+} from "../../redux/features/Login&Register/login&registerSlice";
 const menuLinks = [
   {
     display: "Home",
@@ -46,22 +52,41 @@ const menuLinks = [
   },
 ];
 const Header: React.FC = () => {
+  const [nameUser, setNameUser] = useState<string>("");
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
-  const { cartItems, totalAmount, totalPriceItems } =
+  const { cartItems, totalAmount, totalPriceItems, isOpenDrawer } =
     useAppSelector(getCartItems);
+  const { isLogin, fullname } = useAppSelector(getUserInfo);
 
   const [open, setOpen] = useState(false);
   const dispatch = useAppDispatch();
   const showDrawer = () => {
     setOpen(true);
+    dispatch(toggleDrawer());
   };
-
+  const handleLogout = () => {
+    dispatch(logout());
+    localStorage.removeItem("accessToken");
+    window.alert("Logout Successfully !!!");
+    navigate(RoutesPath.HOME);
+  };
   const onClose = () => {
     setOpen(false);
+    dispatch(toggleDrawer());
   };
-
+  useEffect(() => {
+    if (isLogin === true) {
+      const nameSlice = fullname.slice(0, 1);
+      setNameUser(nameSlice);
+    }
+  }, [isLogin]);
+  useEffect(() => {
+    if (isOpenDrawer) {
+      setOpen(true);
+    }
+  }, [isOpenDrawer]);
   return (
     <>
       <S.DrawerContainer
@@ -137,8 +162,24 @@ const Header: React.FC = () => {
           <Badge size="default" count={totalAmount}>
             <ShoppingCartOutlined onClick={showDrawer} />
           </Badge>
+          <div className="header__user-avatar">
+            {isLogin ? <Avatar>{nameUser}</Avatar> : <UserOutlined />}
+            <Space direction="vertical" className="header__user-actions">
+              {isLogin ? (
+                <Button onClick={handleLogout} block>
+                  Log out
+                </Button>
+              ) : (
+                <Link to={RoutesPath.LOGIN}>
+                  <Button block>Login</Button>
+                </Link>
+              )}
+              <Link to={RoutesPath.REGISTER}>
+                <Button block>Register</Button>
+              </Link>
+            </Space>
+          </div>
 
-          <UserOutlined />
           <MenuOutlined
             onClick={() => setIsOpen(!isOpen)}
             className="menu__icon"

@@ -1,18 +1,20 @@
-import React, { useEffect, useState, ChangeEvent } from "react";
+import React, { useEffect, useState, useRef, useMemo } from "react";
 import { minPriceValue, maxPriceValue } from "../../constants/constants";
 import _ from "lodash";
+import { DebounceInput } from "react-debounce-input";
+
 import CommonSection from "../../components/CommonSection/CommonSection";
 import Helmet from "../../layouts/Helmet/Helmet";
 
 import ProductCard from "../../components/ProductCard/ProductCard";
-
+import { RoutesPath } from "../../constants/routes.path";
 import {
   fetchSearchFoods,
   getFetchedFoods,
   ParamsFetchFoods,
 } from "../../redux/features/LoadFood/loadFoodSlice";
 
-import { LoadingOutlined } from "@ant-design/icons";
+import { LoadingOutlined, RollbackOutlined } from "@ant-design/icons";
 import { useAppDispatch, useAppSelector } from "../../redux/hook";
 import {
   Input,
@@ -26,12 +28,15 @@ import {
   Tag,
 } from "antd";
 import * as S from "./style";
+import { useNavigate } from "react-router-dom";
 
 const { Option } = Select;
 const SearchFoods: React.FC = () => {
+  const ref = React.useRef<any>();
+  console.log(ref.current);
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { foods, status, total } = useAppSelector(getFetchedFoods);
-  const [tags, setTags] = useState([]);
   const [filterParams, setFilterParams] = useState<ParamsFetchFoods>({
     category: [],
     limit: 8,
@@ -52,11 +57,12 @@ const SearchFoods: React.FC = () => {
     });
   };
   const handleKeySearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const debounceKeySearch = _.debounce(
-      () => updateFilter("keySearch", e.target.value),
-      1000
-    );
-    debounceKeySearch();
+    setFilterParams((prev) => {
+      return {
+        ...prev,
+        keySearch: e.target.value,
+      };
+    });
   };
 
   const handleLoadmore = () => {
@@ -69,6 +75,7 @@ const SearchFoods: React.FC = () => {
   };
   const optionsCheckbox = [
     { label: "Combo", value: "Combo" },
+    { label: "Appetizer", value: "Appetizer" },
     { label: "Pizza", value: "Pizza" },
     { label: "Noodle", value: "Noodle" },
     { label: "Salad", value: "Salad" },
@@ -78,7 +85,6 @@ const SearchFoods: React.FC = () => {
 
   useEffect(() => {
     dispatch(fetchSearchFoods(filterParams));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filterParams]);
 
   return (
@@ -91,11 +97,12 @@ const SearchFoods: React.FC = () => {
             <div className="search__filter">
               <div className="search__filter-input">
                 <h2>Search here: </h2>
-                <Input
-                  onChange={(e) => handleKeySearch(e)}
+                <DebounceInput
+                  debounceTimeout={500}
+                  onChange={handleKeySearch}
                   placeholder="enter your food name..."
                   name="keySearch"
-                ></Input>
+                ></DebounceInput>
               </div>
               <div className="search__filter-checkbox">
                 <h2>Category: </h2>
@@ -137,6 +144,9 @@ const SearchFoods: React.FC = () => {
                 Total: {status === "loading" ? <Spin /> : <span>{total} </span>}
                 Products
               </h1>
+              <button onClick={() => navigate(RoutesPath.AllFOODS)}>
+                Exit
+              </button>
             </div>
             <div className="search__showcase">
               <Row gutter={10}>

@@ -5,6 +5,7 @@ import type { FetchData } from "../../../interfaces/interface";
 import type { CheckboxValueType } from "antd/es/checkbox/Group";
 import type { SliderValue } from "../../../interfaces/interface";
 import { useState } from "react";
+import { URL_DATA } from "../../../constants/urlData";
 interface FetchFoodsPayload {
   category: string;
   id: number;
@@ -19,7 +20,8 @@ export interface FetchFoodsState {
   total: number;
 }
 export interface ParamsFetchFoods {
-  category?: CheckboxValueType[] | null;
+  id?: string;
+  category?: CheckboxValueType[] | null | undefined | string;
   limit: number;
   keySearch?: string | null;
   rangePrice?: number | [] | null;
@@ -27,9 +29,11 @@ export interface ParamsFetchFoods {
 }
 let total = 0;
 const FOODS_URL = "http://localhost:8800/products";
+
 export const fetchSearchFoods = createAsyncThunk(
   "fetchSearchFoods",
   async ({
+    id,
     category,
     limit,
     keySearch,
@@ -66,6 +70,7 @@ export const fetchSearchFoods = createAsyncThunk(
 
 const initialState = {
   foods: [],
+
   status: "idle",
   total: 0,
 } as FetchFoodsState;
@@ -79,8 +84,6 @@ const fetchFoodsSlice = createSlice({
     });
     builder.addCase(fetchSearchFoods.fulfilled, (state, action) => {
       state.status = "success";
-      console.log(action.payload);
-
       state.foods = action.payload;
       state.total = total;
     });

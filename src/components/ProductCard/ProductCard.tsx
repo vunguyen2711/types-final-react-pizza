@@ -6,6 +6,8 @@ import type { CartPayload } from "../../redux/features/Cart/cartSlice";
 import { PlusCircleOutlined, MinusCircleOutlined } from "@ant-design/icons";
 import { Button, Modal, Space, Row, Col, Input } from "antd";
 import { ProductCartItems } from "../../interfaces/interface";
+import { Link } from "react-router-dom";
+import { RoutesPath } from "../../constants/routes.path";
 interface ProductCardProps {
   item: ProductCartItems;
 }
@@ -54,10 +56,11 @@ const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
   useEffect(() => {
     setModalPrice(modalAmount * price);
   }, [modalAmount]);
+
   useEffect(() => {
-    const index = cartItems.findIndex((cartItem) => cartItem.id === id);
+    const index = cartItems?.findIndex((cartItem) => cartItem.id === id);
     if (index !== -1) {
-      setModalAmount(cartItems[index].amount);
+      setModalAmount(1);
     } else if (index === -1) {
       setModalAmount(1);
     }
@@ -102,6 +105,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
           <Col span={12}>
             <div className="modal__image">
               <img src={img} alt="" />
+            </div>
+
+            <div className="modal__showdetail">
+              <Link to={`/foods/${id}`}>
+                <button className="modal__showdetail-button">Show More</button>
+              </Link>
             </div>
           </Col>
         </Row>

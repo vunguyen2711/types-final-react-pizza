@@ -4,9 +4,12 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "json-server -w db.json -p 8800"
+    "start": "json-server -w db.json -p 8800 -m ./node_modules/json-server-auth"
+  },
+  "devDependencies": {
+    "json-server": "^0.17.0"
   },
   "dependencies": {
-    "json-server": "^0.17.0"
+    "json-server-auth": "^2.1.0"
   }
 }

@@ -50,3 +50,16 @@ export interface IconSliderProps {
 }
 export type SliderValue = number | [number, number];
 export type ValueSelect = string;
+export type FormValues = {
+  fullname: string;
+  email: string;
+  password: string;
+  passwordConfirm: string;
+  phone: string;
+};
+export type FormCheckOutValue = {
+  name: string;
+  phone: string;
+  address: string;
+  transport: string;
+};

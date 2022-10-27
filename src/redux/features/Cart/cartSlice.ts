@@ -17,12 +17,13 @@ interface CartState {
   cartItems: CartPayload[];
   totalAmount: number;
   totalPriceItems: number;
+  isOpenDrawer: boolean;
 }
 interface DeleteItem {
   id: number;
 }
 type DeleteItemsById = [];
-interface ChangeAmountByInput {
+export interface ChangeAmountByInput {
   id: number;
   amount: number;
 }
@@ -38,12 +39,16 @@ const initialState = {
   cartItems: [],
   totalAmount: 0,
   totalPriceItems: 0,
+  isOpenDrawer: false,
 } as CartState;
 
 const cartSlice = createSlice({
   name: "cartSlice",
   initialState,
   reducers: {
+    toggleDrawer: (state, action: PayloadAction) => {
+      state.isOpenDrawer = !state.isOpenDrawer;
+    },
     deleteItemsById: (state, action: PayloadAction<DeleteItemsById>) => {
       console.log(action.payload);
       action.payload.forEach((key) => {
@@ -143,9 +148,8 @@ const cartSlice = createSlice({
       }
       if (existedItems) {
         const indexExistedItem = state.cartItems.indexOf(existedItems);
-        console.log(indexExistedItem);
+
         state.cartItems.splice(indexExistedItem, 1, action.payload);
-        console.log("co");
       }
       state.totalAmount = state.cartItems.reduce((arr, cur) => {
         return (arr += cur.amount);
@@ -160,6 +164,7 @@ const cartSlice = createSlice({
 export default cartSlice.reducer;
 export const getCartItems = (state: RootState) => state.cart;
 export const {
+  toggleDrawer,
   addItems,
   increaseAmount,
   descreaseAmount,

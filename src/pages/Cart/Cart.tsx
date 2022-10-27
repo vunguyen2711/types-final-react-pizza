@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Helmet from "../../layouts/Helmet/Helmet";
 import CommonSection from "../../components/CommonSection/CommonSection";
-import { Table, Button, Space } from "antd";
+import { Table, Button, Space, Modal } from "antd";
 import * as S from "./style";
+import { RoutesPath } from "../../constants/routes.path";
 import {
   getCartItems,
   deleteItem,
@@ -11,19 +12,44 @@ import {
 import { useAppDispatch, useAppSelector } from "../../redux/hook";
 import Avatar from "antd/lib/avatar/avatar";
 import { DeleteOutlined } from "@ant-design/icons";
+import { Link, useNavigate } from "react-router-dom";
+import { getUserInfo } from "../../redux/features/Login&Register/login&registerSlice";
 interface DeleteSelected {
   canDelete: boolean;
   deleteArr: [];
 }
 const Cart = () => {
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { cartItems, totalAmount, totalPriceItems } =
     useAppSelector(getCartItems);
+  const { isLogin } = useAppSelector(getUserInfo);
   const [deleteSelected, setDeleteSelected] = useState<DeleteSelected>({
     canDelete: false,
     deleteArr: [],
   });
-  console.log(deleteSelected);
+  const [open, setOpen] = useState(false);
+  const [confirmLoading, setConfirmLoading] = useState(false);
+  const [modalText, setModalText] = useState(
+    "You need account to make payment !!! "
+  );
+  const showModal = () => {
+    setOpen(true);
+  };
+
+  const handleOk = () => {
+    setConfirmLoading(true);
+    setTimeout(() => {
+      setOpen(false);
+      setConfirmLoading(false);
+    }, 2000);
+    navigate(RoutesPath.REGISTER);
+  };
+
+  const handleCancel = () => {
+    console.log("Clicked cancel button");
+    setOpen(false);
+  };
   const dataSource = cartItems.map((item, index) => {
     return {
       key: item.id,
@@ -89,6 +115,13 @@ const Cart = () => {
       });
     },
   };
+  const handleCheckout = () => {
+    if (isLogin) {
+      navigate(RoutesPath.CHECKOUT);
+    } else {
+      showModal();
+    }
+  };
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -96,28 +129,61 @@ const Cart = () => {
     <>
       <Helmet title="Your Cart" />
       <CommonSection title="Your Cart" />
-      <S.CartContainer>
-        <Table
-          rowSelection={{
-            ...rowSelection,
-          }}
-          columns={columns}
-          dataSource={dataSource}
-        />
-        {deleteSelected.canDelete && cartItems.length !== 0 && (
-          <Space>
-            <Button
-              onClick={() =>
-                dispatch(deleteItemsById(deleteSelected.deleteArr))
-              }
-              className="table__delete-btn"
-              danger
-            >
-              Delete Selection
+      <Modal
+        title="Account"
+        open={open}
+        onOk={handleOk}
+        confirmLoading={confirmLoading}
+        onCancel={handleCancel}
+      >
+        <p>{modalText}</p>
+      </Modal>
+      {cartItems.length === 0 ? (
+        <h2 style={{ textAlign: "center" }}>Your cart is empty</h2>
+      ) : (
+        <S.CartContainer>
+          <Table
+            rowSelection={{
+              ...rowSelection,
+            }}
+            columns={columns}
+            dataSource={dataSource}
+            pagination={{
+              position: ["bottomCenter"],
+              defaultCurrent: 1,
+              defaultPageSize: 5,
+              pageSize: 5,
+              total: dataSource.length,
+              responsive: true,
+            }}
+          />
+          <Space className="table__button-container" direction="horizontal">
+            {deleteSelected.canDelete && cartItems.length !== 0 && (
+              <Button
+                className="table__button"
+                onClick={() => {
+                  dispatch(deleteItemsById(deleteSelected.deleteArr));
+                  setDeleteSelected((prev) => {
+                    return {
+                      ...prev,
+                      canDelete: false,
+                    };
+                  });
+                }}
+                danger
+              >
+                Delete Selection
+              </Button>
+            )}
+            <Button onClick={handleCheckout} className="table__button">
+              Checkout Now!!!
             </Button>
+            <Link to={RoutesPath.AllFOODS}>
+              <Button className="table__button">Continue Shopping...</Button>
+            </Link>
           </Space>
-        )}
-      </S.CartContainer>
+        </S.CartContainer>
+      )}
     </>
   );
 };
