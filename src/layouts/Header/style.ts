@@ -32,18 +32,30 @@ export const HeaderContainer = styled.header`
     &::after {
       content: "";
       position: absolute;
-      width: 200%;
-      height: 50px;
+      bottom: -10px;
+      left: 0;
+      height: 20px;
+      width: 100%;
     }
     &:hover > .header__user-actions {
       display: flex;
+      padding: 10px;
+      background-color: var(--black-color);
     }
   }
   .header__user-actions {
     display: none;
     position: absolute;
-    top: 100%;
-    left: 100%;
+    top: 120%;
+    &::before {
+      content: "";
+      width: 10px;
+      height: 5px;
+      position: absolute;
+      top: -5px;
+      background-color: var(--black-color);
+      clip-path: polygon(50% 0, 0% 100%, 100% 100%);
+    }
   }
   .menu__link {
     font-size: 20px;

@@ -8,4 +8,6 @@ export const RoutesPath = {
   CONTACT: "/contact",
   LOGIN: "/login",
   REGISTER: "/register",
+  USERDELIVERY: "/userdelivery",
+  USERDELIVERYDETAIL: "/userdelivery",
 };

@@ -1,12 +1,15 @@
 import React, { useEffect } from "react";
-import "./App.css";
+
+import "./App.less";
 import Layouts from "./layouts/Layouts";
 import jwt_decode from "jwt-decode";
-import { useAppDispatch } from "./redux/hook";
+import { useAppDispatch, useAppSelector } from "./redux/hook";
 import {
   loginTokenThunk,
   resetStatus,
 } from "./redux/features/Login&Register/login&registerSlice";
+import { setInitialCartState } from "./redux/features/Cart/cartSlice";
+import { getOrder } from "./redux/features/Orders/OrdersSlice";
 export interface UserDataToken {
   email: string;
   exp: number;
@@ -15,6 +18,7 @@ export interface UserDataToken {
 }
 const App: React.FC = () => {
   const dispatch = useAppDispatch();
+
   useEffect(() => {
     const accessToken = localStorage.getItem("accessToken");
     if (accessToken) {
@@ -24,6 +28,13 @@ const App: React.FC = () => {
       dispatch(resetStatus());
     }
   }, []);
+  useEffect(() => {
+    const dataLocalCartItems = localStorage.getItem("cartState");
+    if (dataLocalCartItems) {
+      dispatch(setInitialCartState(JSON.parse(dataLocalCartItems)));
+    }
+  }, []);
+
   return (
     <div className="App">
       <Layouts />

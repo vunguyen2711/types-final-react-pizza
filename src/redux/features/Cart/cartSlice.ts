@@ -1,6 +1,7 @@
 import { createSlice, nanoid, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../store";
 import { notification } from "antd";
+import { Action } from "@remix-run/router";
 export interface CartPayload {
   title: string;
   price: number;
@@ -46,6 +47,20 @@ const cartSlice = createSlice({
   name: "cartSlice",
   initialState,
   reducers: {
+    setInitialCartState: (state, action: PayloadAction<CartState>) => {
+      localStorage.setItem("cartState", JSON.stringify(state));
+      state.cartItems = action.payload.cartItems;
+      state.totalAmount = action.payload.totalAmount;
+      state.totalPriceItems = action.payload.totalPriceItems;
+      state.isOpenDrawer = action.payload.isOpenDrawer;
+    },
+    removeAllCartItems: (state, action: PayloadAction) => {
+      state.cartItems = [];
+      state.totalAmount = 0;
+      state.totalPriceItems = 0;
+      state.isOpenDrawer = false;
+      localStorage.setItem("cartState", JSON.stringify(state));
+    },
     toggleDrawer: (state, action: PayloadAction) => {
       state.isOpenDrawer = !state.isOpenDrawer;
     },
@@ -65,6 +80,7 @@ const cartSlice = createSlice({
       state.totalPriceItems = state.cartItems.reduce((arr, cur) => {
         return (arr += cur.totalPrice);
       }, 0);
+      localStorage.setItem("cartState", JSON.stringify(state));
     },
     deleteItem: (state, action: PayloadAction<DeleteItem>) => {
       state.cartItems = state.cartItems.filter(
@@ -76,6 +92,7 @@ const cartSlice = createSlice({
       state.totalPriceItems = state.cartItems.reduce((arr, cur) => {
         return (arr += cur.totalPrice);
       }, 0);
+      localStorage.setItem("cartState", JSON.stringify(state));
     },
     changeAmountByInput: (
       state,
@@ -97,6 +114,7 @@ const cartSlice = createSlice({
       state.totalPriceItems = state.cartItems.reduce((arr, cur) => {
         return (arr += cur.totalPrice);
       }, 0);
+      localStorage.setItem("cartState", JSON.stringify(state));
     },
     increaseAmount: (state, action: PayloadAction<ChangeAmountCartPayLoad>) => {
       const indexChangedItem = state.cartItems.findIndex(
@@ -112,6 +130,7 @@ const cartSlice = createSlice({
       state.totalPriceItems = state.cartItems.reduce((arr, cur) => {
         return (arr += cur.totalPrice);
       }, 0);
+      localStorage.setItem("cartState", JSON.stringify(state));
     },
     descreaseAmount: (
       state,
@@ -137,6 +156,7 @@ const cartSlice = createSlice({
       state.totalPriceItems = state.cartItems.reduce((arr, cur) => {
         return (arr += cur.totalPrice);
       }, 0);
+      localStorage.setItem("cartState", JSON.stringify(state));
     },
     addItems: (state, action: PayloadAction<CartPayload>) => {
       const existedItems = state.cartItems.find(
@@ -157,6 +177,7 @@ const cartSlice = createSlice({
       state.totalPriceItems = state.cartItems.reduce((arr, cur) => {
         return (arr += cur.totalPrice);
       }, 0);
+      localStorage.setItem("cartState", JSON.stringify(state));
     },
   },
 });
@@ -164,6 +185,7 @@ const cartSlice = createSlice({
 export default cartSlice.reducer;
 export const getCartItems = (state: RootState) => state.cart;
 export const {
+  setInitialCartState,
   toggleDrawer,
   addItems,
   increaseAmount,
@@ -171,4 +193,5 @@ export const {
   changeAmountByInput,
   deleteItem,
   deleteItemsById,
+  removeAllCartItems,
 } = cartSlice.actions;

@@ -19,6 +19,7 @@ import {
   Drawer,
   List,
   Divider,
+  Modal,
 } from "antd";
 import {
   DeleteOutlined,
@@ -32,6 +33,7 @@ import DrawerList from "../../components/DrawerList/DrawerList";
 import {
   getUserInfo,
   logout,
+  resetStatus,
 } from "../../redux/features/Login&Register/login&registerSlice";
 const menuLinks = [
   {
@@ -67,10 +69,20 @@ const Header: React.FC = () => {
     dispatch(toggleDrawer());
   };
   const handleLogout = () => {
-    dispatch(logout());
-    localStorage.removeItem("accessToken");
-    window.alert("Logout Successfully !!!");
-    navigate(RoutesPath.HOME);
+    Modal.confirm({
+      content: "Do you want to log out ???",
+      cancelText: "Cancel",
+      okText: "Accept",
+      onOk: () => {
+        dispatch(logout());
+        dispatch(resetStatus());
+        localStorage.removeItem("accessToken");
+        Modal.success({
+          content: "Log Out Successfullly !!!",
+        });
+        navigate(RoutesPath.HOME);
+      },
+    });
   };
   const onClose = () => {
     setOpen(false);
@@ -96,7 +108,7 @@ const Header: React.FC = () => {
         open={open}
         width={450}
       >
-        {cartItems.length === 0 ? (
+        {cartItems?.length === 0 ? (
           <>
             <h2 className="drawer__txt">
               You have no items in your shopping cart.
@@ -166,9 +178,17 @@ const Header: React.FC = () => {
             {isLogin ? <Avatar>{nameUser}</Avatar> : <UserOutlined />}
             <Space direction="vertical" className="header__user-actions">
               {isLogin ? (
-                <Button onClick={handleLogout} block>
-                  Log out
-                </Button>
+                <>
+                  <Button onClick={handleLogout} block>
+                    Log out
+                  </Button>
+                  <Button
+                    onClick={() => navigate(RoutesPath.USERDELIVERY)}
+                    block
+                  >
+                    My Delivery
+                  </Button>
+                </>
               ) : (
                 <Link to={RoutesPath.LOGIN}>
                   <Button block>Login</Button>

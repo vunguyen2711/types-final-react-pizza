@@ -67,4 +67,15 @@ export const CheckoutContainer = styled.section`
   .checkout__payment-img {
     margin: 0 10px;
   }
+  .checkout__total-container {
+    text-align: right;
+  }
+  .checkout__total-food,
+  .checkout__total-payment,
+  .checkout__total-vat {
+    font-size: 18px;
+  }
+
+  .checkout__total-title {
+  }
 `;

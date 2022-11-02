@@ -11,6 +11,8 @@ import {
   Login,
   Register,
   SearchFoods,
+  UserDelivery,
+  UserDeliveryDetail,
 } from "../pages";
 import { RoutesPath } from "../constants/routes.path";
 const Routers = () => {
@@ -26,6 +28,11 @@ const Routers = () => {
         <Route path={RoutesPath.CONTACT} element={<Contact />} />
         <Route path={RoutesPath.LOGIN} element={<Login />} />
         <Route path={RoutesPath.REGISTER} element={<Register />} />
+        <Route path={RoutesPath.USERDELIVERY} element={<UserDelivery />} />
+        <Route
+          path={`${RoutesPath.USERDELIVERYDETAIL}/:id`}
+          element={<UserDeliveryDetail />}
+        />
       </Routes>
     </div>
   );

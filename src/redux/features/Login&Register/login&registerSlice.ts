@@ -3,6 +3,7 @@ import { RootState } from "../../store";
 import axios from "axios";
 import { URL_DATA } from "../../../constants/urlData";
 import { Root } from "react-dom/client";
+import { Modal } from "antd";
 // interface
 interface idAccessToken {
   id: string;
@@ -22,14 +23,15 @@ interface PayloadRegisterThunk {
   phone: string;
 }
 interface userData {
+  id: number;
   fullname: string;
   email: string;
   password: string;
   phone: number;
-  isLogin: boolean | null;
+  isLogin?: boolean | null;
 }
 interface LoginRegisterState {
-  userData: userData;
+  userData?: userData | null;
   loginState: AuthenicationState;
   registerState: AuthenicationState;
 }
@@ -40,9 +42,7 @@ export const registerThunk = createAsyncThunk(
     try {
       const response = await axios.post(URL_DATA.USERS_REGISTER, data);
       return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error);
-    }
+    } catch (error) {}
   }
 );
 export const loginThunk = createAsyncThunk(
@@ -50,10 +50,9 @@ export const loginThunk = createAsyncThunk(
   async (data: PayloadLoginThunk, thunkAPI) => {
     try {
       const response = await axios.post(URL_DATA.USERS_LOGIN, data);
-      console.log(response.data);
       return response.data;
     } catch (err) {
-      thunkAPI.rejectWithValue(err);
+      initialState.loginState.error = "failed";
     }
   }
 );
@@ -64,9 +63,7 @@ export const loginTokenThunk = createAsyncThunk(
       const response = await axios.get(URL_DATA.USERS, id);
       console.log(response.data);
       return response.data;
-    } catch (err) {
-      thunkAPI.rejectWithValue(err);
-    }
+    } catch (err) {}
   }
 );
 const initialState = {
@@ -86,9 +83,10 @@ const loginRegisterSlice = createSlice({
   initialState,
   reducers: {
     logout: (state, action: PayloadAction) => {
-      state.userData.isLogin = false;
+      state.userData.isLogin = null;
     },
     resetStatus: (state, action: PayloadAction) => {
+      state.userData.isLogin = null;
       state.registerState.status = "idle";
       state.loginState.status = "idle";
     },
@@ -107,18 +105,19 @@ const loginRegisterSlice = createSlice({
     });
     builder.addCase(loginThunk.pending, (state, action) => {
       state.loginState.error = "";
-      state.userData.isLogin = null;
-      state.loginState.status = "loading";
     });
     builder.addCase(loginThunk.fulfilled, (state, action) => {
       state.loginState.status = "success";
-      state.userData = { ...action.payload.user, isLogin: true };
-      localStorage.setItem("accessToken", action.payload.accessToken);
+      if (action.payload) {
+        state.userData = { ...action.payload.user, isLogin: true };
+        localStorage.setItem("accessToken", action.payload.accessToken);
+      } else if (action.payload.error) {
+        console.log(action.payload.error.message);
+      }
     });
     builder.addCase(loginThunk.rejected, (state, action) => {
       state.loginState.status = "failed";
       state.userData.isLogin = false;
-      state.loginState.error = action.error.message;
     });
     builder.addCase(loginTokenThunk.pending, (state, action) => {
       state.loginState.status = "loading";

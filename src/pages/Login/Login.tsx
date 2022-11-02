@@ -18,7 +18,7 @@ import {
 } from "../../redux/features/Login&Register/login&registerSlice";
 import { useNavigate, Link } from "react-router-dom";
 import { RoutesPath } from "../../constants/routes.path";
-import jwt_decode from "jwt-decode";
+
 import type { UserDataToken } from "../../App";
 const schema = yup.object().shape({
   email: yup.string().email().required("This field must be filled"),
@@ -40,6 +40,7 @@ const Login = () => {
     formState: { errors },
     register,
     reset,
+    resetField,
   } = useForm<FormValues>({
     mode: "onChange",
     resolver: yupResolver(schema),
@@ -47,8 +48,9 @@ const Login = () => {
   const onSubmit = handleSubmit((data: FormValues) => {
     dispatch(loginThunk(data));
   });
+
   useEffect(() => {
-    if (userInfo.isLogin) {
+    if (status === "success") {
       Modal.success({
         content: "Login Success !!! Continue to shopping...",
         afterClose: () => {
@@ -60,7 +62,34 @@ const Login = () => {
         },
       });
     }
-  }, [userInfo.isLogin]);
+    if (status === "failed") {
+      Modal.error({
+        content: "Login failed",
+        afterClose: () => {
+          resetField("email");
+          resetField("password");
+        },
+      });
+    }
+
+    // if (userInfo.isLogin === true) {
+    //   Modal.success({
+    //     content: "Login Success !!! Continue to shopping...",
+    //     afterClose: () => {
+    //       if (cartItems.length !== 0) {
+    //         navigate(RoutesPath.CART);
+    //       } else {
+    //         navigate(RoutesPath.HOME);
+    //       }
+    //     },
+    //   });
+    // }
+    // if (userInfo.isLogin !== true && userInfo.isLogin !== null) {
+    //   Modal.success({
+    //     content: "Login Failed !!!",
+    //   });
+    // }
+  }, [status]);
 
   useEffect(() => {
     dispatch(resetStatus());

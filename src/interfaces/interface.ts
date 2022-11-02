@@ -21,6 +21,8 @@ export interface FetchData {
   img: string;
   category: string;
   type?: string;
+  amount?: number;
+  totalPrice?: number;
 }
 export interface OptionState {
   type?: string | null;
@@ -63,3 +65,23 @@ export type FormCheckOutValue = {
   address: string;
   transport: string;
 };
+
+export type GetDataOrder = number;
+export type getDetailThunkOrder = string | undefined;
+export type deleteThunkOrder = number | undefined;
+export interface PostDataOrder {
+  id?: number;
+  userId: number;
+  cartItems: FetchData[];
+  timeInit: string;
+  completed: boolean;
+  totalPrice: number;
+  deliveryData?: FormCheckOutValue;
+  amount?: number;
+}
+export interface OrderState {
+  status: "idle" | "loading" | "success" | "failed";
+  statusDelete: "idle" | "loading" | "success" | "failed";
+  ordersByUser: PostDataOrder[];
+  ordersByDetail?: PostDataOrder | undefined;
+}

@@ -175,7 +175,11 @@ const Cart = () => {
                 Delete Selection
               </Button>
             )}
-            <Button onClick={handleCheckout} className="table__button">
+            <Button
+              onClick={handleCheckout}
+              type="primary"
+              className="table__button"
+            >
               Checkout Now!!!
             </Button>
             <Link to={RoutesPath.AllFOODS}>

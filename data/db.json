@@ -2,24 +2,36 @@
   "users": [
     {
       "email": "vunguyen.forwork1995@gmail.com",
-      "password": "$2a$10$9DKlrW8xYvVUtZlreaIyA..KlaHpa1yzrEzD23TVNDA2p1BGGawc6",
+      "password": "$2a$10$GYJwAuxl594qrzV0m4da/OlSIrbjdHm4AR9u3czfDLTElu4fGWshq",
       "fullname": "Nguyen Vu",
       "phone": 905816128,
       "id": 1
     },
     {
-      "email": "forwork1995@gmail.com",
-      "password": "$2a$10$VKOwBM.DjZYvQY3olJdNWuf.O4nnQnTJkGhNyZtAtw72Zsn3Cu2N2",
-      "fullname": "Nguyen Vu",
+      "email": "trami@gmail.com",
+      "password": "$2a$10$2dxMcnjyGDqI8sxSZt8tZu33zfzlqNBBZyoEqpwwAmRMmdrp7zr.K",
+      "fullname": "tra my",
       "phone": 905816128,
       "id": 2
     },
     {
-      "email": "vunguyen@gmail.com",
-      "password": "$2a$10$0M/wqensFfKH4lIz3mP3aOBUgMwuqPOY/13Hm28A5fl24pXESh8AC",
+      "email": "nguyenqweqwe@gmail.com",
+      "password": "$2a$10$s2VhcHnVTVnc/bXtMH4wJ.0AyAB41lzfDRrjf47q1gt16HbJlI5P.",
+      "id": 3
+    },
+    {
+      "email": "quynhtho@gmail.com",
+      "password": "$2a$10$b981QpkGJFZXyBn0ZgZhourbAe0nq4NrGeqVfSaI/r0sCIQfyg5Mm",
+      "fullname": "Tran quynh Tho",
+      "phone": 905816128,
+      "id": 4
+    },
+    {
+      "email": "alo@gmail.com",
+      "password": "$2a$10$lF7HrSvCUWku/CEabRYhYuCUESwA73EKb9OUUlXPz/OvVxds7uhPe",
       "fullname": "Nguyen Vu",
       "phone": 905816128,
-      "id": 3
+      "id": 5
     }
   ],
   "products": [
@@ -507,5 +519,6 @@
       "img": "https://thepizzacompany.vn/images/thumbs/000/0002463_junior-star-5-pcs_300.png",
       "category": "Appetizer"
     }
-  ]
+  ],
+  "orders": []
 }

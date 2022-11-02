@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import Helmet from "../../layouts/Helmet/Helmet";
 import CommonSection from "../../components/CommonSection/CommonSection";
 import * as S from "./style";
-import { Row, Col, Input, Button, Space, Avatar, Divider } from "antd";
+import { Row, Col, Input, Button, Space, Avatar, Divider, Modal } from "antd";
+import moment from "moment";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
@@ -12,13 +13,24 @@ import grabfoodLogo from "../../assets/images/logo-grab-food-inkythuatso-20-15-5
 import shoppefood from "../../assets/images/unnamed.png";
 import beaminfood from "../../assets/images/unnamed(1).png";
 import expressfood from "../../assets/images/express-delivery-services-logo-design-courier-template-cargo-icon-135610100.jpeg";
-
+import { useNavigate } from "react-router-dom";
 import {
   getCartItems,
   toggleDrawer,
+  removeAllCartItems,
 } from "../../redux/features/Cart/cartSlice";
-import type { FormCheckOutValue } from "../../interfaces/interface";
-import { WindowsFilled } from "@ant-design/icons";
+import type {
+  FormCheckOutValue,
+  PostDataOrder,
+} from "../../interfaces/interface";
+import { RoutesPath } from "../../constants/routes.path";
+import {
+  getOrder,
+  sendOrderThunk,
+} from "../../redux/features/Orders/OrdersSlice";
+import { getUserInfo } from "../../redux/features/Login&Register/login&registerSlice";
+import { RootState } from "../../redux/store";
+
 const transportOptions = [
   {
     value: "grabfood",
@@ -49,13 +61,45 @@ const schema = yup.object().shape({
     .typeError("Please choose your transportation !!!")
     .required(),
 });
-const Checkout = () => {
+const Checkout: React.FC = () => {
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const [transportOption, setTransportOption] = useState<string>("");
   const [shippingFee, setShippingFee] = useState<number>(0);
+  const { id } = useAppSelector(getUserInfo);
+  const { cartItems, totalPriceItems } = useAppSelector(getCartItems);
+  const { status } = useAppSelector(getOrder);
+  const [open, setOpen] = useState(false);
+  const [formCheckoutData, setFormCheckOutData] = useState<FormCheckOutValue>();
+  const [modalText, setModalText] = useState("Please Confirm This Bill");
 
-  const { cartItems, totalAmount, totalPriceItems } =
-    useAppSelector(getCartItems);
+  const showModal = () => {
+    setOpen(true);
+  };
+
+  const handleOk = async () => {
+    setOpen(false);
+    const data: PostDataOrder = {
+      userId: id,
+      cartItems: [...cartItems],
+      timeInit: moment().toISOString(),
+      completed: false,
+      totalPrice: totalPriceItems,
+      ...(formCheckoutData && {
+        deliveryData: formCheckoutData,
+      }),
+    };
+    dispatch(sendOrderThunk(data));
+
+    window.alert("Your delivery will come soon !!!");
+
+    navigate(RoutesPath.HOME);
+  };
+
+  const handleCancel = () => {
+    console.log("Clicked cancel button");
+    setOpen(false);
+  };
   const {
     handleSubmit,
     reset,
@@ -66,7 +110,10 @@ const Checkout = () => {
     resolver: yupResolver(schema),
   });
   const onSubmit = handleSubmit((data) => {
-    console.log(data, cartItems);
+    if (data) {
+      setFormCheckOutData(data);
+      showModal();
+    }
   });
   const handleChangeOption = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTransportOption(e.target.value);
@@ -89,6 +136,14 @@ const Checkout = () => {
 
   return (
     <>
+      <Modal
+        title="Completed Shopping"
+        open={open}
+        onOk={handleOk}
+        onCancel={handleCancel}
+      >
+        <p>{modalText}</p>
+      </Modal>
       <Helmet title="Checkout"></Helmet>
       <CommonSection title="Checkout"></CommonSection>
       <S.CheckoutContainer>
@@ -215,10 +270,6 @@ const Checkout = () => {
           </Col>
           <Col span={24}>
             <div className="checkout__total-container">
-              <h1 className="checkout__total-title">
-                Your Payment = $
-                {totalPriceItems + shippingFee + totalPriceItems * VAT}
-              </h1>
               <h1 className="checkout__total-food">
                 Total Price : <span>${totalPriceItems}</span>
               </h1>
@@ -229,12 +280,21 @@ const Checkout = () => {
                 VAT : <span>{VAT * 100}%</span>
               </h1>
               <Divider></Divider>
+              <h1 className="checkout__total-title">
+                Your Payment = $
+                {totalPriceItems + shippingFee + totalPriceItems * VAT}
+              </h1>
+              <Divider></Divider>
+              <div className="checkout__submit-button">
+                <Space>
+                  <Button form="myform" htmlType="submit">
+                    Completed
+                  </Button>
+                </Space>
+              </div>
             </div>
           </Col>
         </Row>
-        <Button form="myform" htmlType="submit">
-          Submit
-        </Button>
       </S.CheckoutContainer>
     </>
   );

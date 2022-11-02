@@ -7,7 +7,8 @@ import FoodDetail from "./FoodDetail/FoodDetail";
 import Login from "./Login/Login";
 import Register from "./Register/Register";
 import SearchFoods from "./SearchFoods/SearchFoods";
-
+import UserDelivery from "./UserDelivery/UserDelivery";
+import UserDeliveryDetail from "./UserDeliveryDetail/UserDeliveryDetail";
 export {
   Home,
   AllFoods,
@@ -18,4 +19,6 @@ export {
   Login,
   Register,
   SearchFoods,
+  UserDelivery,
+  UserDeliveryDetail,
 };

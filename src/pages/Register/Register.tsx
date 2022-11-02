@@ -4,7 +4,7 @@ import CommonSection from "../../components/CommonSection/CommonSection";
 import Logoimg from "../../assets/images/res-logo.png";
 import type { FormValues } from "../../interfaces/interface";
 import * as S from "./style";
-import { Button, Col, Alert } from "antd";
+import { Button, Col, Alert, Modal } from "antd";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -22,7 +22,7 @@ const Register = () => {
   const dispatch = useAppDispatch();
   const { status, error } = useAppSelector(getRegisterState);
   const { isLogin } = useAppSelector(getUserInfo);
-  console.log(status);
+
   const schema = yup.object().shape({
     fullname: yup.string().required("This field must be filled"),
     email: yup
@@ -48,7 +48,7 @@ const Register = () => {
     handleSubmit,
     register,
     formState: { errors },
-    reset,
+    resetField,
   } = useForm<FormValues>({
     mode: "onBlur",
     resolver: yupResolver(schema),
@@ -66,12 +66,28 @@ const Register = () => {
     );
   });
   useEffect(() => {
-    if (status === "success" && isLogin === false) {
-      navigate(RoutesPath.LOGIN);
+    if (status === "success") {
+      Modal.success({
+        content: "Register Successfully",
+        afterClose: () => {
+          navigate(RoutesPath.LOGIN);
+        },
+      });
     }
     if (status === "success" && isLogin === true) {
       navigate(RoutesPath.HOME);
       window.alert("Register Success !!!");
+    }
+    if (status === "failed") {
+      Modal.warning({
+        content: "Email is existed",
+        afterClose: () => {
+          resetField("email");
+          resetField("password");
+
+          resetField("passwordConfirm");
+        },
+      });
     }
   }, [status]);
 
@@ -79,9 +95,6 @@ const Register = () => {
     <>
       <Helmet title="Register" />
       <CommonSection title="Register" />
-      {status === "failed" && (
-        <Alert type="error" message="Email is existed" banner closable />
-      )}
 
       <S.RegisterContainer>
         <div className="register__form">
@@ -128,7 +141,15 @@ const Register = () => {
                 Register
               </Button>
               <Link to={RoutesPath.LOGIN}>
-                <Button block>Have account ? Sign in</Button>
+                <Button type="ghost" block>
+                  Have account ?{" "}
+                  <span
+                    style={{ textDecoration: "underline", marginLeft: "5px" }}
+                  >
+                    {" "}
+                    Sign in
+                  </span>{" "}
+                </Button>
               </Link>
             </div>
           </form>
