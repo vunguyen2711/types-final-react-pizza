@@ -66,17 +66,23 @@ const Register = () => {
     );
   });
   useEffect(() => {
+    if (status === "success" && isLogin === true) {
+      Modal.success({
+        content: "Register Successfully !!! Come back HomePage !!!",
+        afterClose: () => {
+          navigate(RoutesPath.HOME);
+        },
+      });
+      return;
+    }
     if (status === "success") {
       Modal.success({
-        content: "Register Successfully",
+        content: "Register Successfully !!! Go to Login",
         afterClose: () => {
           navigate(RoutesPath.LOGIN);
         },
       });
-    }
-    if (status === "success" && isLogin === true) {
-      navigate(RoutesPath.HOME);
-      window.alert("Register Success !!!");
+      return;
     }
     if (status === "failed") {
       Modal.warning({
@@ -88,6 +94,7 @@ const Register = () => {
           resetField("passwordConfirm");
         },
       });
+      return;
     }
   }, [status]);
 

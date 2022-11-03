@@ -28,28 +28,7 @@ const Cart = () => {
     canDelete: false,
     deleteArr: [],
   });
-  const [open, setOpen] = useState(false);
-  const [confirmLoading, setConfirmLoading] = useState(false);
-  const [modalText, setModalText] = useState(
-    "You need account to make payment !!! "
-  );
-  const showModal = () => {
-    setOpen(true);
-  };
 
-  const handleOk = () => {
-    setConfirmLoading(true);
-    setTimeout(() => {
-      setOpen(false);
-      setConfirmLoading(false);
-    }, 2000);
-    navigate(RoutesPath.REGISTER);
-  };
-
-  const handleCancel = () => {
-    console.log("Clicked cancel button");
-    setOpen(false);
-  };
   const dataSource = cartItems.map((item, index) => {
     return {
       key: item.id,
@@ -119,7 +98,14 @@ const Cart = () => {
     if (isLogin) {
       navigate(RoutesPath.CHECKOUT);
     } else {
-      showModal();
+      Modal.confirm({
+        content: "You need an account to make an order !!!",
+        cancelText: "Cancel",
+        okText: "Go To Register Page !!!",
+        onOk: () => {
+          navigate(RoutesPath.REGISTER);
+        },
+      });
     }
   };
   useEffect(() => {
@@ -129,15 +115,7 @@ const Cart = () => {
     <>
       <Helmet title="Your Cart" />
       <CommonSection title="Your Cart" />
-      <Modal
-        title="Account"
-        open={open}
-        onOk={handleOk}
-        confirmLoading={confirmLoading}
-        onCancel={handleCancel}
-      >
-        <p>{modalText}</p>
-      </Modal>
+
       {cartItems.length === 0 ? (
         <h2 style={{ textAlign: "center" }}>Your cart is empty</h2>
       ) : (

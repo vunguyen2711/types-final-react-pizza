@@ -42,7 +42,9 @@ export const registerThunk = createAsyncThunk(
     try {
       const response = await axios.post(URL_DATA.USERS_REGISTER, data);
       return response.data;
-    } catch (error) {}
+    } catch (error) {
+      initialState.registerState.error = "failed";
+    }
   }
 );
 export const loginThunk = createAsyncThunk(
@@ -63,7 +65,9 @@ export const loginTokenThunk = createAsyncThunk(
       const response = await axios.get(URL_DATA.USERS, id);
       console.log(response.data);
       return response.data;
-    } catch (err) {}
+    } catch (err) {
+      initialState.loginState.error = "failed";
+    }
   }
 );
 const initialState = {
@@ -86,7 +90,7 @@ const loginRegisterSlice = createSlice({
       state.userData.isLogin = null;
     },
     resetStatus: (state, action: PayloadAction) => {
-      state.userData.isLogin = null;
+      // state.userData.isLogin = null;
       state.registerState.status = "idle";
       state.loginState.status = "idle";
     },

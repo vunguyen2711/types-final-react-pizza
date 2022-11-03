@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Helmet from "../../layouts/Helmet/Helmet";
 import CommonSection from "../../components/CommonSection/CommonSection";
 import moment from "moment";
-import { Row, Col, Space, Button, Input, Table } from "antd";
+import { Row, Col, Space, Button, Input, Table, Modal } from "antd";
 import { DeleteOutlined, FolderOpenOutlined } from "@ant-design/icons";
 import { useAppDispatch, useAppSelector } from "../../redux/hook";
 import {
@@ -26,7 +26,17 @@ const UserSetting = () => {
   const { ordersByUser, statusDelete } = useAppSelector(getOrder);
 
   const { fullname } = useAppSelector(getUserInfo);
-
+  // function
+  const handleDeleteDelivery = (id: number) => {
+    Modal.confirm({
+      content: "Are you sure to delete this delivery ???",
+      okText: "Accept",
+      cancelText: "Cancel",
+      onOk: () => {
+        dispatch(deleteOrderThunk(id));
+      },
+    });
+  };
   //Table
   const dataDeliverySource = ordersByUser.map((data) => {
     return {
@@ -46,7 +56,7 @@ const UserSetting = () => {
           </Button>
           <Button
             onClick={() => {
-              dispatch(deleteOrderThunk(data.id));
+              handleDeleteDelivery(data.id);
             }}
             style={{ display: "flex", alignItems: "center" }}
             icon={<DeleteOutlined />}

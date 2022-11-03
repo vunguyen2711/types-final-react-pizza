@@ -9,7 +9,7 @@ export const SearchFoodsContainer = styled.section`
   .search__filter-input {
     margin-bottom: 20px;
     & input {
-      width: 300px;
+      width: 100%;
       padding: 5px 10px;
       border: 1px solid #eee;
     }

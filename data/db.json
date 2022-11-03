@@ -2,36 +2,73 @@
   "users": [
     {
       "email": "vunguyen.forwork1995@gmail.com",
-      "password": "$2a$10$GYJwAuxl594qrzV0m4da/OlSIrbjdHm4AR9u3czfDLTElu4fGWshq",
+      "password": "$2a$10$K/lUdV1Zt.eCXTN32TfDMeuPLp2efTixNfaaWG959S1BBNH0ZjjoO",
       "fullname": "Nguyen Vu",
       "phone": 905816128,
       "id": 1
     },
     {
-      "email": "trami@gmail.com",
-      "password": "$2a$10$2dxMcnjyGDqI8sxSZt8tZu33zfzlqNBBZyoEqpwwAmRMmdrp7zr.K",
-      "fullname": "tra my",
+      "email": "tranquynhtho@gmail.com",
+      "password": "$2a$10$ZPJLQLQeNfxHO4xCUNpa5ex94fheO7MP5TKRpSY2pYPqlRGhF5J4W",
+      "fullname": "Nguyen Vu",
       "phone": 905816128,
       "id": 2
     },
     {
-      "email": "nguyenqweqwe@gmail.com",
-      "password": "$2a$10$s2VhcHnVTVnc/bXtMH4wJ.0AyAB41lzfDRrjf47q1gt16HbJlI5P.",
+      "email": "iviettech@gmail.com",
+      "password": "$2a$10$0r4yrbVZ1f/0PvBeL4r3b.2bMhGLolbsDnbVkYTGgCdRydtwCRI7e",
+      "fullname": "Nguyen Vu",
+      "phone": 905816128,
       "id": 3
     },
     {
-      "email": "quynhtho@gmail.com",
-      "password": "$2a$10$b981QpkGJFZXyBn0ZgZhourbAe0nq4NrGeqVfSaI/r0sCIQfyg5Mm",
-      "fullname": "Tran quynh Tho",
+      "email": "nguyen.forwork1995@gmail.com",
+      "password": "$2a$10$F0pxx9hvoL.i5Cz/MCR8fea1nkIYMCHNzf3s8LvwWM.5Fu3O3Pds.",
+      "fullname": "Nguyen Vu",
       "phone": 905816128,
       "id": 4
     },
     {
-      "email": "alo@gmail.com",
-      "password": "$2a$10$lF7HrSvCUWku/CEabRYhYuCUESwA73EKb9OUUlXPz/OvVxds7uhPe",
+      "email": "09@gmail.com",
+      "password": "$2a$10$BvAijKSrROGza09IzCsILeATfNxwmR/Ob8OUWiJFPjA5PedZ/Nc9q",
       "fullname": "Nguyen Vu",
       "phone": 905816128,
       "id": 5
+    },
+    {
+      "email": "12312@gmail.com",
+      "password": "$2a$10$LmWUFlque8qX3cjlcj0J.eZQ76k7VN68hfVz458pjf80skF0yeN8O",
+      "fullname": "Nguyen Vu",
+      "phone": 905816128,
+      "id": 6
+    },
+    {
+      "email": "tinhnhucaibinh@gmail.com",
+      "password": "$2a$10$iAlsTp/3Q7Ef8DrnftGMn.QGHVoQ2xduGpyu11Yw3y2sZ.4UDBhCe",
+      "fullname": "Nguyen Vu",
+      "phone": 905816128,
+      "id": 7
+    },
+    {
+      "email": "popopolo@gmail.com",
+      "password": "$2a$10$LcA2ZYDUfB0CZeHbJgRQ9uZvhPrA6727O6qC/uu8n9xbXaDHbDmVG",
+      "fullname": "Nguyen Vu",
+      "phone": 123123123123123,
+      "id": 8
+    },
+    {
+      "email": "hongnguyen1885@gmail.com",
+      "password": "$2a$10$oTEdBgeg/1SEbqIb7Qo17uGVYFmPC/TjK8Gu0ERfKSDBPAuSNCBlG",
+      "fullname": "Nguyen Vu",
+      "phone": 905816128,
+      "id": 9
+    },
+    {
+      "email": "iietasdasd@gmail.com",
+      "password": "$2a$10$XNpIm4jm1xFSFWxLDGhfbug9wSqF8E7BCf9S4YaYUasDmrLpzPEUq",
+      "fullname": "Nguyen Vu",
+      "phone": 905816128,
+      "id": 10
     }
   ],
   "products": [

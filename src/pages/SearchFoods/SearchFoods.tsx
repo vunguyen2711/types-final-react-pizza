@@ -32,8 +32,6 @@ import { useNavigate } from "react-router-dom";
 
 const { Option } = Select;
 const SearchFoods: React.FC = () => {
-  const ref = React.useRef<any>();
-  console.log(ref.current);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { foods, status, total } = useAppSelector(getFetchedFoods);
