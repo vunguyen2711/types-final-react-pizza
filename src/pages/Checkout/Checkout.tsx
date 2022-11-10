@@ -151,7 +151,7 @@ const Checkout: React.FC = () => {
           <Col lg={12} xs={24}>
             <div className="checkout__form-container">
               <h1 className="checkout__form-title">Delivery Information</h1>
-              <form id="myform" onSubmit={onSubmit} className="checkout__form-">
+              <form id="myform" onSubmit={onSubmit} className="checkout__form">
                 <div className="checkout__form-control">
                   <label className="checkout__form-label">
                     {" "}

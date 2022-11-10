@@ -1,3 +1,5 @@
+import { number, string } from "yup";
+
 export interface IsOpenProps {
   isOpen: boolean;
 }
@@ -84,4 +86,36 @@ export interface OrderState {
   statusDelete: "idle" | "loading" | "success" | "failed";
   ordersByUser: PostDataOrder[];
   ordersByDetail?: PostDataOrder | undefined;
+}
+
+export interface CommentThunkState {
+  comments: CommentThunkData[];
+  status: "idle" | "loading" | "success" | "failed";
+  error: string;
+}
+export interface CommentThunkData {
+  comment: string;
+  userId: number;
+  name: string;
+  email: string;
+  productId: string | number;
+  time: string;
+  rate: number;
+  id?: number;
+}
+export interface CommentForm {
+  comment: string;
+}
+export interface CommentProps {
+  productID: string;
+}
+export interface GetCommentThunkParams {
+  limit?: number;
+  rateValue?: number;
+  userId?: undefined;
+  productId: string;
+}
+export interface CommentItemsProps {
+  data: CommentThunkData;
+  filterParams: GetCommentThunkParams;
 }

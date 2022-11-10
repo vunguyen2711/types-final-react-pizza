@@ -19,7 +19,6 @@ import {
 import { useNavigate, Link } from "react-router-dom";
 import { RoutesPath } from "../../constants/routes.path";
 
-import type { UserDataToken } from "../../App";
 const schema = yup.object().shape({
   email: yup.string().email().required("This field must be filled"),
   password: yup
@@ -54,11 +53,7 @@ const Login = () => {
       Modal.success({
         content: "Login Success !!! Continue to shopping...",
         afterClose: () => {
-          if (cartItems.length !== 0) {
-            navigate(RoutesPath.CART);
-          } else {
-            navigate(RoutesPath.HOME);
-          }
+          navigate(RoutesPath.HOME);
         },
       });
     }
@@ -68,27 +63,10 @@ const Login = () => {
         afterClose: () => {
           resetField("email");
           resetField("password");
+          dispatch(resetStatus());
         },
       });
     }
-
-    // if (userInfo.isLogin === true) {
-    //   Modal.success({
-    //     content: "Login Success !!! Continue to shopping...",
-    //     afterClose: () => {
-    //       if (cartItems.length !== 0) {
-    //         navigate(RoutesPath.CART);
-    //       } else {
-    //         navigate(RoutesPath.HOME);
-    //       }
-    //     },
-    //   });
-    // }
-    // if (userInfo.isLogin !== true && userInfo.isLogin !== null) {
-    //   Modal.success({
-    //     content: "Login Failed !!!",
-    //   });
-    // }
   }, [status]);
 
   useEffect(() => {

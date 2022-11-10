@@ -3,6 +3,7 @@ import Helmet from "../../layouts/Helmet/Helmet";
 import CommonSection from "../../components/CommonSection/CommonSection";
 import { Row, Col, Space, Input, Button } from "antd";
 import { PlusCircleOutlined, MinusCircleOutlined } from "@ant-design/icons";
+import Comment from "../../components/Comment/Comment";
 import * as S from "./style";
 import { useParams, Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/hook";
@@ -29,6 +30,7 @@ const FoodDetail = () => {
   const { foods } = useAppSelector(getFetchedFoods);
 
   const { id } = useParams();
+  console.log(id);
   const filterFourFoods = foods
     .filter((food) => food.id !== Number(id))
     .slice(0, 4);
@@ -95,6 +97,9 @@ const FoodDetail = () => {
                 <Button danger>Exit</Button>
               </Space>
             </div>
+          </Col>
+          <Col span={24}>
+            <Comment productID={id}></Comment>
           </Col>
           <Col span={24}>
             <h1 className="food__alsolike-title">Peopel Also Like :</h1>

@@ -1,6 +1,5 @@
 import styled, { keyframes } from "styled-components";
 import { Row } from "antd";
-import { breakpoints } from "../../constants/breakpoints";
 export const moveRightIn = keyframes`
   0% {
     transform: translateX(1000px);

@@ -26,10 +26,12 @@ export const SearchFoodsContainer = styled.section`
   .search__filter-tags {
     padding: 20px;
     width: 100%;
+    overflow-y: scroll;
+
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 10px;
+    gap: 20px;
   }
   .search__filter-total {
     display: flex;

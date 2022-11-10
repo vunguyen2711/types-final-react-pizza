@@ -4,4 +4,5 @@ export const URL_DATA = {
   USERS: "http://localhost:8800/users",
   PRODUCTS: "http://localhost:8800/products",
   ORDERS: "http://localhost:8800/orders",
+  COMMENTS: "http://localhost:8800/comments",
 };

@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef, useMemo } from "react";
 import { minPriceValue, maxPriceValue } from "../../constants/constants";
 import _ from "lodash";
 import { DebounceInput } from "react-debounce-input";
-
+import { v4 as uuidv4 } from "uuid";
 import CommonSection from "../../components/CommonSection/CommonSection";
 import Helmet from "../../layouts/Helmet/Helmet";
 
@@ -13,20 +13,11 @@ import {
   getFetchedFoods,
   ParamsFetchFoods,
 } from "../../redux/features/LoadFood/loadFoodSlice";
+import type { CheckboxValueType } from "antd/es/checkbox/Group";
 
 import { LoadingOutlined, RollbackOutlined } from "@ant-design/icons";
 import { useAppDispatch, useAppSelector } from "../../redux/hook";
-import {
-  Input,
-  Row,
-  Col,
-  Checkbox,
-  Slider,
-  Select,
-  Button,
-  Spin,
-  Tag,
-} from "antd";
+import { Input, Row, Col, Checkbox, Slider, Select, Button, Spin } from "antd";
 import * as S from "./style";
 import { useNavigate } from "react-router-dom";
 

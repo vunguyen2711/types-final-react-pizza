@@ -65,7 +65,6 @@ const cartSlice = createSlice({
       state.isOpenDrawer = !state.isOpenDrawer;
     },
     deleteItemsById: (state, action: PayloadAction<DeleteItemsById>) => {
-      console.log(action.payload);
       action.payload.forEach((key) => {
         const indexExistedItem = state.cartItems.findIndex(
           (item) => item.id === key

@@ -9,7 +9,7 @@ import {
   resetStatus,
 } from "./redux/features/Login&Register/login&registerSlice";
 import { setInitialCartState } from "./redux/features/Cart/cartSlice";
-import { getOrder } from "./redux/features/Orders/OrdersSlice";
+import { useLocation } from "react-router-dom";
 export interface UserDataToken {
   email: string;
   exp: number;
@@ -18,6 +18,7 @@ export interface UserDataToken {
 }
 const App: React.FC = () => {
   const dispatch = useAppDispatch();
+  const { pathname } = useLocation();
 
   useEffect(() => {
     const accessToken = localStorage.getItem("accessToken");
@@ -34,6 +35,9 @@ const App: React.FC = () => {
       dispatch(setInitialCartState(JSON.parse(dataLocalCartItems)));
     }
   }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
     <div className="App">
