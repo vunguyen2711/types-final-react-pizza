@@ -111,6 +111,7 @@ export interface CommentProps {
 }
 export interface GetCommentThunkParams {
   limit?: number;
+  page?: number;
   rateValue?: number;
   userId?: undefined;
   productId: string;

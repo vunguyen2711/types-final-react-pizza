@@ -108,16 +108,18 @@ const Cart = () => {
       });
     }
   };
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+
   return (
     <>
       <Helmet title="Your Cart" />
       <CommonSection title="Your Cart" />
 
       {cartItems.length === 0 ? (
-        <h2 style={{ textAlign: "center" }}>Your cart is empty</h2>
+        <h2
+          style={{ fontSize: "40px", textAlign: "center", marginTop: "40px" }}
+        >
+          Your cart is empty
+        </h2>
       ) : (
         <S.CartContainer>
           <Table

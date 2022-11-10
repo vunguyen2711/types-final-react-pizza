@@ -109,7 +109,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
 
             <div className="modal__showdetail">
               <Link to={`/foods/${id}`}>
-                <button className="modal__showdetail-button">Show More</button>
+                <button className="modal__showdetail-button">
+                  View Details
+                </button>
               </Link>
             </div>
           </Col>

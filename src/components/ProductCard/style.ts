@@ -74,6 +74,13 @@ export const ModalContainer = styled(Modal)`
     align-items: center;
     justify-content: center;
     &-button {
+      padding: 5px 20px;
+      background: var(--pink-color);
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 20px;
+      border: none;
+      border-radius: 20px;
     }
   }
 `;

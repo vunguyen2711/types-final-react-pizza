@@ -32,15 +32,18 @@ const Comment: React.FC<CommentProps> = ({ productID }) => {
   const [value, setValue] = useState(3);
   const { id, fullname, email, isLogin } = useAppSelector(getUserInfo);
   const dispatch = useAppDispatch();
-  const { status, error, comments } = useAppSelector(getCommentInfo);
-
-  const [filterParams, setFilterParams] = useState<GetCommentThunkParams>({
+  const { comments } = useAppSelector(getCommentInfo);
+  const defaultFilterParams = {
     limit: 8,
-    rateValue: undefined,
+    page: 1,
+    rate: undefined,
     userId: undefined,
     productId: productID,
+  };
+  const [filterParams, setFilterParams] = useState<GetCommentThunkParams>({
+    ...defaultFilterParams,
   });
-
+  console.log(filterParams);
   const {
     handleSubmit,
     formState: { errors },
@@ -74,6 +77,27 @@ const Comment: React.FC<CommentProps> = ({ productID }) => {
       },
     });
   });
+  const updateFilterParams = (field: string | null, value: any | null) => {
+    const defaultFilterParams = {
+      limit: 8,
+      page: 1,
+      rate: undefined,
+      userId: undefined,
+      productId: productID,
+    };
+    if (field === null && value === null) {
+      setFilterParams({
+        ...defaultFilterParams,
+      });
+    } else {
+      setFilterParams((prev) => {
+        return {
+          ...defaultFilterParams,
+          [field]: value,
+        };
+      });
+    }
+  };
   useEffect(() => {
     if (errors.comment) {
       Modal.error({ content: `${errors.comment.message}` });
@@ -101,14 +125,28 @@ const Comment: React.FC<CommentProps> = ({ productID }) => {
           </h1>
           <Divider type="vertical"></Divider>
           <Space wrap direction="horizontal" className="filter__button">
-            <Button>All</Button>
-            <Button>Your Feedback</Button>
-            <Button>5 stars</Button>
-            <Button>4 stars</Button>
-            <Button>3 stars</Button>
-            <Button>2 stars</Button>
-            <Button>1 stars</Button>
-            <Button>0 stars</Button>
+            <Button onClick={() => updateFilterParams(null, null)}>All</Button>
+            <Button onClick={() => updateFilterParams("userId", id)}>
+              Your Feedback
+            </Button>
+            <Button onClick={() => updateFilterParams("rate", 5)}>
+              5 stars
+            </Button>
+            <Button onClick={() => updateFilterParams("rate", 4)}>
+              4 stars
+            </Button>
+            <Button onClick={() => updateFilterParams("rate", 3)}>
+              3 stars
+            </Button>
+            <Button onClick={() => updateFilterParams("rate", 2)}>
+              2 stars
+            </Button>
+            <Button onClick={() => updateFilterParams("rate", 1)}>
+              1 stars
+            </Button>
+            <Button onClick={() => updateFilterParams("rate", 0)}>
+              0 stars
+            </Button>
           </Space>
         </Space>
       </div>

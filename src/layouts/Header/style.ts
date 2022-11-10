@@ -12,6 +12,14 @@ export const HeaderContainer = styled.header`
   align-items: center;
   padding-top: 10px;
   padding-bottom: 10px;
+
+  .header__welcome {
+    color: var(--red-color);
+    position: absolute;
+    top: 10px;
+    right: 10%;
+    text-align: center;
+  }
   .header__logo {
     width: 60px;
     cursor: pointer;

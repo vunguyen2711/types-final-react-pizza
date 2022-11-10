@@ -60,7 +60,7 @@ const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { cartItems, totalAmount, totalPriceItems, isOpenDrawer } =
     useAppSelector(getCartItems);
-  const { isLogin, fullname } = useAppSelector(getUserInfo);
+  const { isLogin, fullname, email } = useAppSelector(getUserInfo);
 
   const [open, setOpen] = useState(false);
   const dispatch = useAppDispatch();
@@ -142,6 +142,7 @@ const Header: React.FC = () => {
         </div>
       </S.DrawerContainer>
       <S.HeaderContainer isOpen={isOpen}>
+        {isLogin && <h2 className="header__welcome">Welcome {email}</h2>}
         <Link to={RoutesPath.HOME}>
           <Space align="center" direction="vertical">
             <div className="header__logo">

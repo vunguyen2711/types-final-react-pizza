@@ -32,7 +32,7 @@ const Login = () => {
   const dispatch = useAppDispatch();
   const { error, status } = useAppSelector(getLoginState);
   const { cartItems } = useAppSelector(getCartItems);
-  const userInfo = useAppSelector(getUserInfo);
+  const {} = useAppSelector(getUserInfo);
   const navigate = useNavigate();
   const {
     handleSubmit,
@@ -73,7 +73,7 @@ const Login = () => {
     dispatch(resetStatus());
     const accessToken = localStorage.getItem("accessToken");
     if (accessToken) {
-      navigate(RoutesPath.HOME);
+      navigate(-1);
       window.alert("You are logined");
     }
   }, []);

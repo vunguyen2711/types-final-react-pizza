@@ -24,8 +24,10 @@ import {
 import { RoutesPath } from "../../constants/routes.path";
 import type { FetchData } from "../../interfaces/interface";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import AlsoLikeProduct from "../../components/AlsoLikeProduct/AlsoLikeProduct";
-const FoodDetail = () => {
+const FoodDetail: React.FC = () => {
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { foods } = useAppSelector(getFetchedFoods);
 
@@ -94,7 +96,9 @@ const FoodDetail = () => {
 
               <Space className="fooddetails__button">
                 <Button onClick={() => handleAddToCart()}>Add to cart</Button>
-                <Button danger>Exit</Button>
+                <Button onClick={() => navigate(-1)} danger>
+                  Exit
+                </Button>
               </Space>
             </div>
           </Col>

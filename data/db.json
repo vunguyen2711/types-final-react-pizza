@@ -91,16 +91,6 @@
       "id": 19
     },
     {
-      "comment": "mon nay qua te",
-      "userId": 1,
-      "email": "vunguyen.forwork1995@gmail.com",
-      "name": "Nguyen Vu",
-      "productId": "2",
-      "time": "2022-11-10T10:49:05+07:00",
-      "rate": 1,
-      "id": 20
-    },
-    {
       "comment": "Mon nay qua ngon ",
       "userId": 1,
       "email": "vunguyen.forwork1995@gmail.com",
@@ -109,16 +99,6 @@
       "time": "2022-11-10T11:04:39+07:00",
       "rate": 3,
       "id": 21
-    },
-    {
-      "comment": "asdasdasd",
-      "userId": 1,
-      "email": "vunguyen.forwork1995@gmail.com",
-      "name": "Nguyen Vu",
-      "productId": "2",
-      "time": "2022-11-10T11:11:51+07:00",
-      "rate": 3,
-      "id": 22
     },
     {
       "comment": "asdasdasdasdasdasd",
@@ -139,6 +119,36 @@
       "time": "2022-11-10T11:29:26+07:00",
       "rate": 3,
       "id": 24
+    },
+    {
+      "comment": "Chan qua ",
+      "userId": 1,
+      "email": "vunguyen.forwork1995@gmail.com",
+      "name": "Nguyen Vu",
+      "productId": "11",
+      "time": "2022-11-10T13:59:23+07:00",
+      "rate": 3,
+      "id": 25
+    },
+    {
+      "comment": "hihi",
+      "userId": 12,
+      "email": "haha123@gmail.com",
+      "name": "Nguyen Vu",
+      "productId": "16",
+      "time": "2022-11-10T14:00:55+07:00",
+      "rate": 3,
+      "id": 26
+    },
+    {
+      "comment": "qua chan",
+      "userId": 1,
+      "email": "vunguyen.forwork1995@gmail.com",
+      "name": "Nguyen Vu",
+      "productId": "16",
+      "time": "2022-11-10T14:01:28+07:00",
+      "rate": 5,
+      "id": 27
     }
   ],
   "users": [
