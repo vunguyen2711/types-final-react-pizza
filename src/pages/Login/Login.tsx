@@ -73,7 +73,7 @@ const Login = () => {
     dispatch(resetStatus());
     const accessToken = localStorage.getItem("accessToken");
     if (accessToken) {
-      navigate(-1);
+      navigate(RoutesPath.HOME);
       window.alert("You are logined");
     }
   }, []);

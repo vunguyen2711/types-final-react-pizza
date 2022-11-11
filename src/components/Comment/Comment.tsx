@@ -121,7 +121,7 @@ const Comment: React.FC<CommentProps> = ({ productID }) => {
       <div className="comment__filter">
         <Space wrap className="filter" align="start" direction="horizontal">
           <h1 className="filter__average">
-            Total: <span></span>
+            Filter: <span></span>
           </h1>
           <Divider type="vertical"></Divider>
           <Space wrap direction="horizontal" className="filter__button">
