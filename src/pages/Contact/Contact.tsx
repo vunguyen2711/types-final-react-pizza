@@ -1,91 +1,53 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Helmet from "../../layouts/Helmet/Helmet";
 import CommonSection from "../../components/CommonSection/CommonSection";
-import { Row, Col, Button, Divider, Card, Space } from "antd";
+import { Row, Col, Button, Divider, Card, Space, Modal } from "antd";
 import { PhoneFilled, WechatFilled } from "@ant-design/icons";
 import * as S from "./style";
-const phoneData = [
-  {
-    country: "America",
-    area: [
-      {
-        areaTitle: "US and Canada",
-        phone: ["+1 877 683 0497 (English)", "+1 857 829 5064 (Spanish)"],
-      },
-      {
-        areaTitle: "Chile",
-        phone: ["+56 2 2582 3853 (Spanish)"],
-      },
-      {
-        areaTitle: "Brazil",
-        phone: ["+55 21 2018 1092 (Portuguese)"],
-      },
-      {
-        areaTitle: "Mexico",
-        phone: ["+52 55 8525 9498 (Spanish)"],
-      },
-    ],
-  },
-  {
-    country: "Europe",
-    area: [
-      {
-        areaTitle: "Austria",
-        phone: ["+43 720 902 456 (German)", "+43 720 902 440 (English)"],
-      },
-      {
-        areaTitle: "Belgium",
-        phone: ["+32 2 808 4733 (French)", "+32 2 808 4734 (English)"],
-      },
-      {
-        areaTitle: "Denmark",
-        phone: ["+45 6996 0208 (English)"],
-      },
-      {
-        areaTitle: "Finland",
-        phone: ["+358 7 5325 2986 (English)"],
-      },
-    ],
-  },
-  {
-    country: "Asia Pacific",
-    area: [
-      {
-        areaTitle: "Australia",
-        phone: ["+61 2 8046 6514 (English)"],
-      },
-      {
-        areaTitle: "Hong Kong",
-        phone: ["+852 3008 5689 (English)"],
-      },
-      {
-        areaTitle: "India",
-        phone: ["+91 11 7127 9211 (English)"],
-      },
-      {
-        areaTitle: "Japan",
-        phone: ["+81 3 6863 5389 (Japanese)"],
-      },
-      {
-        areaTitle: "Viet Nam",
-        phone: ["+84 908899898 (Vietnamese)"],
-      },
-      {
-        areaTitle: "New Zealand",
-        phone: ["+64 9 801 1072 (English)"],
-      },
-      {
-        areaTitle: "Singapore",
-        phone: ["+65 800 852 3413 (English)"],
-      },
-      {
-        areaTitle: "South Korea",
-        phone: ["+070 4732 5013 (English)"],
-      },
-    ],
-  },
-];
+import { phoneData } from "../../constants/constants";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import { ContactFormValidation } from "../../interfaces/interface";
+import { useAppDispatch, useAppSelector } from "../../redux/hook";
+import {
+  getStatusContact,
+  postContactThunk,
+} from "../../redux/features/ContactSlice/ContactSlice";
+import { useNavigate } from "react-router-dom";
+import { RoutesPath } from "../../constants/routes.path";
+const schema = yup.object().shape({
+  name: yup.string().required("Please enter your name"),
+  phone: yup
+    .number()
+    .typeError("Your phone must be a number")
+    .required("Please enter your number"),
+  email: yup.string().email().required("Please enter your email"),
+  content: yup.string().required("Please enter your content"),
+});
 const Contact: React.FC = () => {
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  const status = useAppSelector(getStatusContact);
+  const {
+    handleSubmit,
+    formState: { errors },
+    resetField,
+    register,
+  } = useForm<ContactFormValidation>({
+    mode: "onSubmit",
+    resolver: yupResolver(schema),
+  });
+  const moveToContactUs = () => {
+    const contactUsCors = document
+      .querySelector(".contact__form-container")
+      .getBoundingClientRect();
+    const contactUsCorsTop = contactUsCors.top;
+    window.scrollTo({
+      top: contactUsCorsTop,
+      behavior: "smooth",
+    });
+  };
   const moveToPhoneContact = () => {
     const phoneContactCors = document
       .querySelector("#contactRef")
@@ -96,6 +58,46 @@ const Contact: React.FC = () => {
       behavior: "smooth",
     });
   };
+  const onSubmit = handleSubmit((data) => {
+    dispatch(postContactThunk(data));
+  });
+  useEffect(() => {
+    if (status === "success") {
+      Modal.success({
+        content: "You message will come to us soon...",
+        cancelText: "Stay here",
+        onCancel: () => {
+          return;
+        },
+        okText: "Go to Home Page",
+        onOk: () => {
+          navigate(RoutesPath.HOME);
+        },
+      });
+    }
+  }, [status]);
+  useEffect(() => {
+    if (errors.name) {
+      Modal.error({
+        content: `${errors.name.message}`,
+      });
+    }
+    if (errors.phone) {
+      Modal.error({
+        content: `${errors.phone.message}`,
+      });
+    }
+    if (errors.email) {
+      Modal.error({
+        content: `${errors.email.message}`,
+      });
+    }
+    if (errors.content) {
+      Modal.error({
+        content: `${errors.content.message}`,
+      });
+    }
+  }, [errors]);
   return (
     <>
       <Helmet title="Contact" />
@@ -106,7 +108,7 @@ const Contact: React.FC = () => {
             <h1 className="contact__title">Keep In Touch</h1>
           </Col>
           <Col md={12} xs={24}>
-            <div className="contact__phone">
+            <div onClick={moveToPhoneContact} className="contact__phone">
               <div className="contact__phone-logo">
                 <PhoneFilled></PhoneFilled>
                 <h2>Talk To Sale</h2>
@@ -123,7 +125,7 @@ const Contact: React.FC = () => {
             </div>
           </Col>
           <Col md={12} xs={24}>
-            <div className="contact__support">
+            <div onClick={moveToContactUs} className="contact__support">
               <div className="contact__support-logo">
                 <WechatFilled></WechatFilled>
                 <h2>Connect Us</h2>
@@ -202,6 +204,39 @@ const Contact: React.FC = () => {
               </Col>
             );
           })}
+          <Col span={24}></Col>
+          <Col span={24}>
+            <div className="contact__form-container">
+              <h1 className="contact__title">Contact Us</h1>
+              <form
+                onSubmit={onSubmit}
+                id="contact"
+                action=""
+                className="contact__form"
+              >
+                <div className="contact__form-control">
+                  <label htmlFor="">Name:</label>
+                  <input {...register("name")} type="text" />
+                </div>
+                <div className="contact__form-control">
+                  <label htmlFor="">Phone:</label>
+                  <input {...register("phone")} type="text" />
+                </div>
+                <div className="contact__form-control">
+                  <label htmlFor="">Email:</label>
+                  <input {...register("email")} type="email" />
+                </div>
+                <div className="contact__form-control">
+                  <label htmlFor="">Content:</label>
+                  <textarea {...register("content")} />
+                </div>
+
+                <Button htmlType="submit" form="contact" block={true}>
+                  Send To Us
+                </Button>
+              </form>
+            </div>
+          </Col>
         </Row>
       </S.ContactContainer>
     </>

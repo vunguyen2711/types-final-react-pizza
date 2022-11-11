@@ -5,10 +5,12 @@ import {
   CarOutlined,
   MoneyCollectFilled,
 } from "@ant-design/icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as S from "./style";
 import heroImage from "../../assets/images/hero.png";
+import { RoutesPath } from "../../constants/routes.path";
 const HeroSection = () => {
+  const navigate = useNavigate();
   return (
     <S.HeroContainer gutter={16}>
       <Col span={24} lg={12}>
@@ -27,11 +29,12 @@ const HeroSection = () => {
           </p>
           <Space size="middle">
             <Button
+              onClick={() => navigate(RoutesPath.CONTACT)}
               size="large"
               className="btn__order"
               icon={<ArrowRightOutlined />}
             >
-              Order Now
+              Contact Us Now
             </Button>
             <Link to="/foods">
               <Button size="large" className="btn__seefood">

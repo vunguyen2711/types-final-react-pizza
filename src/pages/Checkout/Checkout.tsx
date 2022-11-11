@@ -134,6 +134,17 @@ const Checkout: React.FC = () => {
     console.log("render");
   }, [transportOption]);
 
+  useEffect(() => {
+    if (cartItems.length === 0) {
+      Modal.info({
+        content: "Your cart is empty !!! Put something to continue...!!!",
+        okText: "OK",
+        onOk: () => {
+          navigate(RoutesPath.AllFOODS);
+        },
+      });
+    }
+  }, [cartItems]);
   return (
     <>
       <Modal

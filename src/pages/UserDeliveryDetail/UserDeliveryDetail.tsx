@@ -3,7 +3,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import Helmet from "../../layouts/Helmet/Helmet";
 import CommonSection from "../../components/CommonSection/CommonSection";
 import * as S from "./style";
-import { Row, Col, Space, Button, Avatar, Table } from "antd";
+import { Row, Col, Space, Button, Avatar, Table, Modal } from "antd";
 import { LoadingOutlined, SafetyOutlined } from "@ant-design/icons";
 import { useAppDispatch, useAppSelector } from "../../redux/hook";
 import { useParams, useNavigate } from "react-router-dom";
@@ -87,7 +87,14 @@ const UserDeliveryDetail: React.FC = () => {
             <Space>
               <Button
                 onClick={() => {
-                  dispatch(deleteOrderThunk(Number(id)));
+                  Modal.confirm({
+                    content: "Are you sure to delete this delivery ???",
+                    okText: "Accept",
+                    cancelText: "Cancel",
+                    onOk: () => {
+                      dispatch(deleteOrderThunk(id));
+                    },
+                  });
                 }}
                 type="primary"
               >

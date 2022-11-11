@@ -5,4 +5,5 @@ export const URL_DATA = {
   PRODUCTS: "http://localhost:8800/products",
   ORDERS: "http://localhost:8800/orders",
   COMMENTS: "http://localhost:8800/comments",
+  CONTACTS: "http://localhost:8800/contacts",
 };

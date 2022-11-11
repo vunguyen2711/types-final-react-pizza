@@ -70,7 +70,7 @@ export type FormCheckOutValue = {
 
 export type GetDataOrder = number;
 export type getDetailThunkOrder = string | undefined;
-export type deleteThunkOrder = number | undefined;
+export type deleteThunkOrder = string | number | undefined;
 export interface PostDataOrder {
   id?: number;
   userId: number;
@@ -119,4 +119,20 @@ export interface GetCommentThunkParams {
 export interface CommentItemsProps {
   data: CommentThunkData;
   filterParams: GetCommentThunkParams;
+}
+export interface ContactFormValidation {
+  name: string;
+  phone: string | number;
+  email: string;
+  content: string;
+}
+export interface ContactThunkParams {
+  name: string;
+  phone: string | number;
+  email: string;
+  content: string;
+}
+
+export interface ContactState {
+  status: "idle" | "loading" | "success" | "failed";
 }
