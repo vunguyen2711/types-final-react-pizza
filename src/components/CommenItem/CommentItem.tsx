@@ -12,7 +12,7 @@ import {
 } from "../../redux/features/Comment/CommentSlice";
 const CommentItem: React.FC<CommentItemsProps> = ({ data, filterParams }) => {
   const { comment, email, name, rate, time, userId, productId } = data || {};
-
+  const { isLogin } = useAppSelector(getUserInfo);
   const dispatch = useAppDispatch();
   const userReduxId = useAppSelector(getUserInfo).id;
   const commentReduxId = data.id;
@@ -43,7 +43,7 @@ const CommentItem: React.FC<CommentItemsProps> = ({ data, filterParams }) => {
           <p className="comment__detail">{comment}</p>
         </Space>
       </Space>
-      {userId === userReduxId && (
+      {userId === userReduxId && isLogin && (
         <Button onClick={handleDeleteComment} className="btn__delete-comment">
           Delete Comment!!!
         </Button>

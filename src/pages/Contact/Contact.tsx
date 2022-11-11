@@ -13,6 +13,7 @@ import { useAppDispatch, useAppSelector } from "../../redux/hook";
 import {
   getStatusContact,
   postContactThunk,
+  resetStatus,
 } from "../../redux/features/ContactSlice/ContactSlice";
 import { useNavigate } from "react-router-dom";
 import { RoutesPath } from "../../constants/routes.path";
@@ -72,6 +73,7 @@ const Contact: React.FC = () => {
         okText: "Go to Home Page",
         onOk: () => {
           navigate(RoutesPath.HOME);
+          dispatch(resetStatus());
         },
       });
     }

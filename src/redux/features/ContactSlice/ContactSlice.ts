@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../../store";
 import type {
   ContactThunkParams,
@@ -24,7 +24,11 @@ const initialState = {
 const contactSlice = createSlice({
   name: "contactSlice",
   initialState,
-  reducers: {},
+  reducers: {
+    resetStatus: (state, action: PayloadAction) => {
+      state.status = "idle";
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(postContactThunk.pending, (state, action) => {
       state.status = "loading";
@@ -40,3 +44,4 @@ const contactSlice = createSlice({
 
 export default contactSlice.reducer;
 export const getStatusContact = (state: RootState) => state.contact.status;
+export const { resetStatus } = contactSlice.actions;
