@@ -99,11 +99,11 @@ const Cart = () => {
       navigate(RoutesPath.CHECKOUT);
     } else {
       Modal.confirm({
-        content: "You need an account to make an order !!!",
+        content: "You need to login make an order !!!",
         cancelText: "Cancel",
-        okText: "Go To Register Page !!!",
+        okText: "Go To Login Page !!!",
         onOk: () => {
-          navigate(RoutesPath.REGISTER);
+          navigate(RoutesPath.LOGIN);
         },
       });
     }

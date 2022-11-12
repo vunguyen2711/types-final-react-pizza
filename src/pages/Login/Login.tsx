@@ -28,7 +28,7 @@ const schema = yup.object().shape({
     .required("This field must be filled"),
 });
 
-const Login = () => {
+const Login: React.FC = () => {
   const dispatch = useAppDispatch();
   const { error, status } = useAppSelector(getLoginState);
   const { cartItems } = useAppSelector(getCartItems);
@@ -53,7 +53,8 @@ const Login = () => {
       Modal.success({
         content: "Login Success !!! Continue to shopping...",
         afterClose: () => {
-          navigate(RoutesPath.HOME);
+          const backToPath = JSON.parse(localStorage.getItem("path"));
+          navigate(backToPath[backToPath.length - 1]);
         },
       });
     }

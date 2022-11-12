@@ -8,6 +8,12 @@ export const ProductCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
+  .bookmark__container {
+    position: absolute;
+    top: 10px;
+    right: 0;
+  }
   .product__img {
     height: 250px;
     & img {
@@ -59,6 +65,11 @@ export const ModalContainer = styled(Modal)`
       font-size: 30px;
       color: var(--red-color);
     }
+  }
+  .bookmark__container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
   }
   .modal__content-desc {
   }

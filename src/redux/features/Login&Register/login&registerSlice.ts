@@ -63,7 +63,7 @@ export const loginTokenThunk = createAsyncThunk(
   async (id: any, thunkAPI) => {
     try {
       const response = await axios.get(URL_DATA.USERS, id);
-      console.log(response.data);
+
       return response.data;
     } catch (err) {
       initialState.loginState.error = "failed";

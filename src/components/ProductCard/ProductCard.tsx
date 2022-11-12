@@ -5,12 +5,14 @@ import { addItems, getCartItems } from "../../redux/features/Cart/cartSlice";
 import type { CartPayload } from "../../redux/features/Cart/cartSlice";
 import { PlusCircleOutlined, MinusCircleOutlined } from "@ant-design/icons";
 import { Button, Modal, Space, Row, Col, Input } from "antd";
-import { ProductCartItems } from "../../interfaces/interface";
+import { BookMarkProps, ProductCartItems } from "../../interfaces/interface";
 import { Link } from "react-router-dom";
 import { RoutesPath } from "../../constants/routes.path";
+import BookMark from "../BookMark/BookMark";
 interface ProductCardProps {
   item: ProductCartItems;
 }
+
 const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
   const { id, title, category, price, img } = item;
 
@@ -103,6 +105,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
             </Space>
           </Col>
           <Col span={12}>
+            <div className="bookmark__container">
+              <BookMark></BookMark>
+            </div>
             <div className="modal__image">
               <img src={img} alt="" />
             </div>
@@ -130,6 +135,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
           <h2>
             Price: <span className="product__price">${price}</span>
           </h2>
+
           <Button onClick={showModal} className="addtocart__btn">
             Get Your Food !!!
           </Button>

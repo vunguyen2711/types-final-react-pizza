@@ -59,6 +59,14 @@ const UserDeliveryDetail: React.FC = () => {
       dataIndex: "totalPrice",
     },
   ];
+  useEffect(() => {
+    const accessToken = localStorage.getItem("accessToken");
+    if (!accessToken) {
+      navigate(RoutesPath.HOME);
+      window.alert("You need to login !!!");
+      return;
+    }
+  }, []);
   return (
     <>
       <Helmet title="Delivery Detail"></Helmet>

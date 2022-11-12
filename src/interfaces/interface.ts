@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from "react";
 import { number, string } from "yup";
 
 export interface IsOpenProps {
@@ -135,4 +136,9 @@ export interface ContactThunkParams {
 
 export interface ContactState {
   status: "idle" | "loading" | "success" | "failed";
+}
+
+export interface BookMarkProps {
+  isFavorite: boolean;
+  setIsFavorite: React.Dispatch<React.SetStateAction<boolean>>;
 }

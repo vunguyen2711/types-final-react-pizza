@@ -135,6 +135,12 @@ const Checkout: React.FC = () => {
   }, [transportOption]);
 
   useEffect(() => {
+    const accessToken = localStorage.getItem("accessToken");
+    if (!accessToken) {
+      navigate(RoutesPath.HOME);
+      window.alert("You need to login !!!");
+      return;
+    }
     if (cartItems.length === 0) {
       Modal.info({
         content: "Your cart is empty !!! Put something to continue...!!!",
@@ -145,6 +151,7 @@ const Checkout: React.FC = () => {
       });
     }
   }, [cartItems]);
+
   return (
     <>
       <Modal

@@ -25,7 +25,7 @@ const UserSetting = () => {
   const { id } = useAppSelector(getUserInfo);
   const { ordersByUser, statusDelete } = useAppSelector(getOrder);
 
-  const { fullname } = useAppSelector(getUserInfo);
+  const { fullname, isLogin } = useAppSelector(getUserInfo);
   // function
   const handleDeleteDelivery = (id: number) => {
     Modal.confirm({
@@ -37,6 +37,14 @@ const UserSetting = () => {
       },
     });
   };
+  useEffect(() => {
+    const accessToken = localStorage.getItem("accessToken");
+    if (!accessToken) {
+      navigate(RoutesPath.HOME);
+      window.alert("You need to login !!!");
+      return;
+    }
+  }, []);
   //Table
   const dataDeliverySource = ordersByUser.map((data) => {
     return {

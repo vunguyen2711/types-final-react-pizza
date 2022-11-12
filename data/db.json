@@ -300,6 +300,20 @@
       "fullname": "Chi Huynh",
       "phone": 905816128,
       "id": 13
+    },
+    {
+      "email": "123123123@gmail.com",
+      "password": "$2a$10$ZU3f8CBl.7ISzBcsR3QDCeiv34Iilj/eLTk88Um/TKnHqq.LcE/Pu",
+      "fullname": "Nguyen Vu",
+      "phone": 905816128,
+      "id": 14
+    },
+    {
+      "email": "bachcongtu123@gmail.com",
+      "password": "$2a$10$tpHg96k51D5AyAkXzK8k0.6TOxqxAQe.RHujzCA0eYGEXA8DyHH5C",
+      "fullname": "Nguyen Vu",
+      "phone": 905816128,
+      "id": 15
     }
   ],
   "products": [
@@ -788,5 +802,21 @@
       "category": "Appetizer"
     }
   ],
-  "orders": []
+  "orders": [],
+  "favorites": [
+    {
+      "id": 1,
+      "ids": [
+        "aldklaksdlaksdlkaskdaldklaksdlaksdlaksldkasdkalkdlaksdlaksldkasd",
+        "asdkajsdkajdkajsdkjas"
+      ]
+    },
+    {
+      "id": 3,
+      "ids": [
+        "aldklaksdlaksdlkaskdaldklaksdlaksdlaksldkasdkalkdlaksdlaksldkasd",
+        "asdkajsdkajdkajsdkjas"
+      ]
+    }
+  ]
 }
