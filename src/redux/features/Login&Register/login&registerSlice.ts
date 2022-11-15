@@ -62,7 +62,11 @@ export const loginTokenThunk = createAsyncThunk(
   "loginToken",
   async (id: any, thunkAPI) => {
     try {
-      const response = await axios.get(URL_DATA.USERS, id);
+      const response = await axios.get(URL_DATA.USERS, {
+        params: {
+          id,
+        },
+      });
 
       return response.data;
     } catch (err) {

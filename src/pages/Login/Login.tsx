@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Helmet from "../../layouts/Helmet/Helmet";
 import CommonSection from "../../components/CommonSection/CommonSection";
 import * as S from "./style";
@@ -7,9 +7,14 @@ import Logoimg from "../../assets/images/res-logo.png";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
-import { FormValues } from "../../interfaces/interface";
+import {
+  CreateInitialFavoriteParams,
+  FormValues,
+} from "../../interfaces/interface";
+import { UserDataToken } from "../../App";
 import { useAppDispatch, useAppSelector } from "../../redux/hook";
 import { getCartItems } from "../../redux/features/Cart/cartSlice";
+
 import {
   getLoginState,
   getUserInfo,
@@ -18,7 +23,12 @@ import {
 } from "../../redux/features/Login&Register/login&registerSlice";
 import { useNavigate, Link } from "react-router-dom";
 import { RoutesPath } from "../../constants/routes.path";
-
+import jwt_decode from "jwt-decode";
+import {
+  createInitialFavoriteForUser,
+  getFavoriteByUserId,
+  getFavoriteState,
+} from "../../redux/features/FavoriteProDucts/FavoriteProductsSlice";
 const schema = yup.object().shape({
   email: yup.string().email().required("This field must be filled"),
   password: yup
@@ -30,9 +40,11 @@ const schema = yup.object().shape({
 
 const Login: React.FC = () => {
   const dispatch = useAppDispatch();
-  const { error, status } = useAppSelector(getLoginState);
-  const { cartItems } = useAppSelector(getCartItems);
-  const {} = useAppSelector(getUserInfo);
+  const { status } = useAppSelector(getLoginState);
+
+  const getFavoriteByIdStatus =
+    useAppSelector(getFavoriteState).getByIdState.status;
+  const [userId, setUserId] = useState<string>();
   const navigate = useNavigate();
   const {
     handleSubmit,
@@ -55,6 +67,12 @@ const Login: React.FC = () => {
         afterClose: () => {
           const backToPath = JSON.parse(localStorage.getItem("path"));
           navigate(backToPath[backToPath.length - 1]);
+          const accessToken = localStorage.getItem("accessToken");
+          if (accessToken) {
+            const userData: UserDataToken = jwt_decode(accessToken);
+            setUserId(userData.sub);
+            dispatch(getFavoriteByUserId(userData.sub));
+          }
         },
       });
     }

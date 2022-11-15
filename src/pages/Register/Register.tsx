@@ -17,7 +17,8 @@ import { useAppDispatch, useAppSelector } from "../../redux/hook";
 import { getRegisterState } from "../../redux/features/Login&Register/login&registerSlice";
 import { useNavigate, Link } from "react-router-dom";
 import { RoutesPath } from "../../constants/routes.path";
-const Register = () => {
+
+const Register: React.FC = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { status, error } = useAppSelector(getRegisterState);

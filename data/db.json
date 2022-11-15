@@ -207,6 +207,26 @@
       "time": "2022-11-10T14:01:28+07:00",
       "rate": 5,
       "id": 27
+    },
+    {
+      "comment": "Mon nay an do te\n",
+      "userId": 1,
+      "email": "vunguyen.forwork1995@gmail.com",
+      "name": "Nguyen Vu",
+      "productId": "3",
+      "time": "2022-11-12T23:13:11+07:00",
+      "rate": 3,
+      "id": 28
+    },
+    {
+      "comment": "Mon nay cung binh thuong",
+      "userId": 16,
+      "email": "nhiquynh123@gmail.com",
+      "name": "Tran Hoai Nhi",
+      "productId": "3",
+      "time": "2022-11-12T23:37:24+07:00",
+      "rate": 3,
+      "id": 29
     }
   ],
   "users": [
@@ -314,6 +334,27 @@
       "fullname": "Nguyen Vu",
       "phone": 905816128,
       "id": 15
+    },
+    {
+      "email": "nhiquynh123@gmail.com",
+      "password": "$2a$10$ICwfQDD0N4ybxZLhF0qhr.qnYdA2aZDg.twe2v3J.OmpLMSWiUPIa",
+      "fullname": "Tran Hoai Nhi",
+      "phone": 905817123,
+      "id": 16
+    },
+    {
+      "email": "tranhoaibao@gmail.com",
+      "password": "$2a$10$dBLSLEt4Rbpnk93kDjnijevZonp.GeXJXLw68yScK/EB3mnT5ozPi",
+      "fullname": "Tran Hoai Bao",
+      "phone": 90123123123,
+      "id": 17
+    },
+    {
+      "email": "tranhoaithuong@gmail.com",
+      "password": "$2a$10$5vgRZsC44bA2b4LXN1f7Hu8SkpdambSg5/aqE7aOkK3xLWA7Hs7YG",
+      "fullname": "Tran Hoai Thuong ",
+      "phone": 905816128,
+      "id": 18
     }
   ],
   "products": [
@@ -802,21 +843,66 @@
       "category": "Appetizer"
     }
   ],
-  "orders": [],
-  "favorites": [
+  "orders": [
     {
-      "id": 1,
-      "ids": [
-        "aldklaksdlaksdlkaskdaldklaksdlaksdlaksldkasdkalkdlaksdlaksldkasd",
-        "asdkajsdkajdkajsdkjas"
-      ]
+      "userId": 12,
+      "cartItems": [
+        {
+          "title": "2 People Combo",
+          "img": "https://thepizzacompany.vn/images/thumbs/000/0003222_combo-chat-qua-219k_300.png",
+          "totalPrice": 56,
+          "price": 56,
+          "amount": 1,
+          "category": "Combo",
+          "id": 6
+        }
+      ],
+      "timeInit": "2022-11-12T16:14:05.008Z",
+      "completed": false,
+      "totalPrice": 56,
+      "deliveryData": {
+        "transport": "expressfood",
+        "address": "231 le duan",
+        "phone": 905816128,
+        "name": "asdasd"
+      },
+      "id": 1
     },
     {
-      "id": 3,
-      "ids": [
-        "aldklaksdlaksdlkaskdaldklaksdlaksdlaksldkasdkalkdlaksdlaksldkasd",
-        "asdkajsdkajdkajsdkjas"
-      ]
+      "userId": 16,
+      "cartItems": [
+        {
+          "title": "1 People Combo",
+          "img": "https://thepizzacompany.vn/images/thumbs/000/0003221_combo-chat-129k_300.png",
+          "totalPrice": 23,
+          "price": 23,
+          "amount": 1,
+          "category": "Combo",
+          "id": 7
+        }
+      ],
+      "timeInit": "2022-11-12T16:36:59.963Z",
+      "completed": false,
+      "totalPrice": 23,
+      "deliveryData": {
+        "transport": "expressfood",
+        "address": "231 le duan",
+        "phone": 905816128,
+        "name": "Nguyen Vu"
+      },
+      "id": 2
+    }
+  ],
+  "favorites": [
+    {
+      "favoriteIds": [
+        2,
+        55,
+        33,
+        49,
+        13
+      ],
+      "id": 18
     }
   ]
 }

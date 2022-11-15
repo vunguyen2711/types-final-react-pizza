@@ -8,17 +8,17 @@ const FeaturesData = [
   {
     title: "Quick Delivery",
     imgUrl: feature__imag01,
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, ullam!",
+    desc: "We are famous for great delicious Seafood Deluxe Pizza, together with chunky toppings",
   },
   {
     title: "Super Dive In",
     imgUrl: feature__imag02,
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, ullam!",
+    desc: "The Pizza Company launched its very first restaurant in Vietnam. Together with the opened trading trend!",
   },
   {
     title: "Easy Pick Up",
     imgUrl: feature__imag03,
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, ullam!",
+    desc: "Not only offering the very best pizza, with the supreme quality, professional and friendly service and non!",
   },
 ];
 const FeatureSections: React.FC = () => {
@@ -32,12 +32,15 @@ const FeatureSections: React.FC = () => {
             We will <span>take care</span>{" "}
           </h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
-            perspiciatis ut explicabo!
+            Inspired by Italy’s greatest recipes and subtle meals combined with
+            truly understanding Asia preferences in terms of tastes and
+            cultures.
           </p>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
-            perspiciatis ut explicabo!
+            Founded in 1981, The Pizza Company – an Italian-inspired restaurant
+            chain has been expanding its restaurants and franchise system
+            worldwide. The Pizza Company has more than 300 restaurants in over
+            12 markets abroad.
           </p>
         </Col>
         {FeaturesData.map((item, index) => (

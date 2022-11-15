@@ -139,6 +139,32 @@ export interface ContactState {
 }
 
 export interface BookMarkProps {
-  isFavorite: boolean;
-  setIsFavorite: React.Dispatch<React.SetStateAction<boolean>>;
+  idItem: number;
 }
+export interface CreateInitialFavoriteParams {
+  id: number | string;
+  favoriteIds: number[];
+  favoriteProducts?: ProductCartItems[];
+}
+export interface ChangeFavoritePrams {
+  id: number | string;
+  favoriteIds: number[];
+}
+export type ToggleFavoritePayLoadAction = number;
+
+export interface GetByIdObject {
+  status: "idle" | "loading" | "success" | "failed";
+  favoriteData?: CreateInitialFavoriteParams;
+}
+export interface CreateInitialObject {
+  status: "idle" | "loading" | "success" | "failed";
+}
+export interface ChangeFavoriteObject {
+  status: "idle" | "loading" | "success" | "failed";
+}
+export interface FavoriteState {
+  getByIdState: GetByIdObject;
+  createInitialForUser: CreateInitialObject;
+  changeFavorite: ChangeFavoriteObject;
+}
+export type GetFavoriteProductsParams = number[];

@@ -10,31 +10,21 @@ import {
 
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Logo from "../../assets/images/res-logo.png";
+import { Button, Space, Avatar, Badge, Modal } from "antd";
 import {
-  Input,
-  Button,
-  Space,
-  Avatar,
-  Badge,
-  Drawer,
-  List,
-  Divider,
-  Modal,
-} from "antd";
-import {
-  DeleteOutlined,
   ShoppingCartOutlined,
   MenuOutlined,
   UserOutlined,
-  PlusCircleOutlined,
-  MinusCircleOutlined,
+  HeartOutlined,
 } from "@ant-design/icons";
+import FavoriteBadge from "../../components/FavoriteBadge/FavoriteBadge";
 import DrawerList from "../../components/DrawerList/DrawerList";
 import {
   getUserInfo,
   logout,
   resetStatus,
 } from "../../redux/features/Login&Register/login&registerSlice";
+import { logoutResetFavorite } from "../../redux/features/FavoriteProDucts/FavoriteProductsSlice";
 const menuLinks = [
   {
     display: "Home",
@@ -76,6 +66,7 @@ const Header: React.FC = () => {
       onOk: () => {
         dispatch(logout());
         dispatch(resetStatus());
+        dispatch(logoutResetFavorite());
         localStorage.removeItem("accessToken");
         Modal.success({
           content: "Log Out Successfullly !!!",
@@ -171,7 +162,8 @@ const Header: React.FC = () => {
           })}
         </Space>
 
-        <Space size="small">
+        <Space size="large">
+          <FavoriteBadge></FavoriteBadge>
           <Badge size="default" count={totalAmount}>
             <ShoppingCartOutlined onClick={showDrawer} />
           </Badge>

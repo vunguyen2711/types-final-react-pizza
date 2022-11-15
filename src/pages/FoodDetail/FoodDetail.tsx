@@ -4,6 +4,7 @@ import CommonSection from "../../components/CommonSection/CommonSection";
 import { Row, Col, Space, Input, Button } from "antd";
 import { PlusCircleOutlined, MinusCircleOutlined } from "@ant-design/icons";
 import Comment from "../../components/Comment/Comment";
+import BookMark from "../../components/BookMark/BookMark";
 import * as S from "./style";
 import { useParams, Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/hook";
@@ -32,7 +33,7 @@ const FoodDetail: React.FC = () => {
   const { foods } = useAppSelector(getFetchedFoods);
 
   const { id } = useParams();
-  console.log(id);
+
   const filterFourFoods = foods
     .filter((food) => food.id !== Number(id))
     .slice(0, 4);

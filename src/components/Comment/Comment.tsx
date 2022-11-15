@@ -28,7 +28,6 @@ const schema = yup.object().shape({
 });
 
 const Comment: React.FC<CommentProps> = ({ productID }) => {
-  console.log(productID);
   const [value, setValue] = useState(3);
   const { id, fullname, email, isLogin } = useAppSelector(getUserInfo);
   const dispatch = useAppDispatch();
@@ -43,16 +42,13 @@ const Comment: React.FC<CommentProps> = ({ productID }) => {
   const [filterParams, setFilterParams] = useState<GetCommentThunkParams>({
     ...defaultFilterParams,
   });
-  console.log(filterParams);
+
   const {
     handleSubmit,
     formState: { errors },
     register,
     resetField,
-  } = useForm<CommentForm>({
-    mode: "onChange",
-    resolver: yupResolver(schema),
-  });
+  } = useForm<CommentForm>({ mode: "onChange", resolver: yupResolver(schema) });
   const changeRateValue = (e: number) => {
     setValue(e);
   };

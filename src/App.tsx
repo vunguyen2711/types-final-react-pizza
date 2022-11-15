@@ -12,6 +12,13 @@ import { setInitialCartState } from "./redux/features/Cart/cartSlice";
 import { useLocation, useNavigate } from "react-router-dom";
 import { RoutesPath } from "./constants/routes.path";
 import axios from "axios";
+import {
+  createInitialFavoriteForUser,
+  getFavoriteByUserId,
+  getFavoriteProducts,
+  getFavoriteState,
+} from "./redux/features/FavoriteProDucts/FavoriteProductsSlice";
+
 export interface UserDataToken {
   email: string;
   exp: number;
@@ -21,28 +28,15 @@ export interface UserDataToken {
 const App: React.FC = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const { isLogin } = useAppSelector(getUserInfo);
+  const statusOfGetFavoriteById =
+    useAppSelector(getFavoriteState).getByIdState.status;
+  const favoritesIds =
+    useAppSelector(getFavoriteState).getByIdState.favoriteData.favoriteIds;
   const { pathname } = useLocation();
   const [localStoragePathName, setLocalStoragePathName] = useState<string[]>(
     []
   );
-  useEffect(() => {
-    const fetchApi = async (param: string[] | number[]) => {
-      try {
-        const res = await axios.get("http://localhost:8800/products", {
-          params: {
-            ...(param && {
-              id: param,
-            }),
-          },
-        });
-        console.log(res.data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    fetchApi([1, 2, 3, 4, 5, 6, 7]);
-  }, []);
+
   localStorage.setItem(
     "path",
     JSON.stringify(
@@ -52,15 +46,32 @@ const App: React.FC = () => {
       )
     )
   );
+
+  useEffect(() => {
+    dispatch(getFavoriteProducts(favoritesIds));
+  }, [favoritesIds]);
   useEffect(() => {
     const accessToken = localStorage.getItem("accessToken");
     if (accessToken) {
       const userData: UserDataToken = jwt_decode(accessToken);
+
       dispatch(loginTokenThunk(userData.sub));
+      if (statusOfGetFavoriteById !== "failed") {
+        dispatch(getFavoriteByUserId(userData.sub));
+      }
+      if (statusOfGetFavoriteById === "failed") {
+        dispatch(
+          createInitialFavoriteForUser({
+            id: Number(userData.sub),
+            favoriteIds: [],
+          })
+        );
+      }
     } else {
       dispatch(resetStatus());
     }
   }, []);
+
   useEffect(() => {
     const dataLocalCartItems = localStorage.getItem("cartState");
     if (dataLocalCartItems) {

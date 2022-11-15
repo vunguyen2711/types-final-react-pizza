@@ -8,4 +8,8 @@ export const BookMarkConTent = styled.div`
   & svg {
     color: ${(p: BookMarkProps) => p.isFavorite && `var(--red-color)`};
   }
+  h1 {
+    font-size: 16px;
+    width: 100x;
+  }
 `;

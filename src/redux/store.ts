@@ -5,6 +5,7 @@ import loginRegisterReducer from "./features/Login&Register/login&registerSlice"
 import OrdersReducer from "./features/Orders/OrdersSlice";
 import CommentReducer from "./features/Comment/CommentSlice";
 import ContactReducer from "./features/ContactSlice/ContactSlice";
+import FavoriteReducer from "./features/FavoriteProDucts/FavoriteProductsSlice";
 export const store = configureStore({
   reducer: {
     cart: cartReducer,
@@ -13,6 +14,7 @@ export const store = configureStore({
     order: OrdersReducer,
     comment: CommentReducer,
     contact: ContactReducer,
+    favorite: FavoriteReducer,
   },
 });
 

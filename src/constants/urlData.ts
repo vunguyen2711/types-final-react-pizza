@@ -6,4 +6,5 @@ export const URL_DATA = {
   ORDERS: "http://localhost:8800/orders",
   COMMENTS: "http://localhost:8800/comments",
   CONTACTS: "http://localhost:8800/contacts",
+  FAVORITES: "http://localhost:8800/favorites",
 };
