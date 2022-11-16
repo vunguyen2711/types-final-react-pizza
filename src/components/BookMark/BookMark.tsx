@@ -10,13 +10,14 @@ import {
 } from "../../redux/features/FavoriteProDucts/FavoriteProductsSlice";
 import * as S from "./style";
 import type { BookMarkProps } from "../../interfaces/interface";
+import { getUserInfo } from "../../redux/features/Login&Register/login&registerSlice";
 const BookMark: React.FC<BookMarkProps> = ({ idItem }) => {
   const dispatch = useAppDispatch();
   const favoriteIds =
     useAppSelector(getFavoriteState).getByIdState.favoriteData.favoriteIds;
   const userId = useAppSelector(getFavoriteState).getByIdState.favoriteData.id;
-  const [isFavorite, setIsFavorite] = useState<boolean>(() => {
-    const existedIdInFavorite = favoriteIds.find((item) => item === idItem);
+  const [isFavorite, setIsFavorite] = useState<boolean | null>(() => {
+    const existedIdInFavorite = favoriteIds?.find((item) => item === idItem);
     if (existedIdInFavorite) {
       return true;
     } else {
@@ -28,7 +29,7 @@ const BookMark: React.FC<BookMarkProps> = ({ idItem }) => {
     dispatch(toggleFavoriteId(Number(idItem)));
   };
   useEffect(() => {
-    const existedIdInFavorite = favoriteIds.find((item) => item === idItem);
+    const existedIdInFavorite = favoriteIds?.find((item) => item === idItem);
     if (existedIdInFavorite) {
       setIsFavorite(true);
     } else {
@@ -52,6 +53,7 @@ const BookMark: React.FC<BookMarkProps> = ({ idItem }) => {
         <h1>Favorite</h1>{" "}
       </S.BookMarkConTent>
     );
+
   return (
     <S.BookMarkConTent isFavorite>
       <BookOutlined

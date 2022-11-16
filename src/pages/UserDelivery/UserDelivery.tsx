@@ -16,6 +16,7 @@ import {
   getDetailThunk,
   deleteOrderThunk,
   removeOrderById,
+  resetOrderStatus,
 } from "../../redux/features/Orders/OrdersSlice";
 import { useNavigate } from "react-router-dom";
 import { RoutesPath } from "../../constants/routes.path";
@@ -44,6 +45,7 @@ const UserSetting = () => {
       window.alert("You need to login !!!");
       return;
     }
+    dispatch(resetOrderStatus());
   }, []);
   //Table
   const dataDeliverySource = ordersByUser.map((data) => {

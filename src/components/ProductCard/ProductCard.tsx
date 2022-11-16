@@ -10,13 +10,14 @@ import { Link } from "react-router-dom";
 import { RoutesPath } from "../../constants/routes.path";
 import BookMark from "../BookMark/BookMark";
 import { getFavoriteState } from "../../redux/features/FavoriteProDucts/FavoriteProductsSlice";
+import { getUserInfo } from "../../redux/features/Login&Register/login&registerSlice";
 interface ProductCardProps {
   item: ProductCartItems;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
   const { id, title, category, price, img } = item;
-
+  const { isLogin } = useAppSelector(getUserInfo);
   const dispatch = useAppDispatch();
   const { cartItems } = useAppSelector(getCartItems);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -106,9 +107,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
             </Space>
           </Col>
           <Col span={12}>
-            <div className="bookmark__container">
-              <BookMark idItem={id}></BookMark>
-            </div>
+            {isLogin && (
+              <div className="bookmark__container">
+                <BookMark idItem={id}></BookMark>
+              </div>
+            )}
+
             <div className="modal__image">
               <img src={img} alt="" />
             </div>

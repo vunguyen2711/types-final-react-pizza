@@ -6,15 +6,20 @@ import * as S from "./style";
 import { getFavoriteState } from "../../redux/features/FavoriteProDucts/FavoriteProductsSlice";
 import { Link } from "react-router-dom";
 import { RoutesPath } from "../../constants/routes.path";
+import { getUserInfo } from "../../redux/features/Login&Register/login&registerSlice";
+import { getCartItems } from "../../redux/features/Cart/cartSlice";
 const FavoriteBadge: React.FC = () => {
+  const { isOpenDrawer } = useAppSelector(getCartItems);
   const favoriteIds =
     useAppSelector(getFavoriteState).getByIdState.favoriteData.favoriteIds;
   const favoriteProducts =
     useAppSelector(getFavoriteState).getByIdState.favoriteData.favoriteProducts;
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(true);
-
+  const { isLogin } = useAppSelector(getUserInfo);
   const popoverTitle = <span>My Favorite Foods</span>;
-  const popoverContent = (
+  const popoverContent = !isLogin ? (
+    <h2>Please login to access favorite</h2>
+  ) : favoriteIds.length !== 0 ? (
     <Space direction="vertical">
       {favoriteProducts?.map((item) => (
         <Link
@@ -28,6 +33,8 @@ const FavoriteBadge: React.FC = () => {
         </Link>
       ))}
     </Space>
+  ) : (
+    <h2>Your favorite is empty</h2>
   );
   return (
     <S.FavoriteBadge>
@@ -35,7 +42,7 @@ const FavoriteBadge: React.FC = () => {
         placement="bottom"
         title={popoverTitle}
         content={popoverContent}
-        open={isPopupOpen}
+        open={!isOpenDrawer ? isPopupOpen : false}
       >
         <Badge count={favoriteIds?.length}>
           <HeartOutlined

@@ -127,6 +127,14 @@ const Login: React.FC = () => {
               <Link to={RoutesPath.HOME}>
                 <Button block>Cancel</Button>
               </Link>
+              <Link to={RoutesPath.REGISTER}>
+                <Button block>
+                  If you don't have account ?{"  "}
+                  <span style={{ textDecoration: "underline" }}>
+                    Register now{" "}
+                  </span>
+                </Button>
+              </Link>
             </div>
           </form>
         </div>

@@ -16,7 +16,7 @@ export const HeaderContainer = styled.header`
   .header__welcome {
     color: var(--red-color);
     position: absolute;
-    top: 10px;
+    top: 5px;
     right: 10%;
     text-align: center;
   }

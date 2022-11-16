@@ -70,6 +70,9 @@ export const OrdersSlice = createSlice({
   name: "OrdersSlice",
   initialState,
   reducers: {
+    resetOrderStatus: (state, action: PayloadAction) => {
+      state.statusDelete = "idle";
+    },
     removeOrderById: (state, action: PayloadAction<number>) => {
       state.ordersByUser = state.ordersByUser.filter(
         (item) => item.id !== action.payload
@@ -123,6 +126,7 @@ export const OrdersSlice = createSlice({
 });
 
 export default OrdersSlice.reducer;
-export const { removeOrderState, removeOrderById } = OrdersSlice.actions;
+export const { removeOrderState, removeOrderById, resetOrderStatus } =
+  OrdersSlice.actions;
 export const getOrder = (state: RootState) => state.order;
 export const getDetailOrder = (state: RootState) => state.order.ordersByDetail;

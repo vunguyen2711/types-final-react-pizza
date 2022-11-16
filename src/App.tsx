@@ -48,7 +48,9 @@ const App: React.FC = () => {
   );
 
   useEffect(() => {
-    dispatch(getFavoriteProducts(favoritesIds));
+    if (favoritesIds?.length !== 0) {
+      dispatch(getFavoriteProducts(favoritesIds));
+    }
   }, [favoritesIds]);
   useEffect(() => {
     const accessToken = localStorage.getItem("accessToken");

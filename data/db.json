@@ -1,360 +1,20 @@
 {
-  "contacts": [
-    {
-      "content": "asdasdasdasdad",
-      "email": "vunguyen.forwork1995@gmail.com",
-      "phone": 905816128,
-      "name": "Nguyen Vu",
-      "id": 1
-    },
-    {
-      "content": "asdasdasdasdad",
-      "email": "vunguyen.forwork1995@gmail.com",
-      "phone": 905816128,
-      "name": "Nguyen Vu",
-      "id": 2
-    },
-    {
-      "content": "asdasdasdasdad",
-      "email": "vunguyen.forwork1995@gmail.com",
-      "phone": 905816128,
-      "name": "Nguyen Vu",
-      "id": 3
-    },
-    {
-      "content": "asdasdasdasdad",
-      "email": "vunguyen.forwork1995@gmail.com",
-      "phone": 905816128,
-      "name": "Nguyen Vu",
-      "id": 4
-    },
-    {
-      "content": "asdasdasd",
-      "email": "vunguyen.forwork1995@gmail.com",
-      "phone": 905816128,
-      "name": "Nguyen Vu",
-      "id": 5
-    },
-    {
-      "content": "asdasdasd",
-      "email": "vunguyen.forwork1995@gmail.com",
-      "phone": 905816128,
-      "name": "Nguyen Vu",
-      "id": 6
-    },
-    {
-      "content": "Quan nay do te",
-      "email": "vunguyen.forwork1995@gmail.com",
-      "phone": 905816128,
-      "name": "Nguyen Vu",
-      "id": 7
-    },
-    {
-      "content": "quá chán ",
-      "email": "vunguyen.forwork1995@gmail.com",
-      "phone": 905816128,
-      "name": "Nguyen Vu",
-      "id": 8
-    }
-  ],
-  "comments": [
-    {
-      "comment": "asdasd",
-      "userId": 1,
-      "email": "vunguyen.forwork1995@gmail.com",
-      "name": "Nguyen Vu",
-      "productId": "8",
-      "time": "2022-11-09T15:00:22+07:00",
-      "rate": 3,
-      "id": 11
-    },
-    {
-      "comment": "alo ",
-      "userId": 1,
-      "email": "vunguyen.forwork1995@gmail.com",
-      "name": "Nguyen Vu",
-      "productId": "8",
-      "time": "2022-11-09T15:05:48+07:00",
-      "rate": 3,
-      "id": 12
-    },
-    {
-      "comment": "alo\n",
-      "userId": 1,
-      "email": "vunguyen.forwork1995@gmail.com",
-      "name": "Nguyen Vu",
-      "productId": "8",
-      "time": "2022-11-09T15:07:39+07:00",
-      "rate": 3,
-      "id": 13
-    },
-    {
-      "comment": "Haor haor",
-      "userId": 1,
-      "email": "vunguyen.forwork1995@gmail.com",
-      "name": "Nguyen Vu",
-      "productId": "8",
-      "time": "2022-11-09T15:07:50+07:00",
-      "rate": 3,
-      "id": 14
-    },
-    {
-      "comment": "123123123",
-      "userId": 1,
-      "email": "vunguyen.forwork1995@gmail.com",
-      "name": "Nguyen Vu",
-      "productId": "8",
-      "time": "2022-11-09T15:36:14+07:00",
-      "rate": 3,
-      "id": 15
-    },
-    {
-      "comment": "alo",
-      "userId": 1,
-      "email": "vunguyen.forwork1995@gmail.com",
-      "name": "Nguyen Vu",
-      "productId": "8",
-      "time": "2022-11-09T20:20:46+07:00",
-      "rate": 5,
-      "id": 16
-    },
-    {
-      "comment": "Alo \n",
-      "userId": 1,
-      "email": "vunguyen.forwork1995@gmail.com",
-      "name": "Nguyen Vu",
-      "productId": "5",
-      "time": "2022-11-09T20:28:07+07:00",
-      "rate": 5,
-      "id": 17
-    },
-    {
-      "comment": "Toi rat buon",
-      "userId": 1,
-      "email": "vunguyen.forwork1995@gmail.com",
-      "name": "Nguyen Vu",
-      "productId": "5",
-      "time": "2022-11-09T20:28:16+07:00",
-      "rate": 5,
-      "id": 18
-    },
-    {
-      "comment": "Lo ládasdaldasdasdasd",
-      "userId": 12,
-      "email": "haha123@gmail.com",
-      "name": "Nguyen Vu",
-      "productId": "5",
-      "time": "2022-11-09T23:34:51+07:00",
-      "rate": 3,
-      "id": 19
-    },
-    {
-      "comment": "Mon nay qua ngon ",
-      "userId": 1,
-      "email": "vunguyen.forwork1995@gmail.com",
-      "name": "Nguyen Vu",
-      "productId": "10",
-      "time": "2022-11-10T11:04:39+07:00",
-      "rate": 3,
-      "id": 21
-    },
-    {
-      "comment": "asdasdasdasdasdasd",
-      "userId": 1,
-      "email": "vunguyen.forwork1995@gmail.com",
-      "name": "Nguyen Vu",
-      "productId": "2",
-      "time": "2022-11-10T11:13:13+07:00",
-      "rate": 3,
-      "id": 23
-    },
-    {
-      "comment": "id =. \n",
-      "userId": 1,
-      "email": "vunguyen.forwork1995@gmail.com",
-      "name": "Nguyen Vu",
-      "productId": "6",
-      "time": "2022-11-10T11:29:26+07:00",
-      "rate": 3,
-      "id": 24
-    },
-    {
-      "comment": "Chan qua ",
-      "userId": 1,
-      "email": "vunguyen.forwork1995@gmail.com",
-      "name": "Nguyen Vu",
-      "productId": "11",
-      "time": "2022-11-10T13:59:23+07:00",
-      "rate": 3,
-      "id": 25
-    },
-    {
-      "comment": "hihi",
-      "userId": 12,
-      "email": "haha123@gmail.com",
-      "name": "Nguyen Vu",
-      "productId": "16",
-      "time": "2022-11-10T14:00:55+07:00",
-      "rate": 3,
-      "id": 26
-    },
-    {
-      "comment": "qua chan",
-      "userId": 1,
-      "email": "vunguyen.forwork1995@gmail.com",
-      "name": "Nguyen Vu",
-      "productId": "16",
-      "time": "2022-11-10T14:01:28+07:00",
-      "rate": 5,
-      "id": 27
-    },
-    {
-      "comment": "Mon nay an do te\n",
-      "userId": 1,
-      "email": "vunguyen.forwork1995@gmail.com",
-      "name": "Nguyen Vu",
-      "productId": "3",
-      "time": "2022-11-12T23:13:11+07:00",
-      "rate": 3,
-      "id": 28
-    },
-    {
-      "comment": "Mon nay cung binh thuong",
-      "userId": 16,
-      "email": "nhiquynh123@gmail.com",
-      "name": "Tran Hoai Nhi",
-      "productId": "3",
-      "time": "2022-11-12T23:37:24+07:00",
-      "rate": 3,
-      "id": 29
-    }
-  ],
+  "contacts": [],
+  "comments": [],
   "users": [
     {
       "email": "vunguyen.forwork1995@gmail.com",
-      "password": "$2a$10$K/lUdV1Zt.eCXTN32TfDMeuPLp2efTixNfaaWG959S1BBNH0ZjjoO",
+      "password": "$2a$10$sqZrehcy2jX4I5A8.wHpPu7uPuguHD7ChWyd0ZGl.C.xLN7rI0pl6",
       "fullname": "Nguyen Vu",
       "phone": 905816128,
       "id": 1
     },
     {
-      "email": "tranquynhtho@gmail.com",
-      "password": "$2a$10$ZPJLQLQeNfxHO4xCUNpa5ex94fheO7MP5TKRpSY2pYPqlRGhF5J4W",
-      "fullname": "Nguyen Vu",
-      "phone": 905816128,
-      "id": 2
-    },
-    {
-      "email": "iviettech@gmail.com",
-      "password": "$2a$10$0r4yrbVZ1f/0PvBeL4r3b.2bMhGLolbsDnbVkYTGgCdRydtwCRI7e",
-      "fullname": "Nguyen Vu",
-      "phone": 905816128,
-      "id": 3
-    },
-    {
-      "email": "nguyen.forwork1995@gmail.com",
-      "password": "$2a$10$F0pxx9hvoL.i5Cz/MCR8fea1nkIYMCHNzf3s8LvwWM.5Fu3O3Pds.",
-      "fullname": "Nguyen Vu",
-      "phone": 905816128,
-      "id": 4
-    },
-    {
-      "email": "09@gmail.com",
-      "password": "$2a$10$BvAijKSrROGza09IzCsILeATfNxwmR/Ob8OUWiJFPjA5PedZ/Nc9q",
-      "fullname": "Nguyen Vu",
-      "phone": 905816128,
-      "id": 5
-    },
-    {
-      "email": "12312@gmail.com",
-      "password": "$2a$10$LmWUFlque8qX3cjlcj0J.eZQ76k7VN68hfVz458pjf80skF0yeN8O",
-      "fullname": "Nguyen Vu",
-      "phone": 905816128,
-      "id": 6
-    },
-    {
-      "email": "tinhnhucaibinh@gmail.com",
-      "password": "$2a$10$iAlsTp/3Q7Ef8DrnftGMn.QGHVoQ2xduGpyu11Yw3y2sZ.4UDBhCe",
-      "fullname": "Nguyen Vu",
-      "phone": 905816128,
-      "id": 7
-    },
-    {
-      "email": "popopolo@gmail.com",
-      "password": "$2a$10$LcA2ZYDUfB0CZeHbJgRQ9uZvhPrA6727O6qC/uu8n9xbXaDHbDmVG",
-      "fullname": "Nguyen Vu",
-      "phone": 123123123123123,
-      "id": 8
-    },
-    {
-      "email": "hongnguyen1885@gmail.com",
-      "password": "$2a$10$oTEdBgeg/1SEbqIb7Qo17uGVYFmPC/TjK8Gu0ERfKSDBPAuSNCBlG",
-      "fullname": "Nguyen Vu",
-      "phone": 905816128,
-      "id": 9
-    },
-    {
-      "email": "iietasdasd@gmail.com",
-      "password": "$2a$10$XNpIm4jm1xFSFWxLDGhfbug9wSqF8E7BCf9S4YaYUasDmrLpzPEUq",
-      "fullname": "Nguyen Vu",
-      "phone": 905816128,
-      "id": 10
-    },
-    {
-      "email": "hahaha123@gmail.com",
-      "password": "$2a$10$3DUPAiQT3mpodC6b4zrRHeMbF9UFtEGmFOB80/MzdUGamsMdg3Ggm",
-      "fullname": "Nguyen Vu",
-      "phone": 905816128,
-      "id": 11
-    },
-    {
-      "email": "haha123@gmail.com",
-      "password": "$2a$10$w3qzuFN1d.SveTbgOscxxu/WDcyDjgyIPrMTffE35eEKW8JgWtbZe",
-      "fullname": "Nguyen Vu",
-      "phone": 905816128,
-      "id": 12
-    },
-    {
-      "email": "quynhchi@gmail.com",
-      "password": "$2a$10$JwsQ7Rt9zNji6CtMVCmANuE4Z.R2czeXU9W13ap5F.A4M8qyjDWY.",
-      "fullname": "Chi Huynh",
-      "phone": 905816128,
-      "id": 13
-    },
-    {
-      "email": "123123123@gmail.com",
-      "password": "$2a$10$ZU3f8CBl.7ISzBcsR3QDCeiv34Iilj/eLTk88Um/TKnHqq.LcE/Pu",
-      "fullname": "Nguyen Vu",
-      "phone": 905816128,
-      "id": 14
-    },
-    {
-      "email": "bachcongtu123@gmail.com",
-      "password": "$2a$10$tpHg96k51D5AyAkXzK8k0.6TOxqxAQe.RHujzCA0eYGEXA8DyHH5C",
-      "fullname": "Nguyen Vu",
-      "phone": 905816128,
-      "id": 15
-    },
-    {
       "email": "nhiquynh123@gmail.com",
-      "password": "$2a$10$ICwfQDD0N4ybxZLhF0qhr.qnYdA2aZDg.twe2v3J.OmpLMSWiUPIa",
-      "fullname": "Tran Hoai Nhi",
-      "phone": 905817123,
-      "id": 16
-    },
-    {
-      "email": "tranhoaibao@gmail.com",
-      "password": "$2a$10$dBLSLEt4Rbpnk93kDjnijevZonp.GeXJXLw68yScK/EB3mnT5ozPi",
-      "fullname": "Tran Hoai Bao",
-      "phone": 90123123123,
-      "id": 17
-    },
-    {
-      "email": "tranhoaithuong@gmail.com",
-      "password": "$2a$10$5vgRZsC44bA2b4LXN1f7Hu8SkpdambSg5/aqE7aOkK3xLWA7Hs7YG",
-      "fullname": "Tran Hoai Thuong ",
-      "phone": 905816128,
-      "id": 18
+      "password": "$2a$10$9v4V5e3uxCEYvOL/TA4yaOpa0Xvn/DnH62iGWlphPv0XBu31n1EKG",
+      "fullname": "Tran Hoai Nhi ",
+      "phone": 123123123,
+      "id": 2
     }
   ],
   "products": [
@@ -843,66 +503,23 @@
       "category": "Appetizer"
     }
   ],
-  "orders": [
-    {
-      "userId": 12,
-      "cartItems": [
-        {
-          "title": "2 People Combo",
-          "img": "https://thepizzacompany.vn/images/thumbs/000/0003222_combo-chat-qua-219k_300.png",
-          "totalPrice": 56,
-          "price": 56,
-          "amount": 1,
-          "category": "Combo",
-          "id": 6
-        }
-      ],
-      "timeInit": "2022-11-12T16:14:05.008Z",
-      "completed": false,
-      "totalPrice": 56,
-      "deliveryData": {
-        "transport": "expressfood",
-        "address": "231 le duan",
-        "phone": 905816128,
-        "name": "asdasd"
-      },
-      "id": 1
-    },
-    {
-      "userId": 16,
-      "cartItems": [
-        {
-          "title": "1 People Combo",
-          "img": "https://thepizzacompany.vn/images/thumbs/000/0003221_combo-chat-129k_300.png",
-          "totalPrice": 23,
-          "price": 23,
-          "amount": 1,
-          "category": "Combo",
-          "id": 7
-        }
-      ],
-      "timeInit": "2022-11-12T16:36:59.963Z",
-      "completed": false,
-      "totalPrice": 23,
-      "deliveryData": {
-        "transport": "expressfood",
-        "address": "231 le duan",
-        "phone": 905816128,
-        "name": "Nguyen Vu"
-      },
-      "id": 2
-    }
-  ],
+  "orders": [],
   "favorites": [
     {
       "favoriteIds": [
-        2,
-        55,
-        33,
-        49,
-        13
+        3,
+        35,
+        40
       ],
-      "id": 18
+      "id": 1
+    },
+    {
+      "favoriteIds": [
+        6,
+        9,
+        5
+      ],
+      "id": 2
     }
   ]
 }
