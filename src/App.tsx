@@ -46,7 +46,20 @@ const App: React.FC = () => {
       )
     )
   );
-
+  useEffect(() => {
+    if (statusOfGetFavoriteById === "failed") {
+      const accessToken = localStorage.getItem("accessToken");
+      if (accessToken) {
+        const userData: UserDataToken = jwt_decode(accessToken);
+        dispatch(
+          createInitialFavoriteForUser({
+            id: Number(userData?.sub),
+            favoriteIds: [],
+          })
+        );
+      }
+    }
+  }, [statusOfGetFavoriteById]);
   // useEffect(() => {
   //
   //

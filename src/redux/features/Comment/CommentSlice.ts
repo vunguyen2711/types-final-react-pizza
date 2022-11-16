@@ -63,7 +63,6 @@ const commentSlice = createSlice({
     });
     builder.addCase(postCommentThunk.fulfilled, (state, action) => {
       state.status = "success";
-      console.log(action.payload);
     });
     builder.addCase(postCommentThunk.rejected, (state, action) => {
       state.status = "failed";

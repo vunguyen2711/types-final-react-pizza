@@ -1,6 +1,87 @@
 {
   "contacts": [],
-  "comments": [],
+  "comments": [
+    {
+      "comment": "Mon nay khong duoc ngon cho lam \n",
+      "userId": 1,
+      "email": "vunguyen.forwork1995@gmail.com",
+      "name": "Nguyen Vu",
+      "productId": "5",
+      "time": "2022-11-16T20:38:23+07:00",
+      "rate": 3,
+      "id": 1
+    },
+    {
+      "comment": "Chan nhi\n",
+      "userId": 1,
+      "email": "vunguyen.forwork1995@gmail.com",
+      "name": "Nguyen Vu",
+      "productId": "5",
+      "time": "2022-11-16T20:43:23+07:00",
+      "rate": 1,
+      "id": 2
+    },
+    {
+      "comment": "Lan thu 3 quay lai day thi kha ngon ",
+      "userId": 1,
+      "email": "vunguyen.forwork1995@gmail.com",
+      "name": "Nguyen Vu",
+      "productId": "5",
+      "time": "2022-11-16T20:43:43+07:00",
+      "rate": 5,
+      "id": 3
+    },
+    {
+      "comment": "qua ngon",
+      "userId": 1,
+      "email": "vunguyen.forwork1995@gmail.com",
+      "name": "Nguyen Vu",
+      "productId": "5",
+      "time": "2022-11-16T20:44:14+07:00",
+      "rate": 5,
+      "id": 4
+    },
+    {
+      "comment": "asdasd",
+      "userId": 1,
+      "email": "vunguyen.forwork1995@gmail.com",
+      "name": "Nguyen Vu",
+      "productId": "5",
+      "time": "2022-11-16T20:44:54+07:00",
+      "rate": 5,
+      "id": 5
+    },
+    {
+      "comment": "asd",
+      "userId": 1,
+      "email": "vunguyen.forwork1995@gmail.com",
+      "name": "Nguyen Vu",
+      "productId": "5",
+      "time": "2022-11-16T20:47:23+07:00",
+      "rate": 5,
+      "id": 6
+    },
+    {
+      "comment": "qua dc",
+      "userId": 1,
+      "email": "vunguyen.forwork1995@gmail.com",
+      "name": "Nguyen Vu",
+      "productId": "5",
+      "time": "2022-11-16T20:47:31+07:00",
+      "rate": 5,
+      "id": 7
+    },
+    {
+      "comment": "alo\n",
+      "userId": 1,
+      "email": "vunguyen.forwork1995@gmail.com",
+      "name": "Nguyen Vu",
+      "productId": "5",
+      "time": "2022-11-16T20:48:01+07:00",
+      "rate": 5,
+      "id": 8
+    }
+  ],
   "users": [
     {
       "email": "vunguyen.forwork1995@gmail.com",
@@ -57,6 +138,83 @@
       "fullname": "phan ngoc thien my",
       "phone": 905816128,
       "id": 8
+    },
+    {
+      "email": "tranthinhien@gmail.com",
+      "password": "$2a$10$ZAd4omJJ5st1g7aS92absOm6kR3AO6z/eXQnoqw.HKGARrFbuY1aK",
+      "fullname": "Tran Thi Nhien",
+      "phone": 905817126,
+      "id": 9
+    },
+    {
+      "email": "thuhien@gmail.com",
+      "password": "$2a$10$bLhO5MaMBIUENYy6bVWnM.B9ssXfzvy7tmcj4qBL6tS6PfN1uhlcS",
+      "fullname": "nguyen thi thu hien",
+      "phone": 905816128,
+      "id": 10
+    },
+    {
+      "email": "nguyentamcuong@gmail.com",
+      "password": "$2a$10$I6hKDcIg2H6avYwxR7y3KOZvpqy3bTHuTUNGqZ2I.UebB1Ts94GTW",
+      "fullname": "Nguyen Tam Cuong",
+      "phone": 913459008,
+      "id": 11
+    },
+    {
+      "email": "nguyentamdung@gmail.com",
+      "password": "$2a$10$zV6qv9ELrmI/8dam4qrUzueL/aKoJNpjLdilaWM3M4fLapcYNCeF2",
+      "fullname": "Nguyen Tam Dung",
+      "phone": 905817123,
+      "id": 12
+    },
+    {
+      "email": "trieuvy@gmail.com",
+      "password": "$2a$10$C..8uT6Ovb7ThjbQQHxVu.7h2M8faRLRys7fFctevF.2oGg2oyX2m",
+      "fullname": "Nguyen Tam trieu vu",
+      "phone": 123,
+      "id": 13
+    },
+    {
+      "email": "asux@gmail.com",
+      "password": "$2a$10$DQTNoCH0T9JXV6okMbWXTuYjMSkjy/KeWkVFYzD0vnp0iJ8RcT1jO",
+      "fullname": "aux",
+      "phone": 905816128,
+      "id": 14
+    },
+    {
+      "email": "hoaithu@gmail.com",
+      "password": "$2a$10$PtNSVB9xN.eaWw3uuxlD3ekttZkXxu/Fi/UJrFOu3Ddc1.1jUK0ku",
+      "fullname": "Nguyen Vu",
+      "phone": 905816128,
+      "id": 15
+    },
+    {
+      "email": "hoaibao@gmail.com",
+      "password": "$2a$10$j8snP3xmznwQnzQsjbt4MOI0J2RiCb1LFvXeffIuYPBZw83u4K4..",
+      "fullname": "hoaibao",
+      "phone": 12312312123123,
+      "id": 16
+    },
+    {
+      "email": "nhan@gmail.com",
+      "password": "$2a$10$9UhUlLmGABwLjU/q3nqRM.Lqy8aULsEmOKoyYT.Jzds7Z6hWViF6K",
+      "fullname": "nhan",
+      "phone": 123123123,
+      "id": 17
+    },
+    {
+      "email": "thuyen@gmail.com",
+      "password": "$2a$10$pwToEs311ZvJcqx80YlZJeoPRneGtZtoFyVLj5Vb2onZYg3M3q05O",
+      "fullname": "thuyen",
+      "phone": 905816128,
+      "id": 18
+    },
+    {
+      "email": "tainghe@gmail.com",
+      "password": "$2a$10$9FDOAMCxUFsiWlI9ziAXWeDb4x5qVKDG2zDIPxiID3xXY.xnjKtEO",
+      "fullname": "tainghe",
+      "phone": 905816128,
+      "id": 19
     }
   ],
   "products": [
@@ -569,13 +727,66 @@
     },
     {
       "favoriteIds": [
-        40
+        27,
+        52
       ],
       "id": "7"
     },
     {
       "favoriteIds": [],
       "id": 8
+    },
+    {
+      "id": "9",
+      "favoriteIds": []
+    },
+    {
+      "id": 10,
+      "favoriteIds": []
+    },
+    {
+      "id": 11,
+      "favoriteIds": []
+    },
+    {
+      "favoriteIds": [
+        2
+      ],
+      "id": 13
+    },
+    {
+      "id": 14,
+      "favoriteIds": []
+    },
+    {
+      "favoriteIds": [
+        5
+      ],
+      "id": 15
+    },
+    {
+      "id": 16,
+      "favoriteIds": []
+    },
+    {
+      "id": "17",
+      "favoriteIds": []
+    },
+    {
+      "favoriteIds": [
+        9
+      ],
+      "id": 18
+    },
+    {
+      "id": 19,
+      "favoriteIds": []
+    },
+    {
+      "favoriteIds": [
+        2
+      ],
+      "id": 4
     }
   ]
 }

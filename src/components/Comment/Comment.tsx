@@ -31,7 +31,7 @@ const Comment: React.FC<CommentProps> = ({ productID }) => {
   const [value, setValue] = useState(3);
   const { id, fullname, email, isLogin } = useAppSelector(getUserInfo);
   const dispatch = useAppDispatch();
-  const { comments } = useAppSelector(getCommentInfo);
+  const { comments, status } = useAppSelector(getCommentInfo);
   const defaultFilterParams = {
     limit: 8,
     page: 1,
@@ -153,12 +153,13 @@ const Comment: React.FC<CommentProps> = ({ productID }) => {
           </Link>
         </div>
       ) : (
+        
         <div className="comment__top">
           <Space direction="horizontal">
             <Avatar>{fullname?.slice(0, 1)}</Avatar>
             <h1 className="comment__top-email">{email}</h1>
           </Space>
-
+            
           <form
             onSubmit={onSubmit}
             id="myform"
@@ -192,15 +193,17 @@ const Comment: React.FC<CommentProps> = ({ productID }) => {
 
       <div className="comment__bottom">
         {comments.length !== 0 ? (
-          comments.map((comment, index) => {
-            return (
-              <CommentItem
-                key={comment.id}
-                data={comment}
-                filterParams={filterParams}
-              ></CommentItem>
-            );
-          })
+          
+            comments.map((comment, index) => {
+              return (
+                <CommentItem
+                  key={comment.id}
+                  data={comment}
+                  filterParams={filterParams}
+                ></CommentItem>
+              );
+            })
+          
         ) : (
           <div className="comment__notification">
             <h1>There is no comments here</h1>

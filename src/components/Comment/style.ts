@@ -66,6 +66,8 @@ export const CommentContainer = styled.div`
     margin-bottom: 10px;
   }
   .comment__bottom {
+    max-height: 50vh;
+    overflow-y: scroll;
     & .comment__notification {
       width: 100%;
       height: 50px;

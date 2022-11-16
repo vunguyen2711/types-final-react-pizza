@@ -67,7 +67,7 @@ const FavoriteBadge: React.FC = () => {
                   );
                   dispatch(
                     changeFavoriteById({
-                      id: item.id,
+                      id: id,
                       favoriteIds: [...filterFavoriteIds],
                     })
                   );
@@ -84,7 +84,7 @@ const FavoriteBadge: React.FC = () => {
     <h2>Your favorite is empty</h2>
   );
   useEffect(() => {
-    if (isPopupOpen) {
+    if (isPopupOpen && favoriteIds?.length !== 0) {
       dispatch(getFavoriteProducts(favoriteIds));
     }
   }, [isPopupOpen, favoriteIds]);

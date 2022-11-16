@@ -29,6 +29,7 @@ import {
   getFavoriteByUserId,
   getFavoriteState,
 } from "../../redux/features/FavoriteProDucts/FavoriteProductsSlice";
+import { UserAddOutlined } from "@ant-design/icons";
 const schema = yup.object().shape({
   email: yup.string().email().required("This field must be filled"),
   password: yup
@@ -41,10 +42,10 @@ const schema = yup.object().shape({
 const Login: React.FC = () => {
   const dispatch = useAppDispatch();
   const { status } = useAppSelector(getLoginState);
-
+  const { id } = useAppSelector(getUserInfo);
   const getFavoriteByIdStatus =
     useAppSelector(getFavoriteState).getByIdState.status;
-  const [userId, setUserId] = useState<string>();
+
   const navigate = useNavigate();
   const {
     handleSubmit,
@@ -70,23 +71,13 @@ const Login: React.FC = () => {
           const accessToken = localStorage.getItem("accessToken");
           if (accessToken) {
             const userData: UserDataToken = jwt_decode(accessToken);
-            setUserId(userData?.sub);
-            dispatch(getFavoriteByUserId(userData?.sub));
-            if (getFavoriteByIdStatus !== "failed") {
-              dispatch(getFavoriteByUserId(userData.sub));
-            }
-            if (getFavoriteByIdStatus === "failed") {
-              dispatch(
-                createInitialFavoriteForUser({
-                  id: userData?.sub,
-                  favoriteIds: [],
-                })
-              );
-            }
+            dispatch(getFavoriteByUserId(userData.sub));
           }
         },
       });
+      return;
     }
+
     if (status === "failed") {
       Modal.error({
         content: "Login failed",
@@ -97,7 +88,17 @@ const Login: React.FC = () => {
         },
       });
     }
-  }, [status, getFavoriteByIdStatus]);
+    return () => {
+      if (getFavoriteByIdStatus === "failed") {
+        dispatch(
+          createInitialFavoriteForUser({
+            id: id,
+            favoriteIds: [],
+          })
+        );
+      }
+    };
+  }, [status]);
 
   useEffect(() => {
     dispatch(resetStatus());
@@ -106,6 +107,7 @@ const Login: React.FC = () => {
       navigate(RoutesPath.HOME);
       window.alert("You are logined");
     }
+    return () => {};
   }, []);
   return (
     <>
