@@ -47,28 +47,18 @@ const App: React.FC = () => {
     )
   );
 
-  useEffect(() => {
-    if (favoritesIds?.length !== 0) {
-      dispatch(getFavoriteProducts(favoritesIds));
-    }
-  }, [favoritesIds]);
+  // useEffect(() => {
+  //
+  //
+  // }, [favoritesIds]);
   useEffect(() => {
     const accessToken = localStorage.getItem("accessToken");
     if (accessToken) {
       const userData: UserDataToken = jwt_decode(accessToken);
 
       dispatch(loginTokenThunk(userData.sub));
-      if (statusOfGetFavoriteById !== "failed") {
-        dispatch(getFavoriteByUserId(userData.sub));
-      }
-      if (statusOfGetFavoriteById === "failed") {
-        dispatch(
-          createInitialFavoriteForUser({
-            id: Number(userData.sub),
-            favoriteIds: [],
-          })
-        );
-      }
+
+      dispatch(getFavoriteByUserId(userData.sub));
     } else {
       dispatch(resetStatus());
     }

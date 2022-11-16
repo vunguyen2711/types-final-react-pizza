@@ -142,7 +142,7 @@ export interface BookMarkProps {
   idItem: number;
 }
 export interface CreateInitialFavoriteParams {
-  id: number | string;
+  id: number | string | null;
   favoriteIds: number[];
   favoriteProducts?: ProductCartItems[];
 }

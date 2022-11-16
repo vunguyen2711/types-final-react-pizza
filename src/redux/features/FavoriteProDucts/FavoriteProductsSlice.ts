@@ -140,6 +140,7 @@ const FavoriteProductSlice = createSlice({
     });
     builder.addCase(getFavoriteProducts.fulfilled, (state, action) => {
       state.getByIdState.status = "success";
+
       state.getByIdState.favoriteData.favoriteProducts = [...action.payload];
     });
     builder.addCase(getFavoriteProducts.rejected, (state, action) => {

@@ -70,8 +70,19 @@ const Login: React.FC = () => {
           const accessToken = localStorage.getItem("accessToken");
           if (accessToken) {
             const userData: UserDataToken = jwt_decode(accessToken);
-            setUserId(userData.sub);
-            dispatch(getFavoriteByUserId(userData.sub));
+            setUserId(userData?.sub);
+            dispatch(getFavoriteByUserId(userData?.sub));
+            if (getFavoriteByIdStatus !== "failed") {
+              dispatch(getFavoriteByUserId(userData.sub));
+            }
+            if (getFavoriteByIdStatus === "failed") {
+              dispatch(
+                createInitialFavoriteForUser({
+                  id: userData?.sub,
+                  favoriteIds: [],
+                })
+              );
+            }
           }
         },
       });
@@ -86,7 +97,7 @@ const Login: React.FC = () => {
         },
       });
     }
-  }, [status]);
+  }, [status, getFavoriteByIdStatus]);
 
   useEffect(() => {
     dispatch(resetStatus());

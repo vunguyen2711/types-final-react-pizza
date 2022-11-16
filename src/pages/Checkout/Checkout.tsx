@@ -91,9 +91,12 @@ const Checkout: React.FC = () => {
     };
     dispatch(sendOrderThunk(data));
 
-    window.alert("Your delivery will come soon !!!");
-
-    navigate(RoutesPath.HOME);
+    Modal.success({
+      content: "Thanks for choosing us, you delevery will come soon !!!",
+      afterClose: () => {
+        navigate(RoutesPath.HOME);
+      },
+    });
   };
 
   const handleCancel = () => {

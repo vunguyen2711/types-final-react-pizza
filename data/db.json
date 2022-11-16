@@ -15,6 +15,48 @@
       "fullname": "Tran Hoai Nhi ",
       "phone": 123123123,
       "id": 2
+    },
+    {
+      "email": "vuthithuytrang@gmail.com",
+      "password": "$2a$10$TC13V798WOPFPv/E5dXdaeSVdcTb27fdKzkfOgwWi3FdVLDIUU43G",
+      "fullname": "Vu Thi Thuy Trang",
+      "phone": 905229506,
+      "id": 3
+    },
+    {
+      "email": "tranhoainhi@gmail.com",
+      "password": "$2a$10$jkrtHAOSxVgvYDPrydHL5u/3RqClmpetPwa6FfSsldTzKBdbvc3gy",
+      "fullname": "tran hoai nhi",
+      "phone": 905816128,
+      "id": 4
+    },
+    {
+      "email": "tranhoaibao@gmail.com",
+      "password": "$2a$10$gr8MQwx6lYc55oNP5awSPeu69V8cr.VWYedCtf19TDGFw9pgZKq2q",
+      "fullname": "Tran Hoai Bao",
+      "phone": 905816128,
+      "id": 5
+    },
+    {
+      "email": "tranthuytrang@gmail.com",
+      "password": "$2a$10$lp.tIwok7dUH/FIf9TvU2eg4e71NnU.xRRfQIQQ/agT/n7w6nala2",
+      "fullname": "Tran Thuy Trang",
+      "phone": 905816128,
+      "id": 6
+    },
+    {
+      "email": "holic@gmail.com",
+      "password": "$2a$10$O6FhNjiB4V6v97t.Y1KKo.p5voNc3VvFRZsH5KcUUftDF61LP6yLq",
+      "fullname": "Holic",
+      "phone": 905816128,
+      "id": 7
+    },
+    {
+      "email": "phanngocthienmy@gmail.com",
+      "password": "$2a$10$Eggm0a9mDQCmgo3FjUi63.uhDjLgC5B2KzpopBg8vrseA5VonQtpy",
+      "fullname": "phan ngoc thien my",
+      "phone": 905816128,
+      "id": 8
     }
   ],
   "products": [
@@ -506,23 +548,34 @@
   "orders": [],
   "favorites": [
     {
-      "favoriteIds": [
-        3,
-        35,
-        40,
-        33,
-        50,
-        7
-      ],
+      "favoriteIds": [],
       "id": 1
     },
     {
-      "favoriteIds": [
-        6,
-        9,
-        5
-      ],
+      "favoriteIds": [],
       "id": 2
+    },
+    {
+      "favoriteIds": [
+        38,
+        48,
+        50
+      ],
+      "id": 5
+    },
+    {
+      "favoriteIds": [],
+      "id": 3
+    },
+    {
+      "favoriteIds": [
+        40
+      ],
+      "id": "7"
+    },
+    {
+      "favoriteIds": [],
+      "id": 8
     }
   ]
 }
