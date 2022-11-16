@@ -24,7 +24,10 @@ import {
   logout,
   resetStatus,
 } from "../../redux/features/Login&Register/login&registerSlice";
-import { logoutResetFavorite } from "../../redux/features/FavoriteProDucts/FavoriteProductsSlice";
+import {
+  logoutResetFavorite,
+  getFavoriteState,
+} from "../../redux/features/FavoriteProDucts/FavoriteProductsSlice";
 const menuLinks = [
   {
     display: "Home",
@@ -44,6 +47,8 @@ const menuLinks = [
   },
 ];
 const Header: React.FC = () => {
+  const favoriteIds =
+    useAppSelector(getFavoriteState).getByIdState.favoriteData.favoriteIds;
   const [nameUser, setNameUser] = useState<string>("");
   const { pathname } = useLocation();
   const navigate = useNavigate();

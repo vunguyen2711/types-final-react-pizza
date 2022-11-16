@@ -19,6 +19,7 @@ export const HeaderContainer = styled.header`
     top: 5px;
     right: 10%;
     text-align: center;
+    
   }
   .header__logo {
     width: 60px;

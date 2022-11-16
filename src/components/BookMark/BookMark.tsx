@@ -16,7 +16,7 @@ const BookMark: React.FC<BookMarkProps> = ({ idItem }) => {
   const favoriteIds =
     useAppSelector(getFavoriteState).getByIdState.favoriteData.favoriteIds;
   const userId = useAppSelector(getFavoriteState).getByIdState.favoriteData.id;
-  const [isFavorite, setIsFavorite] = useState<boolean | null>(() => {
+  const [isFavorite, setIsFavorite] = useState<boolean>(() => {
     const existedIdInFavorite = favoriteIds?.find((item) => item === idItem);
     if (existedIdInFavorite) {
       return true;

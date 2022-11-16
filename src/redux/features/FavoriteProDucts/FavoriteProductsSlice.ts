@@ -41,6 +41,7 @@ export const changeFavoriteById = createAsyncThunk(
       const res = await axios.put(`${URL_DATA.FAVORITES}/${data.id}`, {
         favoriteIds: [...data.favoriteIds],
       });
+      console.log(res.data);
       return res.data;
     } catch (error) {
       console.log(error);
