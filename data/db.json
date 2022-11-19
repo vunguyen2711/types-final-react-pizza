@@ -215,6 +215,34 @@
       "fullname": "tainghe",
       "phone": 905816128,
       "id": 19
+    },
+    {
+      "email": "ducminh@gmail.com",
+      "password": "$2a$10$YoG4mQL/JjXjrMNWgfcaQO/05.8EuK7P0FqNdf05tfsXYC42G4W.S",
+      "fullname": "ducminh",
+      "phone": 905816128,
+      "id": 20
+    },
+    {
+      "email": "vuhoaithu@gmail.com",
+      "password": "$2a$10$0j7XMogAZO01KHGmZrtX4.p3V/mB15qHAkXcseroKLvr.IH7phaKC",
+      "fullname": "vuthihoaithu",
+      "phone": 905816128,
+      "id": 21
+    },
+    {
+      "email": "vuh@gmail.com",
+      "password": "$2a$10$h5Lwbx973swSmWe66hpyNeE9bpit5ffOMngiSoOpgO8gyXcr9tFvW",
+      "fullname": "Nguyen Vu",
+      "phone": 905816128,
+      "id": 22
+    },
+    {
+      "email": "qwe@gmail.com",
+      "password": "$2a$10$kJfZjz5IlHIoFO9hQuSRr.R4GUVNQctzbRB5kLomhTznX2nyTioWy",
+      "fullname": "Nguyen Vu",
+      "phone": 123123123,
+      "id": 23
     }
   ],
   "products": [
@@ -787,6 +815,10 @@
         2
       ],
       "id": 4
+    },
+    {
+      "favoriteIds": [],
+      "id": 20
     }
   ]
 }

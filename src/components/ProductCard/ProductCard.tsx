@@ -58,6 +58,14 @@ const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
 
   // useEffect
   useEffect(() => {
+    if (modalAmount < 1) {
+      Modal.info({
+        content: "Amount of product must greater than 1",
+        afterClose: () => {
+          setModalAmount(1);
+        },
+      });
+    }
     setModalPrice(modalAmount * price);
   }, [modalAmount]);
 

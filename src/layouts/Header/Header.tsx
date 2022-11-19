@@ -75,8 +75,11 @@ const Header: React.FC = () => {
         localStorage.removeItem("accessToken");
         Modal.success({
           content: "Log Out Successfullly !!!",
+          afterClose: () => {
+            const backToPath = JSON.parse(localStorage.getItem("path"));
+            navigate(backToPath[backToPath.length - 1]);
+          },
         });
-        navigate(RoutesPath.HOME);
       },
     });
   };

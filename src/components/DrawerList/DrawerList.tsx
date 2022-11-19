@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Avatar, Input, Divider } from "antd";
+import { Avatar, Input, Divider, Modal } from "antd";
 import {
   DeleteOutlined,
   PlusCircleOutlined,
@@ -38,6 +38,17 @@ const DrawerList = ({ item }: DrawerListProps) => {
       changeAmountByInput({ id: item.id, amount: Number(e.target.value) })
     );
   };
+  useEffect(() => {
+    if (Number(amountDrawer) < 1) {
+      Modal.error({
+        content: "Amount of food must be greater than 1",
+        afterClose: () => {
+          setAmountDrawer("1");
+          dispatch(increaseAmount({ id: item.id }));
+        },
+      });
+    }
+  }, [amountDrawer]);
   useEffect(() => {
     setAmountDrawer(item.amount.toString());
   }, [item.amount]);

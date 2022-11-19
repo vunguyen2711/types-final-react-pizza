@@ -69,9 +69,10 @@ const Register: React.FC = () => {
   useEffect(() => {
     if (status === "success" && isLogin === true) {
       Modal.success({
-        content: "Register Successfully !!! Come back HomePage !!!",
+        content: "Register Successfully !!! Come back !!!",
         afterClose: () => {
-          navigate(RoutesPath.HOME);
+          const backToPath = JSON.parse(localStorage.getItem("path"));
+          navigate(backToPath[backToPath.length - 1]);
         },
       });
       return;

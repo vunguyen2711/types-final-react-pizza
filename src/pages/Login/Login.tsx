@@ -21,7 +21,7 @@ import {
   loginThunk,
   resetStatus,
 } from "../../redux/features/Login&Register/login&registerSlice";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, Navigate } from "react-router-dom";
 import { RoutesPath } from "../../constants/routes.path";
 import jwt_decode from "jwt-decode";
 import {
@@ -103,11 +103,11 @@ const Login: React.FC = () => {
   useEffect(() => {
     dispatch(resetStatus());
     const accessToken = localStorage.getItem("accessToken");
+
     if (accessToken) {
-      navigate(RoutesPath.HOME);
       window.alert("You are logined");
+      navigate(RoutesPath.HOME);
     }
-    return () => {};
   }, []);
   return (
     <>

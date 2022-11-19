@@ -1,7 +1,7 @@
 import { createSlice, nanoid, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../store";
 import { notification } from "antd";
-import { Action } from "@remix-run/router";
+
 export interface CartPayload {
   title: string;
   price: number;
@@ -28,14 +28,7 @@ export interface ChangeAmountByInput {
   id: number;
   amount: number;
 }
-type NotificationType = "success" | "info" | "warning" | "error";
 
-const openNotificationWithIcon = (type: NotificationType) => {
-  notification[type]({
-    message: "Warning !!!",
-    description: "Please enter amount > 1",
-  });
-};
 const initialState = {
   cartItems: [],
   totalAmount: 0,
@@ -100,9 +93,7 @@ const cartSlice = createSlice({
       const indexChangedItem = state.cartItems.findIndex(
         (item) => item.id === action.payload.id
       );
-      if (action.payload.amount <= 0) {
-        openNotificationWithIcon("error");
-      }
+
       state.cartItems[indexChangedItem].amount = action.payload.amount;
       state.cartItems[indexChangedItem].totalPrice =
         state.cartItems[indexChangedItem].amount *
