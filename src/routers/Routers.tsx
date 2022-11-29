@@ -15,6 +15,7 @@ import {
   UserDeliveryDetail,
 } from "../pages";
 import { RoutesPath } from "../constants/routes.path";
+import * as S from "./style";
 const Routers = () => {
   return (
     <div>
@@ -22,7 +23,7 @@ const Routers = () => {
         <Route path={RoutesPath.HOME} element={<Home />} />
         <Route path={RoutesPath.AllFOODS} element={<AllFoods />} />
         <Route path={RoutesPath.SEARCHFOODS} element={<SearchFoods />} />
-        <Route path={`${RoutesPath.FOODDETAIL}/:id`} element={<FoodDetail />} />
+        <Route path={`${RoutesPath.FOODDETAIL}`} element={<FoodDetail />} />
         <Route path={RoutesPath.CART} element={<Cart />} />
         <Route path={RoutesPath.CHECKOUT} element={<Checkout />} />
         <Route path={RoutesPath.CONTACT} element={<Contact />} />

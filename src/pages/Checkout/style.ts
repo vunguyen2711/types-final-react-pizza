@@ -1,7 +1,8 @@
 import styled from "styled-components";
-
+import { moveLeftIn, moveRightIn } from "../../components/HeroSection/style";
 export const CheckoutContainer = styled.section`
   padding-top: 40px;
+  padding-bottom: 40px;
   height: 100%;
   .checkout__form-container,
   .checkout__bill-container,

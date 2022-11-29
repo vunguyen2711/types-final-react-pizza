@@ -6,7 +6,7 @@ import type { CartPayload } from "../../redux/features/Cart/cartSlice";
 import { PlusCircleOutlined, MinusCircleOutlined } from "@ant-design/icons";
 import { Button, Modal, Space, Row, Col, Input } from "antd";
 import { ProductCartItems } from "../../interfaces/interface";
-import { Link } from "react-router-dom";
+import { generatePath, Link } from "react-router-dom";
 import { RoutesPath } from "../../constants/routes.path";
 import BookMark from "../BookMark/BookMark";
 import { getFavoriteState } from "../../redux/features/FavoriteProDucts/FavoriteProductsSlice";
@@ -126,7 +126,11 @@ const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
             </div>
 
             <div className="modal__showdetail">
-              <Link to={`/foods/${id}`}>
+              <Link
+                to={generatePath(RoutesPath.FOODDETAIL, {
+                  id: id,
+                })}
+              >
                 <button className="modal__showdetail-button">
                   View Details
                 </button>

@@ -42,11 +42,8 @@ const DrawerList = ({ item }: DrawerListProps) => {
     if (Number(amountDrawer) < 1) {
       Modal.error({
         content: "Amount of food must be greater than 1",
-        afterClose: () => {
-          setAmountDrawer("1");
-          dispatch(increaseAmount({ id: item.id }));
-        },
       });
+      dispatch(increaseAmount({ id: item.id }));
     }
   }, [amountDrawer]);
   useEffect(() => {

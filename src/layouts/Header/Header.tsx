@@ -4,7 +4,6 @@ import { useAppDispatch, useAppSelector } from "../../redux/hook";
 import { RoutesPath } from "../../constants/routes.path";
 import {
   getCartItems,
-  increaseAmount,
   toggleDrawer,
 } from "../../redux/features/Cart/cartSlice";
 
@@ -15,7 +14,6 @@ import {
   ShoppingCartOutlined,
   MenuOutlined,
   UserOutlined,
-  HeartOutlined,
 } from "@ant-design/icons";
 import FavoriteBadge from "../../components/FavoriteBadge/FavoriteBadge";
 import DrawerList from "../../components/DrawerList/DrawerList";
@@ -77,7 +75,15 @@ const Header: React.FC = () => {
           content: "Log Out Successfullly !!!",
           afterClose: () => {
             const backToPath = JSON.parse(localStorage.getItem("path"));
-            navigate(backToPath[backToPath.length - 1]);
+            if (
+              backToPath[backToPath.length - 1] === RoutesPath.USERDELIVERY ||
+              backToPath[backToPath.length - 1] ===
+                `${RoutesPath.USERDELIVERYDETAIL}/:id`
+            ) {
+              navigate(RoutesPath.HOME);
+            } else {
+              navigate(backToPath[backToPath.length - 1]);
+            }
           },
         });
       },

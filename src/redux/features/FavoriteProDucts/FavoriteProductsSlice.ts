@@ -82,7 +82,7 @@ const FavoriteProductSlice = createSlice({
   initialState,
   reducers: {
     logoutResetFavorite: (state, action: PayloadAction) => {
-      state.getByIdState.favoriteData.favoriteIds = [];
+      state.getByIdState.favoriteData.favoriteShowUiIds = [];
       state.getByIdState.favoriteData.favoriteProducts = [];
     },
     toggleFavoriteId: (
@@ -97,9 +97,17 @@ const FavoriteProductSlice = createSlice({
           state.getByIdState.favoriteData.favoriteIds.filter(
             (item) => item !== existedId
           );
+        state.getByIdState.favoriteData.favoriteShowUiIds =
+          state.getByIdState.favoriteData.favoriteShowUiIds.filter(
+            (item) => item !== existedId
+          );
       } else {
         state.getByIdState.favoriteData.favoriteIds = [
           ...state.getByIdState.favoriteData.favoriteIds,
+          action.payload,
+        ];
+        state.getByIdState.favoriteData.favoriteShowUiIds = [
+          ...state.getByIdState.favoriteData.favoriteShowUiIds,
           action.payload,
         ];
       }
@@ -112,6 +120,9 @@ const FavoriteProductSlice = createSlice({
     builder.addCase(getFavoriteByUserId.fulfilled, (state, action) => {
       state.getByIdState.status = "success";
       state.getByIdState.favoriteData = { ...action.payload };
+      state.getByIdState.favoriteData.favoriteShowUiIds = [
+        ...action.payload.favoriteIds,
+      ];
     });
     builder.addCase(getFavoriteByUserId.rejected, (state, action) => {
       state.getByIdState.status = "failed";
@@ -122,6 +133,7 @@ const FavoriteProductSlice = createSlice({
     builder.addCase(createInitialFavoriteForUser.fulfilled, (state, action) => {
       state.createInitialForUser.status = "success";
       state.getByIdState.favoriteData = { ...action.payload };
+      state.getByIdState.favoriteData.favoriteShowUiIds = [];
     });
     builder.addCase(createInitialFavoriteForUser.rejected, (state, action) => {
       state.createInitialForUser.status = "failed";

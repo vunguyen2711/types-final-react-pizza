@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const FooterContainer = styled.section`
+  min-height: 400px;
   background-color: var(--pink-color);
   .footer__column {
     padding: 20px;

@@ -1,10 +1,8 @@
 import React from "react";
 import { FetchData } from "../../interfaces/interface";
-import type { CartPayload } from "../../redux/features/Cart/cartSlice";
+import { AlsoLikeProps } from "../../interfaces/interface";
 import * as S from "./style";
-interface AlsoLikeProps {
-  item: FetchData;
-}
+
 const AlsoLikeProduct: React.FC<AlsoLikeProps> = ({ item }) => {
   return (
     <S.AlsoLikeProductContainer>

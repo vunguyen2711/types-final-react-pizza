@@ -2,7 +2,7 @@ export const RoutesPath = {
   HOME: "/",
   AllFOODS: "/foods",
   SEARCHFOODS: "/foods/searchfoods",
-  FOODDETAIL: "/foods",
+  FOODDETAIL: "/foods/:id",
   CART: "/cart",
   CHECKOUT: "/checkout",
   CONTACT: "/contact",

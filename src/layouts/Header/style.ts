@@ -19,7 +19,6 @@ export const HeaderContainer = styled.header`
     top: 5px;
     right: 10%;
     text-align: center;
-    
   }
   .header__logo {
     width: 60px;
@@ -85,6 +84,9 @@ export const HeaderContainer = styled.header`
     cursor: pointer;
   }
   @media screen and (max-width: 768px) {
+    .header__welcome {
+      font-size: 0.8rem;
+    }
     .navbar__menu {
       position: fixed;
       top: 0;

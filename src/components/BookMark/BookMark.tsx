@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { message } from "antd";
 import { BookOutlined, StarFilled } from "@ant-design/icons";
 import { useAppDispatch, useAppSelector } from "../../redux/hook";
 import {
@@ -10,11 +9,13 @@ import {
 } from "../../redux/features/FavoriteProDucts/FavoriteProductsSlice";
 import * as S from "./style";
 import type { BookMarkProps } from "../../interfaces/interface";
-import { getUserInfo } from "../../redux/features/Login&Register/login&registerSlice";
+
 const BookMark: React.FC<BookMarkProps> = ({ idItem }) => {
   const dispatch = useAppDispatch();
   const favoriteIds =
     useAppSelector(getFavoriteState).getByIdState.favoriteData.favoriteIds;
+  const getFavoriteDataStatus =
+    useAppSelector(getFavoriteState).getByIdState.status;
   const userId = useAppSelector(getFavoriteState).getByIdState.favoriteData.id;
   const [isFavorite, setIsFavorite] = useState<boolean>(() => {
     const existedIdInFavorite = favoriteIds?.find((item) => item === idItem);
@@ -26,7 +27,7 @@ const BookMark: React.FC<BookMarkProps> = ({ idItem }) => {
   });
 
   const handleToggleFavoriteProducts = () => {
-    dispatch(toggleFavoriteId(Number(idItem)));
+    dispatch(toggleFavoriteId(idItem));
   };
   useEffect(() => {
     const existedIdInFavorite = favoriteIds?.find((item) => item === idItem);
@@ -38,10 +39,9 @@ const BookMark: React.FC<BookMarkProps> = ({ idItem }) => {
     dispatch(
       changeFavoriteById({
         id: userId,
-        favoriteIds,
+        favoriteIds: [...favoriteIds],
       })
     );
-    // dispatch(getFavoriteProducts(favoriteIds));
   }, [favoriteIds]);
   if (isFavorite)
     return (

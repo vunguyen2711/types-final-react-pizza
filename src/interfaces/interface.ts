@@ -1,5 +1,6 @@
-import { Dispatch, SetStateAction } from "react";
-import { number, string } from "yup";
+export interface AlsoLikeProps {
+  item: FetchData;
+}
 
 export interface IsOpenProps {
   isOpen: boolean;
@@ -144,6 +145,7 @@ export interface BookMarkProps {
 export interface CreateInitialFavoriteParams {
   id: number | string | null;
   favoriteIds: number[];
+  favoriteShowUiIds?: number[];
   favoriteProducts?: ProductCartItems[];
 }
 export interface ChangeFavoritePrams {

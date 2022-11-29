@@ -34,7 +34,7 @@ const Cart = () => {
       key: item.id,
       img: <Avatar src={item.img} />,
       title: item.title,
-      totalPrice: item.totalPrice,
+      totalPrice: <span>${item.totalPrice}</span>,
       amount: item.amount,
       action: (
         <DeleteOutlined onClick={() => dispatch(deleteItem({ id: item.id }))} />
@@ -115,11 +115,13 @@ const Cart = () => {
       <CommonSection title="Your Cart" />
 
       {cartItems.length === 0 ? (
-        <h2
-          style={{ fontSize: "40px", textAlign: "center", marginTop: "40px" }}
-        >
-          Your cart is empty
-        </h2>
+        <>
+          <h2
+            style={{ fontSize: "40px", textAlign: "center", marginTop: "40px" }}
+          >
+            Your cart is empty
+          </h2>
+        </>
       ) : (
         <S.CartContainer>
           <Table

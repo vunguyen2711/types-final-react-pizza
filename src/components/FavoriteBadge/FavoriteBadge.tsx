@@ -29,6 +29,9 @@ const FavoriteBadge: React.FC = () => {
     useAppSelector(getFavoriteState).getByIdState.status;
   const favoriteIds =
     useAppSelector(getFavoriteState).getByIdState.favoriteData.favoriteIds;
+  const favoriteShowUiIds =
+    useAppSelector(getFavoriteState).getByIdState.favoriteData
+      .favoriteShowUiIds;
   const favoriteProducts =
     useAppSelector(getFavoriteState).getByIdState.favoriteData.favoriteProducts;
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
@@ -36,7 +39,7 @@ const FavoriteBadge: React.FC = () => {
   const popoverTitle = <span>My Favorite Foods</span>;
   const popoverContent = !isLogin ? (
     <h2>Please login to access favorite</h2>
-  ) : favoriteIds?.length !== 0 ? (
+  ) : favoriteShowUiIds?.length !== 0 ? (
     getFavoriteStatus !== "success" ? (
       <Spin style={{ margin: "0 auto" }}></Spin>
     ) : (
@@ -102,7 +105,7 @@ const FavoriteBadge: React.FC = () => {
         content={popoverContent}
         open={isPopupOpen}
       >
-        <Badge count={favoriteIds?.length}>
+        <Badge count={favoriteShowUiIds?.length}>
           <HeartOutlined
             onClick={() => setIsPopupOpen(!isPopupOpen)}
           ></HeartOutlined>
